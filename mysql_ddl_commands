@@ -1,0 +1,13 @@
+SELECT User, Host FROM mysql.user;
+
+CREATE USER IF NOT EXISTS 'aniMaKer'@'localhost' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON *.* TO 'aniMaKer'@'localhost';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS `aniMaKer_db`;
+
+/*
+update .env file after executing the above commands
+DB_DATABASE = aniMaKer_db
+DB_USERNAME = aniMaKer
+*/
