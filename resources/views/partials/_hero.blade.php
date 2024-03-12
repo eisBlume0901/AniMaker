@@ -29,6 +29,27 @@
             <div class="relative">
                 <input type="text" class="bg-white text-blue-700  rounded-full w-50 px-2 py-0.5 focus:outline-none focus:shadow-outline md:ml-16 mt-3 md:mt-0" placeholder="Search">
             </div>
+            <div class="relative">
+                <button class="genre-button md:ml-16 md:mt-3 hover:font-bold">Genre</button>
+                <div id="genre-dropdown" class="absolute z-10 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" tabindex="-1">
+                    <div class="grid lg:auto-cols-auto lg:w-80 md:grid-cols-2 md:w-30">
+                        @foreach($genres as $genreName)
+                            <div class="text-blue-700 px-4 py-2 hover:bg-emerald-400 hover:text-white">
+                                <a href="/?genre={{$genreName->genre}}" id="{{$genreName->id}}-genre">{{ $genreName->genre}}
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <script>
+                const genreButton = document.querySelector('.genre-button');
+
+                genreButton.addEventListener('click', function() {
+                    document.getElementById('genre-dropdown').classList.toggle('hidden');
+                });
+
+            </script>
+
             <a href="#"></a>
         </div>
         <ul class="flex flex-col md:flex-row items-center">
