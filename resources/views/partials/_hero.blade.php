@@ -44,9 +44,9 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 
-                <button class="genre-button md:ml-16 md:mt-0  hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5">Genre</button>
-                <div id="genre-dropdown" class="absolute w-80 mt-5 lg:ml-16 md:mx-auto rounded-lg bg-white shadow-lg shadow-emerald-300 ring-1 ring-black ring-opacity-5 focus:outline-none hidden" tabindex="-1">
-                    <div class="flex flex-wrap p-2">
+                <button id="genre-button" class="md:ml-16 md:mt-0  hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5">Genre</button>
+                <div id="genre-dropdown" class="absolute w-80 mt-5 lg:ml-16 md:mx-auto rounded-lg bg-white shadow-lg shadow-emerald-300 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
+                    <div class="flex flex-wrap" id="genre-entry">
                         @foreach($genres as $genreName)
                             <div class="lg:w-1/2 sm:w-full md:w-1/2 text-blue-700 text-sm px-4 py-2 hover:bg-emerald-400 hover:text-white hover:rounded-3xl hover:font-bold active:bg-blue-700">
                                 <a href="/?genre={{$genreName->genre}}" id="{{$genreName->id}}-genre">{{ $genreName->genre}}
@@ -88,14 +88,16 @@
 
             </div>
             <script>
-                const genreButton = document.querySelector('.genre-button');
+                const genreButton = document.getElementById('genre-button');
 
                 genreButton.addEventListener('mouseover', function() {
-                    document.getElementById('genre-dropdown').classList.add('hidden');
+                    document.getElementById('genre-dropdown').classList.remove('hidden');
                 });
 
-                genreButton.addEventListener('mouseout', function() {
-                    document.getElementById('genre-dropdown').classList.remove('hidden');
+
+                const genreEntry = document.getElementById('genre-entry');
+                genreEntry.addEventListener('mouseleave', function() {
+                    document.getElementById('genre-dropdown').classList.add('hidden');
                 });
             </script>
 
