@@ -7,7 +7,7 @@
     <title>AniMaKer</title>
     @vite('resources/css/app.css')
 </head>
-<body class="font-sans bg-white text-blue-700">
+<body class="font-sans bg-white text-blue-700 ">
 <div class="mx-auto flex flex-row md:flex justify-between items-center bg-emerald-400 text-white">
         <a href="#" id="hamburger-icon" class="text-white hover:text-blue-700"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-14 h-14">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -34,10 +34,10 @@
             </div>
             <div class="relative">
                 <button id="genre-button" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5 md:ml-16">Genre</button>
-                <div id="genre-dropdown" class="absolute mt-5 z-10 w-80 lg:ml-16 md:mx-auto rounded-lg bg-white shadow-lg shadow-emerald-300 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
+                <div id="genre-dropdown" class="absolute mt-5 z-10 w-80 lg:ml-16 md:mx-auto rounded-lg bg-white shadow-lg shadow-blue-700 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
                     <div class="flex flex-wrap" id="genre-entry">
                         @foreach($genres as $genreName)
-                            <div class="w-1/2 text-blue-700 text-sm px-4 py-2 bg-white hover:bg-emerald-400 hover:text-white hover:rounded-3xl hover:font-bold active:bg-blue-700">
+                            <div class="w-1/2 text-blue-700 text-sm px-4 py-2 bg-white hover:bg-blue-700 hover:text-white hover:rounded-3xl hover:font-bold active:bg-emerald-400">
                                 <a href="/?genre={{$genreName->genre}}" id="{{$genreName->id}}-genre">{{ $genreName->genre}}
                             </div>
                         @endforeach

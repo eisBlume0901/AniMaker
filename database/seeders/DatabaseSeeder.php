@@ -90,11 +90,63 @@ class DatabaseSeeder extends Seeder
             'end_aired_date' => '2023-03-22'
         ]);
 
+        Anime::create([
+            'title' => 'The Apothecary Diaries',
+            'episodes' => 24,
+            'studio' => 'OLM',
+            'description' => 'Maomao, an apothecary\'s daughter, has been plucked from her peaceful life and sold
+            to the lowest echelons of the imperial court. Now merely a maid, Maomao settles into her new mundane
+            life and hides her extensive knowledge of medicine in order to avoid any unwanted attention.
+
+            Not long after Maomao\'s arrival, the emperor\'s infant children inexplicably begin to experience grave
+            symptoms—almost as if a curse has been cast. The curious Maomao easily solves the mystery and, to remain
+            out of the limelight, attempts to leave an anonymous tip. Unfortunately, the dashing and perceptive eunuch
+            Jinshi sees through it and manages to single her out.
+
+            In recognition of her talent, Maomao is promoted to lady-in-waiting for the emperor\'s favorite concubine,
+            Gyokuyou. As Maomao continues to remedy the numerous ailments afflicting the imperial court, her pharmaceutical
+            expertise quickly proves indispensable.',
+            'image' => 'https://cdn.myanimelist.net/images/anime/1708/138033l.jpg',
+            'start_aired_date' => '2023-10-22',
+            'end_aired_date' => '2024-03-24'
+        ]);
+
+        Anime::create([
+            'title' => 'Undead Unluck',
+            'episodes' => '24',
+            'studio' => 'David Production',
+            'description' => 'ith the conclusion of her favorite romance manga, Fuuko Izumo is ready to end her life
+            of misery and loneliness having long accepted her fate of never being able to experience passionate love
+            like fictional characters. Cursed with "unluck," anyone Fuuko touches is in grave danger of experiencing
+            unimaginable calamity.
+
+            While the possibility of imminent danger would have most sane people run in the opposite direction,
+            Undead has other ideas. He is an immortal being with superhuman regenerative powers desperately seeking death,
+            which has always eluded him. When their paths finally cross, Undead sees an opportunity to finally end his suffering
+            by using Fuuko\'s unluck.
+
+            But before Undead can unlock the full potential of Fuuko\'s power to trigger the final devastating blow,
+            the duo must first fend off a murderous secret organization hell-bent on exterminating those with special abilities.',
+            'image' => 'https://cdn.myanimelist.net/images/anime/1136/138410l.jpg',
+            'start_aired_date' => '2023-10-7',
+            'end_aired_date' => '2024-03-23'
+        ]);
+
 
 //      php artisan db:seed
         $frierenAnime = Anime::where('id', 1)->first();
-        $genresIds = Genre::whereIn('id', [2, 5, 6])->pluck('id');
+        $genresIds1 = Genre::whereIn('id', [2, 5, 6])->pluck('id');
 
-        $frierenAnime->genres()->attach($genresIds);
+        $frierenAnime->genres()->attach($genresIds1);
+
+        $maomaoAnime = Anime::where('id', 2)->first();
+        $genresIds2 = Genre::whereIn('id', [5, 8])->pluck('id');
+
+        $maomaoAnime->genres()->attach($genresIds2);
+
+        $fuukoAnime = Anime::where('id', 3)->first();
+        $genresIds3 = Genre::whereIn('id', [1, 4, 6])->pluck('id');
+
+        $fuukoAnime->genres()->attach($genresIds3);
     }
 }
