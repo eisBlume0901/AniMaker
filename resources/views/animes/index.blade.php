@@ -1,4 +1,4 @@
-@extends('partials._hero')
+@extends('partials.header')
 
 @section('content')
     <div class="md:ml-16 md:mr-16 p-5">
