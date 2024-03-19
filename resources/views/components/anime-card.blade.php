@@ -1,7 +1,8 @@
 @props(['specificAnime'])
     <div class="card mt-8 relative">
-        <a href="#">
-            <img src="{{$specificAnime->image}}" alt="" class="rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+
+        <a href="/anime/{{$specificAnime->id}}">
+            <img src="{{$specificAnime->image}}" alt="{{$specificAnime->title}} image" class="rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
         </a>
         <div class="absolute z-1 -top-4 -right-2">
             <button class="rounded-full bg-blue-700 text-white text-2xl px-2.5 mt-2 font-bold uppercase leading-normal transition duration-150 ease-in-out hover:bg-blue-400 active:bg-emerald-400">

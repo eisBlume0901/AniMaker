@@ -37,7 +37,7 @@
                 </label>
             </div>
             <div class="relative">
-                <button id="genre-button" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5 md:ml-16">Genre</button>
+                <button id="genre-button" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-1 md:ml-16">Genre</button>
                 <div id="genre-dropdown" class="absolute mt-5 z-10 w-80 lg:ml-16 md:mx-auto rounded-lg bg-white shadow-lg shadow-blue-700 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
                     <div class="flex flex-wrap" id="genre-entry">
                         @foreach($genres as $genreName)
@@ -68,8 +68,8 @@
         </div>
         <div class="relative">
             <ul class="flex flex-col md:flex-row items-center">
-                <li class="md:mr-14 mt-3 md:mt-0"><a href="#" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5 ">My List</a></li>
-                <li class="md:mr-14 mt-3 md:mt-0"><a href="#" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-0.5">Top Rated</a></li>
+                <li class="md:mr-14 mt-3 md:mt-0"><a href="#" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-1 ">My List</a></li>
+                <li class="md:mr-14 mt-3 md:mt-0"><a href="#" class="hover:bg-white hover:text-blue-700 rounded-2xl px-3 py-1">Top Rated</a></li>
             </ul>
         </div>
 

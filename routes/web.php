@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomePageController::class, 'index']);
-Route::get('/animes/{specificAnime}', [HomePageController::class, 'show']);
+Route::get('/anime/{specificAnime}', [HomePageController::class, 'show']);
