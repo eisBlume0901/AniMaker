@@ -8,146 +8,164 @@
 </head>
 
 <body class="font-sans bg-white text-blue-700">
-    <div class="mx-auto flex flex-col md:flex-row items-center justify-between p-5 bg-emerald-400 text-white">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="relative md:ml-16 mt-3 md:mt-0">
-                <button onclick="dropMenu()" class="dropbtn" href="#">
-                    <img src="https://i.ibb.co/N14Xkyk/fuuko-izumo.jpg" alt="avatar" class="rounded-full w-20 h-20"/>
-                </button>
-                <div id="dropdown" class="hidden absolute bg-blue-700 min-w-32 overflow-auto z-10">
-                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Profile</a>
-                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Reviews</a>
-                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Manage Anime</a>
-                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Account</a>
-                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Logout</a>
-                </div>
+<div class="mx-auto flex flex-col md:flex-row items-center justify-between p-5 bg-emerald-400 text-white">
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="relative md:ml-16 mt-3 md:mt-0">
+            <button onclick="dropMenu()" class="dropbtn" href="#">
+                <img src="https://i.ibb.co/N14Xkyk/fuuko-izumo.jpg" alt="avatar" class="rounded-full w-20 h-20"/>
+            </button>
+            <div id="dropdown" class="hidden absolute bg-blue-700 min-w-32 overflow-auto z-10">
+                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Profile</a>
+                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Reviews</a>
+                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Manage Anime</a>
+                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Account</a>
+                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Logout</a>
             </div>
-            <div class="md:ml-6 mt-3 md:mt-0 font-semibold text-2xl">Hello, Fuuko Izumo </div>
-    
         </div>
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:mr-16 mt-3 md:mt-0 font-bold text-4xl text-white">
-                  <a href="#" class="hover:text-blue-700">AniMaKer</a></div>
-        </div>
-    </div>
+        <div class="md:ml-6 mt-3 md:mt-0 font-semibold text-2xl">Hello, Fuuko Izumo </div>
 
-        <nav class="bg-blue-700 text-white py-2">
-            <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="relative">
-                        <input type="text" class="bg-white text-blue-700  rounded-full w-50 px-2 py-0.5 focus:outline-none focus:shadow-outline md:ml-16 mt-3 md:mt-0" placeholder="Search">
+    </div>
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="md:mr-16 mt-3 md:mt-0 font-bold text-4xl text-white">
+            <a href="#" class="hover:text-blue-700">AniMaKer</a></div>
+    </div>
+</div>
+
+<nav class="bg-blue-700 text-white py-2">
+    <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="relative">
+                <input type="text" class="bg-white text-blue-700  rounded-full w-50 px-2 py-0.5 focus:outline-none focus:shadow-outline md:ml-16 mt-3 md:mt-0" placeholder="Search">
+            </div>
+            <a href="#"></a>
+        </div>
+        <ul class="flex flex-col md:flex-row items-center">
+            <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/tablelist.html" class="hover:font-bold">My List</a></li>
+            <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/index.html" class="hover:font-bold">Top Rated</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="mx-20">
+    <table class="w-full bg-white align-middle justify-center text-3xl border-solid border-20 border-emerald-400">
+        <tr>
+            <nav class="text-2xl mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+                <a href="#" class="hover:font-bold">All Anime</a>
+                <a href="#" class="hover:font-bold">Currently Watching</a>
+                <a href="#" class="hover:font-bold">Completed</a>
+                <a href="#" class="hover:font-bold">On Hold</a>
+                <a href="#" class="hover:font-bold">Dropped</a>
+            </nav>
+        </tr>
+        <tr class="rounded-lg bg-blue-700  text-white border-solid border-20 border-emerald-400">
+            <th >#</th>
+            <th>Image</th>
+            <th >Title</th>
+            <th >Episode Progress</th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
+            <td class="text-4xl font-bold mx-20">
+                <div class="mx-20">
+                    <span># 1</span>
+                </div>
+            </td>
+            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/blacklagoon.png"></td>
+            <td>
+                <div class="flex-col">
+                    <a href="frieren.html" class="top-0">Black Lagoon</a>
+                    <div class="flex-row">
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
                     </div>
-                    <a href="#"></a>
+                    <div>
+                        <span class="text-lg text-blue-700">"Gretel did NOT deserve to go out like that"</span>
+                    </div>
+            </td>
+            <td>123/300</td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="my-20"> </div>
+            </td>
+        </tr>
+
+
+        <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
+            <td class="text-4xl font-bold mx-20">
+                <div class="mx-20">
+                    <span># 2 </span>
                 </div>
-                <ul class="flex flex-col md:flex-row items-center">
-                    <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/tablelist.html" class="hover:font-bold">My List</a></li>
-                    <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/index.html" class="hover:font-bold">Top Rated</a></li>
-                </ul>
-            </div>
-        </nav>
+            </td>
+            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/Frieren.png"></td>
+            <td>
+                <div class="flex-col">
+                    <a href="frieren.html" class="top-0">Sousou no Frieren</a>
+                    <div class="flex-row">
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
+                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
+                    </div>
+                    <div>
+                        <span class="text-lg text-blue-700">"I think Frieren is so funny because she always opens mimic chest like hahahahahha"</span>
+                    </div>
+                </div>
+            </td>
+            <td>123/300</td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
+            </td>
+        </tr>
 
-    <div class="mx-20">
-        <table class="w-full bg-white align-middle justify-center text-3xl border-solid border-20 border-emerald-400">
-            <tr>
-                <nav class="text-2xl mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
-                    <a href="#" class="hover:font-bold">All Anime</a>
-                    <a href="#" class="hover:font-bold">Currently Watching</a>
-                    <a href="#" class="hover:font-bold">Completed</a>
-                    <a href="#" class="hover:font-bold">On Hold</a>
-                    <a href="#" class="hover:font-bold">Dropped</a>
-                </nav>
-            </tr>
-            <tr>
-                <th class="bg-blue-700  text-white border-solid border-20 border-emerald-400">#</th>
-                <th class="bg-blue-700 text-white border-solid border-20 border-emerald-400">Image</th>
-                <th class="bg-blue-700  text-white border-solid border-20 border-emerald-400">Title</th>
-                <th class="bg-blue-700  text-white border-solid border-20 border-emerald-400">Episode Progress</th>
-                <th class="bg-blue-700  text-white border-solid border-20 border-emerald-400"></th>
-                <th class="bg-blue-700  text-white border-solid border-20 border-emerald-400"></th>
-            </tr>
+        <tr>
+            <td>
+                <div class="my-20"> </div>
+            </td>
+        </tr>
 
-            <tr>
-                <td class="text-4xl font-bold items-center">1</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/blacklagoon.png"></td>
-                <td>
-                    <a href="blacklagoon.html">Black Lagoon</a>
-                    <span class="text-xs"> Complete </span >
-                </td>
-                <td>13/29</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
+        <tr class="shadow-md shadow-blue-700 rounded-lg m-10">
+            <td class="text-4xl font-bold mx-20">
+                <div class="mx-20">
+                    <span># 3</span>
+                </div>
+            </td>
+            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/kino.png"></td>
+            <td>
+                <div class="flex-col">
+                    <a href="frieren.html" class="top-0">Kino no Tabi/a>
+                        <div class="flex-row">
+                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
+                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
+                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
+                        </div>
+                        <div>
+                            <span class="text-lg text-blue-700">"Kino and Hermes are the best duo ever"</span>
+                        </div>
+            </td>
+            <td>123/300</td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
+            <td>
+                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
+            </td>
+        </tr>
+    </table>
+</div>
 
-            <tr>
-                <td class="text-4xl font-bold">2</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/Frieren.png"></td>
-                <td>
-                    <a href="frieren.html">Sousou no Frieren</a>
-                    <span class="text-xs"> Airing </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            
-            <tr>
-                <td class="text-4xl font-bold">3</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/Azumanga%20Daioh.png"></td>
-                <td>
-                    <a href="Azumanga%20Daioh.html">Azumanga Daioh</a>
-                    <span class="text-xs"> Airing </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="text-4xl font-bold">4</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/lain.png"></td>
-                <td>
-                    <a href="blacklagoon.html">SE Lain</a>
-                    <span class="text-xs"> Cancelled </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="text-4xl font-bold">5</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/kino.png"></td>
-                <td>
-                    <a href="kino.html"> Kino no Tabi </a>
-                    <span class="text-xs"> Peak Kino </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="text-4xl font-bold">6</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/girlslasttour.png"></td>
-                <td>
-                    <a href="blacklagoon.html">Girls' Last Tour</a>
-                    <span class="text-xs"> Completed </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="text-4xl font-bold">7</td>
-                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="https://m.media-amazon.com/images/M/MV5BNTQyNDU5MDctMDkxZS00MGE3LWI3OTctOWU4Y2MwYmEzMmMyXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_FMjpg_UX1000_.jpg"></td>
-                <td>
-                    <a href="blacklagoon.html">Haibane Renmei</a>
-                    <span class="text-xs"> Completed </span >
-                </td>
-                <td>123/300</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-        </table>
-    </div>
+
 </body>
 <script src="script.js"></script>
 </body>
 </html>
+
