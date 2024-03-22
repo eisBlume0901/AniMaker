@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 class HomePageController extends Controller
 {
     public function index() {
+
         return view('animes/index',
             [
-                'animes' => Anime::all(),
+                'animes' => Anime::latest()->ofGenre(request('genre', 'search'))->get(),
                 'genres' => Genre::all()
-            ]);
+        ]);
     }
 
     public function show(Anime $specificAnime)

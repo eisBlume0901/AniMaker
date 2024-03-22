@@ -22,5 +22,30 @@ class Anime extends Model
          * the fourth argument is the foreign key of the model.
          */
     }
+    public function scopeOfGenre($query, $genre)
+    {
+        return $query->join('table_anime_genres', 'table_animes.id', '=', 'table_anime_genres.anime_id')
+            ->join('table_genres', 'table_anime_genres.genre_id', '=', 'table_genres.id')
+            ->where('table_genres.genre', $genre)
+            ->select('table_animes.*');
 
+        /*
+         * SQL equivalent
+         * SELECT table_animes.* FROM table_animes
+         * JOIN table_anime_genres ON table_animes.id = table_anime_genres.anime_id
+         * JOIN table_genres ON table_anime_genres.genre_id = table_genres.id
+         * WHERE table_genres.genre = 'Adventure';
+         */
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('title', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%');
+
+        /*
+         * SQL equivalent
+         * SELECT * FROM table_animes WHERE title like '%Frieren%' or description like '%Elf%';
+         */
+    }
 }
