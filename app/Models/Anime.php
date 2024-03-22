@@ -22,21 +22,34 @@ class Anime extends Model
          * the fourth argument is the foreign key of the model.
          */
     }
-    public function scopeOfGenre($query, $genre)
+    public function scopeFilter($query, $genre)
     {
-        return $query->join('table_anime_genres', 'table_animes.id', '=', 'table_anime_genres.anime_id')
-            ->join('table_genres', 'table_anime_genres.genre_id', '=', 'table_genres.id')
-            ->where('table_genres.genre', $genre)
-            ->select('table_animes.*');
+        return $query->when($genre, function ($query) use ($genre) {
+            // This is a conditional statement provided by Laravel's query builder
+            // when checks if the $genre variable is not null
+            // if its truthy, it executes the join SQL statement using Laravel query builder
+
+            // SQL query which joins the tables
+            return $query->join('table_anime_genres', 'table_animes.id', '=', 'table_anime_genres.anime_id')
+                ->join('table_genres', 'table_anime_genres.genre_id', '=', 'table_genres.id')
+                ->where('table_genres.genre', $genre);
+
+            // if its falsy, it returns the query as is which is select all from table_animes
+        }, function ($query) {
+            return $query;
+        })->select('table_animes.*');
 
         /*
-         * SQL equivalent
+         * SQL Equivalent:
          * SELECT table_animes.* FROM table_animes
          * JOIN table_anime_genres ON table_animes.id = table_anime_genres.anime_id
          * JOIN table_genres ON table_anime_genres.genre_id = table_genres.id
          * WHERE table_genres.genre = 'Adventure';
          */
     }
+
+
+
 
     public function scopeSearch($query, $search)
     {

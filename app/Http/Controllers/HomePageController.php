@@ -12,7 +12,7 @@ class HomePageController extends Controller
 
         return view('animes/index',
             [
-                'animes' => Anime::latest()->ofGenre(request('genre', 'search'))->get(),
+                'animes' => Anime::latest()->filter(request(['genre', 'search']))->get(),
                 'genres' => Genre::all()
         ]);
     }
