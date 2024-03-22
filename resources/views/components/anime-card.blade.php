@@ -8,40 +8,42 @@
         <button class="add-button rounded-full bg-blue-700 text-white text-2xl px-2.5 mt-2 font-bold uppercase leading-normal transition duration-150 ease-in-out hover:bg-blue-400 active:bg-emerald-400">
             +
         </button>
-        <ul class="p-3 space-y-3 text-sm text-blue-700">
-            <li>
+
+        <script>
+            const HTMLString = `
+          <ul class="text-sm text-blue-700">
+            <li class="hover:bg-blue-700 hover:text-white hover:font-bold rounded-2xl p-1.5 active:bg-emerald-400">
                 <div class="flex-center items-center">
-                    <input id="currently-watching">
-                    <label for="currently-watching">Currently Watching</label>
+                    <input id="currently-watching" type="radio" style="-webkit-appearance: none">
+                    <label for="currently-watching" class="p-2">Currently Watching</label>
                 </div>
             </li>
-            <li>
+            <li class="hover:bg-blue-700 hover:text-white hover:font-bold rounded-2xl p-1.5 active:bg-emerald-400">
                 <div class="flex-center items-center">
-                    <input id="completed">
-                    <label for="completed">Completed</label>
+                    <input id="completed" type="radio" style="-webkit-appearance: none">
+                    <label for="completed" class="p-2">Completed</label>
                 </div>
             </li>
-            <li>
+            <li class="hover:bg-blue-700 hover:text-white hover:font-bold rounded-2xl p-1.5 active:bg-emerald-400">
                 <div class="flex-center items-center">
-                    <input id="on-hold">
-                    <label for="on-hold">On Hold</label>
+                    <input id="on-hold" type="radio" style="-webkit-appearance: none">
+                    <label for="on-hold" class="p-2">On Hold</label>
                 </div>
             </li>
-            <li>
+            <li class="hover:bg-blue-700 hover:text-white hover:font-bold rounded-2xl p-1.5 active:bg-emerald-400">
                 <div class="flex-center items-center">
-                    <input id="dropped">
-                    <label for="dropped">Dropped</label>
+                    <input id="dropped" type="radio" style="-webkit-appearance: none">
+                    <label for="dropped" class="p-2">Dropped</label>
                 </div>
             </li>
-            <li>
+            <li class="hover:bg-blue-700 hover:text-white hover:font-bold rounded-2xl p-1.5 active:bg-emerald-400">
                 <div class="flex-center items-center">
-                    <input id="plan-to-watch">
-                    <label for="plan-to-watch">Plan to Watch</label>
+                    <input id="plan-to-watch" type="radio" style="-webkit-appearance: none">
+                    <label for="plan-to-watch" class="p-2">Plan to Watch</label>
                 </div>
             </li>
         </ul>
-
-        <script>
+`;
             document.addEventListener('DOMContentLoaded', (event) => {
                 document.body.addEventListener('click', function(e) {
                     if(e.target && e.target.classList.contains('add-button')) {
@@ -49,10 +51,8 @@
                         if (!watchStatusDropDown || !watchStatusDropDown.classList.contains('watch-status-dropdown')) {
                             watchStatusDropDown = document.createElement("div");
                             watchStatusDropDown.className = "watch-status-dropdown";
-                            watchStatusDropDown.innerHTML = `
-
-                                `;
-                            watchStatusDropDown.classList.add("bg-white", "shadow-lg", "shadow-blue-700", "ring-1", "ring-black", "ring-opacity-5", "focus:outline-none", "hidden", "p-2", "-top-4", "-right-6", "rounded-lg");
+                            watchStatusDropDown.innerHTML = HTMLString;
+                            watchStatusDropDown.classList.add("w-44", "bg-white", "shadow-lg", "shadow-blue-700", "ring-1", "ring-black", "ring-opacity-5", "focus:outline-none", "hidden", "p-2", "rounded-lg");
                             e.target.insertAdjacentElement('afterend', watchStatusDropDown);
                         }
                         watchStatusDropDown.classList.toggle("hidden");
