@@ -25,4 +25,5 @@ class HomePageController extends Controller
                 'genres' => Genre::all()
             ]);
     }
+
 }

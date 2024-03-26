@@ -1,6 +1,7 @@
 @extends('partials.header')
 
 @section('content')
+@include('partials.animeNavBar')
     <div class="anime-info border-b border-blue-700">
         <div class="mx-auto px-16 py-16 flex flex-col sm:flex-col md:flex-col lg:flex-row">
             <img src="{{$anime->image}}" alt="{{$anime->title}} image" class="rounded-2xl sm:w-60 mx-auto md:w-72 lg:w-80"/>

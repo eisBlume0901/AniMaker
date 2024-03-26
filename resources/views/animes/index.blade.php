@@ -1,6 +1,7 @@
 @extends('partials.header')
 
 @section('content')
+@include('partials.animeNavBar')
     <div class="md:ml-16 md:mr-16 p-5">
         <div class="popular-animes">
             <h2 class="uppercase tracking-wider text-blue-700 text-xl text-center font-semibold">Popular Animes</h2>
