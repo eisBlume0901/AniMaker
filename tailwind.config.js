@@ -5,6 +5,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
   theme: {
         fontFamily: {
@@ -12,6 +13,17 @@ export default {
         },
     extend: {},
   },
-  plugins: [],
+    variants: {
+        extend: {
+            backgroundColor: ['focus'],
+            borderColor: ['focus'],
+            textColor: ['focus'],
+            ringColor: ['focus'],
+        }
+    },
+  plugins: [
+      require('@tailwindcss/forms'),
+      require('flowbite/plugin')
+  ],
 }
 

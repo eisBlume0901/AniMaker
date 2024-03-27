@@ -1,10 +1,11 @@
-@extends('partials.header')
+@extends('layout')
 
 @section('content')
-@include('partials.animeNavBar')
+    @include('partials.animeNavBar')
     <div class="anime-info border-b border-blue-700">
         <div class="mx-auto px-16 py-16 flex flex-col sm:flex-col md:flex-col lg:flex-row">
-            <img src="{{$anime->image}}" alt="{{$anime->title}} image" class="rounded-2xl sm:w-60 mx-auto md:w-72 lg:w-80"/>
+            <img src="{{$anime->image}}" alt="{{$anime->title}} image"
+                 class="rounded-2xl sm:w-60 mx-auto md:w-72 lg:w-80"/>
             <div class="mx-auto sm:ml-16">
                 <h2 class="text-3xl font-semibold mt-3 sm:mt-3 md:mt-3 lg:mt-0">{{$anime->title}}</h2>
                 <div class="stats flex flex-col text-blue-700 text-sm mt-2">
