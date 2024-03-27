@@ -8,11 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Noto+Sans+Pau+Cin+Hau&display=swap" rel="stylesheet">
-
-    {{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />--}}
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>--}}
     <title>AniMaKer</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="bg-white text-blue-700 font-display">
 <div class="mx-auto flex flex-row md:flex justify-between items-center bg-emerald-400 text-white">
@@ -31,6 +28,5 @@
         </a>
 </div>
 @yield('content')
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 </html>

@@ -40,10 +40,8 @@
 
         <div class="mb-6">
             <label for="genres" class="block text-blue-700 text-md font-semibold mb-2">Genres</label>
-            <button id="dropdownSearchButton" data-dropdown-toggle="dropdownSearch"
-                    class="inline-flex items-center px-4 py-2 text-md font-medium text-center text-white bg-blue-700 transition-colors ease-in-out duration-150 rounded-2xl hover:bg-emerald-400"
-                    type="button"> Select Genres
-                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            <button id="dropdownSearchButton" data-dropdown-toggle="dropdownSearch" class="inline-flex items-center px-4 py-2 text-md font-medium text-center text-white bg-blue-700 transition-colors ease-in-out duration-150 rounded-2xl hover:bg-emerald-400" type="button"> Select Genres
+                <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="m1 1 4 4 4-4"/>
