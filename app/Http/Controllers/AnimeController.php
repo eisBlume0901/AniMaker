@@ -28,6 +28,7 @@ class AnimeController extends Controller
             'image' => ['required', 'url'],
             'start_aired_date' => 'required|date_format:m/d/Y',
             'end_aired_date' => 'required|date_format:m/d/Y',
+            'genre_id' => 'required|array',
         ]);
 
         $formFields['start_aired_date'] = Carbon::createFromFormat('m/d/Y', $request->start_aired_date)->format('Y-m-d');
@@ -35,7 +36,8 @@ class AnimeController extends Controller
 
         $anime = Anime::create($formFields);
 
-        $genreIds = $request->input('genre_id');
+        $genreIds = $request->input('genre_id'); // input means to get the value of the input field with the name genre_id
+
         $anime->genres()->attach($genreIds);
 
         return redirect('/');
