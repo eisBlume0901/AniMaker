@@ -28,5 +28,6 @@
         </a>
 </div>
 @yield('content')
+<script src="../path/to/flowbite/dist/datepicker.js"></script>
 </body>
 </html>
