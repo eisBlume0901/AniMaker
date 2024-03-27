@@ -10,7 +10,15 @@ class Anime extends Model
     use HasFactory;
 
     protected $table = 'table_animes';
-
+    protected $fillable = [
+        'title',
+        'episodes',
+        'description',
+        'studio',
+        'image',
+        'start_aired_date',
+        'end_aired_date'
+    ];
     public function genres()
     {
         return $this->belongsToMany(Genre::class, 'table_anime_genres', 'anime_id', 'genre_id')->withTimestamps();

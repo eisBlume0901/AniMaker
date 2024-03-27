@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index']);
 Route::get('anime/create', [AnimeController::class, 'create']);
 Route::get('/anime/{specificAnime}', [HomePageController::class, 'show']);
+Route::post('/anime', [AnimeController::class, 'store']);

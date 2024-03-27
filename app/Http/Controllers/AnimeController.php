@@ -3,17 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Anime;
 use App\Models\Genre;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AnimeController extends Controller
 {
     //
     public function create() {
-        return view('animes/create', [
-            'genres' => Genre::all()
+        return view('animes/create',
+            [
+                'genres' => Genre::all()
             ]);
     }
 
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'episodes' => ['required', 'integer', 'min:1'],
+            'studio' => 'required',
+            'description' => ['required', Rule::unique('table_animes', 'description')],
+            'image' => ['required', 'url'],
+            'start_aired_date' => 'required|date_format:m/d/Y',
+            'end_aired_date' => 'required|date_format:m/d/Y',
+        ]);
 
+        $formFields['start_aired_date'] = Carbon::createFromFormat('m/d/Y', $request->start_aired_date)->format('Y-m-d');
+        $formFields['end_aired_date'] = Carbon::createFromFormat('m/d/Y', $request->end_aired_date)->format('Y-m-d');
+
+        $anime = Anime::create($formFields);
+
+        $genreIds = $request->input('genre_id');
+        $anime->genres()->attach($genreIds);
+
+        return redirect('/');
+    }
 }
