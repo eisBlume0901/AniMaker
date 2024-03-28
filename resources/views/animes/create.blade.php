@@ -15,7 +15,7 @@
             <label for="title" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Title</label>
             <input type="text" name="title" id="title"
                    class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                   placeholder="Frieren Beyond Journey's End" >
+                   placeholder="Frieren Beyond Journey's End" value="{{old('title')}}">
 
             @error('title')
                 <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -27,6 +27,7 @@
             <label for="episodes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Episodes</label>
             <input type="number" name="episodes" id="episodes" min="1"
                    class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
+                   value="{{old('episodes')}}"
                    placeholder="24" >
 
             @error('episodes')
@@ -36,10 +37,10 @@
         </div>
 
         <div class="mb-6">
-            <label for="episodes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Studio</label>
+            <label for="studio" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Studio</label>
             <input type="text" name="studio" id="studio"
                    class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                   placeholder="Madhouse" >
+                   placeholder="Madhouse" value="{{old('studio')}}">
 
             @error('studio')
             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -51,7 +52,9 @@
             <label for="description" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Description</label>
             <textarea name="description" id="description" rows="6"
                       class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                      placeholder="This is the story of ..." ></textarea>
+                      placeholder="This is the story of ..."
+                      value="{{old('title')}}"
+            ></textarea>
 
             @error('description')
             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -61,9 +64,9 @@
 
         <div class="mb-6">
             <label for="image" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Image</label>
-            <input type="text" name="image" id="description"
+            <input type="text" name="image" id="image"
                    class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                   placeholder="https://cdn.myanimelist.net/images/anime/1015/138006l.jpg">
+                   placeholder="https://cdn.myanimelist.net/images/anime/1015/138006l.jpg" value="{{old('image')}}">
 
             @error('image')
             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -78,7 +81,11 @@
                 @foreach($genres as $genre)
                     <div class="flex items-center px-5 py-2 rounded-2xl hover:bg-blue-50 active:bg-emerald-50">
                         <input id="{{$genre->genre}}" name="genre_id[]" type="checkbox" value="{{$genre->id}}"
-                               class="w-4 h-4 text-emerald-400 focus:ring-emerald-400 bg-blue-100 border-blue-100 rounded">
+                               class="w-4 h-4 text-emerald-400 focus:ring-emerald-400 bg-blue-100 border-blue-100 rounded"
+{{--                               The checked attribute is a boolean attribute. When present, it specifies that an option should be pre-selected when the page loads. The pre-selected option will be displayed first in the drop-down list.--}}
+{{--                               The checked attribute is Laravel's way of checking if the genre_id is in the old input. If it is, the checkbox will be checked.--}}
+{{--                               The old is Laravel's helper function that retrieves the old input value from the session.--}}
+                               @if(is_array(old('genre_id')) && in_array($genre->id, old('genre_id'))) checked @endif>
                         <label for="{{$genre->genre}}"
                                class="w-full ms-2 text-md font-medium text-blue-700 rounded">{{$genre->genre}}</label>
                     </div>
@@ -101,7 +108,8 @@
                                     d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" placeholder="mm/dd/yyyy"/>
+                        <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
+                               placeholder="mm/dd/yyyy" value="{{old('start_aired_date')}}"/>
 
                         @error('start_aired_date')
                         <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -121,7 +129,8 @@
                                     d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" placeholder="mm/dd/yyyy"/>
+                        <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
+                               placeholder="mm/dd/yyyy" value="{{old('end_aired_date')}}"/>
 
                         @error('end_aired_date')
                         <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
