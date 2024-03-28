@@ -40,6 +40,6 @@ class AnimeController extends Controller
 
         $anime->genres()->attach($genreIds);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Anime created successfully!');
     }
 }

@@ -1,0 +1,6 @@
+@if(session('success'))
+<div x-data="{show: true}" x-show="show" x-init="setTimeout(() => show = false, 2500)"
+    class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-md shadow-emerald-400 rounded-2xl text-emerald-400 px-48 py-3">
+        <p>{{session('success')}}</p>
+    </div>
+@endif
