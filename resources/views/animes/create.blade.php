@@ -18,7 +18,8 @@
                    placeholder="Frieren Beyond Journey's End" >
 
             @error('title')
-                <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>            @enderror
+                <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+            @enderror
 
         </div>
 
@@ -53,7 +54,8 @@
                       placeholder="This is the story of ..." ></textarea>
 
             @error('description')
-            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>            @enderror
+            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+            @enderror
 
         </div>
 
@@ -64,7 +66,8 @@
                    placeholder="https://cdn.myanimelist.net/images/anime/1015/138006l.jpg">
 
             @error('image')
-            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>            @enderror
+            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+            @enderror
 
         </div>
 
@@ -98,7 +101,7 @@
                                     d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" />
+                        <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" placeholder="mm/dd/yyyy"/>
 
                         @error('start_aired_date')
                         <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -118,7 +121,7 @@
                                     d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" />
+                        <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50" placeholder="mm/dd/yyyy"/>
 
                         @error('end_aired_date')
                         <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
