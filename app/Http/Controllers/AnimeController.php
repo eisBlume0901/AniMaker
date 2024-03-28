@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Anime;
 use App\Models\Genre;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class AnimeController extends Controller
 {
     //
-    public function create() {
+    public function create(): View
+    {
         return view('animes/create',
             [
                 'genres' => Genre::all()
             ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request): View
+    {
         $formFields = $request->validate([
             'title' => 'required',
             'episodes' => ['required', 'integer', 'min:1'],
