@@ -65,7 +65,7 @@
         <div class="mb-6">
             <label for="image" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Image</label>
             <input type="text" name="image" id="image"
-                   class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
+                   class="w-48 px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                    placeholder="https://cdn.myanimelist.net/images/anime/1015/138006l.jpg" value="{{old('image')}}">
 
             @error('image')
