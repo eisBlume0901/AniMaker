@@ -1,9 +1,9 @@
 @props(['specificAnime'])
-<div class="card mt-8 relative overflow-hidden">
+<div class="card mt-8 relative">
     <div class="flex flex-col">
     <a href="/anime/{{$specificAnime->id}}">
         <img src="{{$specificAnime->image}}" alt="{{$specificAnime->title}} image"
-             class="sm:40 sm:h-54 md:w-54 md:h-64 lg:w-60 lg:h-72 object-contain rounded-2xl shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+             class="w-full rounded-2xl shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
     </a>
     </div>
 
