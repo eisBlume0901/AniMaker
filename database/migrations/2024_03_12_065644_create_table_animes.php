@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('episodes');
             $table->string('studio');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->date('start_aired_date');
             $table->date('end_aired_date');
             $table->timestamps();

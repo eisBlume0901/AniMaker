@@ -85,7 +85,6 @@ class DatabaseSeeder extends Seeder
                 her. Witnessing the deaths of two of her former companions, Frieren begins to regret having taken
                 their presence for granted; she vows to better understand humans and create real personal connections.
                 Although the story of that once memorable journey has long ended, a new tale is about to begin.",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1015/138006l.jpg',
             'start_aired_date' => '2023-09-23',
             'end_aired_date' => '2023-03-22'
         ]);
@@ -106,7 +105,6 @@ class DatabaseSeeder extends Seeder
             In recognition of her talent, Maomao is promoted to lady-in-waiting for the emperor's favorite concubine,
             Gyokuyou. As Maomao continues to remedy the numerous ailments afflicting the imperial court, her pharmaceutical
             expertise quickly proves indispensable.",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1708/138033l.jpg',
             'start_aired_date' => '2023-10-22',
             'end_aired_date' => '2024-03-24'
         ]);
@@ -127,7 +125,6 @@ class DatabaseSeeder extends Seeder
 
             But before Undead can unlock the full potential of Fuuko\'s power to trigger the final devastating blow,
             the duo must first fend off a murderous secret organization hell-bent on exterminating those with special abilities.",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1136/138410l.jpg',
             'start_aired_date' => '2023-10-7',
             'end_aired_date' => '2024-03-23'
         ]);
@@ -146,7 +143,6 @@ class DatabaseSeeder extends Seeder
             encounter worse, Arnold is the one who killed Rishe in her previous life. That is why it is all the more shocking when he proposes
             to Rishe on the spot. In pursuit of her desired life, Rishe must consider accepting Arnold's proposal and discover the reasons
             behind his brutal actions to stop the war from ever happening.",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1533/140617l.jpg',
             'start_aired_date' => '2024-01-07',
             'end_aired_date' => '2024-03-24'
         ]);
@@ -161,7 +157,6 @@ class DatabaseSeeder extends Seeder
             Itsuomi Nagi, a multilingual travel enthusiast and friend of Rin. When Itsuomi learns of Yuki's condition, he takes it in stride,
             moving Yuki's heart. From this one simple gesture, Yuki and Itsuomi's lives start changing day by day as they let each other into their
             own worlds.",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1478/140828l.jpg',
             'start_aired_date' => '2024-01-06',
             'end_aired_date' => '2024-03-23'
         ]);
@@ -176,7 +171,6 @@ class DatabaseSeeder extends Seeder
             home...his new roommate reveals that it's actually an incredible sage from another world who promptly bestows Sasaki with
             supernatural powers as well as the ability to cross between worlds. All Sasaki wants to do is use these newfound powers to live
             in peace and comfort, but there are more than a few colorful characters who might get in the way of that...",
-            'image' => 'https://cdn.myanimelist.net/images/anime/1624/139672l.jpg',
             'start_aired_date' => '2024-01-05',
             'end_aired_date' => '2024-03-22'
         ]);

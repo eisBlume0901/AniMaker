@@ -20,21 +20,26 @@ class AnimeController extends Controller
             ]);
     }
 
-    public function store(Request $request): View
+    public function store(Request $request)
     {
+
         $formFields = $request->validate([
             'title' => 'required',
             'episodes' => ['required', 'integer', 'min:1'],
             'studio' => 'required',
             'description' => ['required', Rule::unique('table_animes', 'description')],
-            'image' => ['required', 'url'],
             'start_aired_date' => 'required|date_format:m/d/Y',
             'end_aired_date' => 'required|date_format:m/d/Y',
             'genre_id' => 'required|array',
         ]);
 
+
         $formFields['start_aired_date'] = Carbon::createFromFormat('m/d/Y', $request->start_aired_date)->format('Y-m-d');
         $formFields['end_aired_date'] = Carbon::createFromFormat('m/d/Y', $request->end_aired_date)->format('Y-m-d');
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
 
         $anime = Anime::create($formFields);
 

@@ -17,7 +17,7 @@
             <div class="mb-6">
                 <label for="image" class="block text-blue-700 text-md font-semibold mx-auto w-52 my-0.5 text-center">Image</label>
                 <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 ml-2 sm:col-span-4 md:mr-3">
-                    <input type="file" class="hidden" x-ref="photo" x-on:change="
+                    <input type="file" name="image" id="image" class="hidden" x-ref="photo" x-on:change="
                         photoName = $refs.photo.files[0].name;
                         const reader = new FileReader();
                         reader.onload = (e) => {
