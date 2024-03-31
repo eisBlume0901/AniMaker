@@ -7,7 +7,6 @@
     </a>
     </div>
 
-    <div class="flex-1">
         <div class="mt-3 font-bold text-blue-700">
             <a href="#">{{$specificAnime->title}}</a>
         </div>
@@ -29,5 +28,5 @@
             @endif
         @endforeach
     </div>
-    </div>
 </div>
+
