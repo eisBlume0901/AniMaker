@@ -23,6 +23,18 @@
                 <a href="#" class="hover:text-blue-700">AniMaKer</a></div>
         </div>
     </div>
+
+    <nav class="bg-blue-700 text-white py-2">
+        <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+            <ul class="flex flex-col md:flex-row items-center ml-10">
+                <li class="md:mr-16 mt-3 md:mt-0"><a href="#" class="hover:font-bold">Check Reviews</a></li>
+                <li class="md:mr-16 mt-3 md:mt-0"><a href="#" class="hover:font-bold">Manage Anime</a></li>
+                <li class="md:mr-16 mt-3 md:mt-0"><a href="#" class="hover:font-bold">Manage</a></li>
+                <li class="md:mr-16 mt-3 md:mt-0"><a href="#" class="hover:font-bold">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <nav class="bg-blue-700 text-white py-2">
         <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
             <div class="flex flex-col md:flex-row items-center">
@@ -104,29 +116,146 @@
     </nav>
         
         <div class="anime-info border-b border-blue-700">
-            <div class="mx-auto px-16 py-16 flex">
+            <div class="mx-auto px-16 py-16 flex max-w-full">
                 <img src="https://m.media-amazon.com/images/W/MEDIAX_849526-T1/images/I/81+V2uHQT1L._AC_SX679_.jpg" alt="" class="w-80">
-                <div class="ml-20">
-                    <h2 class="text-2xl font-semibold">Frieren: Beyond's Journey's End</h2>
-                    <div class="stats flex items-center text-blue-700 text-sm">
-                        <span class="">Score:</span>
-                        <span class="ml-1">9.13</span>
-                        <span class="mx-2">|</span>
-                        <span>Sept 29, 2023</span>
-                        <span class="mx-2">|</span>
-                        <span>Adventure, Drama, Fantasy</span>
-                    </div>
-                    <p class="text-blue-700 mt-8">
+                <div class="ml-20 flex flex-col">
+                    <div class = "flex flex-row align-middle justify-between">
+                        <div>
+                            <h2 class="text-4xl font-semibold">Frieren: Beyond's Journey's End</h2>
+                            <div class="stats flex items-center text-blue-700 text-sm">
+                            </div>
+                            <div class="flex-row m-4">
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex-row m-10">
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Add to List</a>
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Update</a>
+                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</a>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class = "flex flex-col justify-between">
+                            <div class = "flex flex-row text-center text-xl"> Air Span: March 14, 2023 - Kahapon lang </span> </div> 
+                            <div class = "flex flex-row text-center text-xl"> Episodes: 150 </span> </div> 
+                            <div class = "flex flex-row text-center text-xl"> Studio: Madhouse </span> </div>
+                        </div>
+                    <p class="text-blue-700 mt-8 text-xl">
                         During their decade-long quest to defeat the Demon King, the members of the hero's party—Himmel himself, the priest Heiter, the dwarf warrior Eisen, and the elven mage Frieren—forge bonds through adventures and battles, creating unforgettable precious memories for most of them.
                         However, the time that Frieren spends with her comrades is equivalent to merely a fraction of her life, which has lasted over a thousand years. When the party disbands after their victory, Frieren casually returns to her "usual" routine of collecting spells across the continent. Due to her different sense of time, she seemingly holds no strong feelings toward the experiences she went through.
                         As the years pass, Frieren gradually realizes how her days in the hero's party truly impacted her. Witnessing the deaths of two of her former companions, Frieren begins to regret having taken their presence for granted; she vows to better understand humans and create real personal connections. Although the story of that once memorable journey has long ended, a new tale is about to begin.
                     </p>
                 </div>
             </div>
+
+            <div class="p-20">
+                <h2 class="text-4xl font-bold text-blue-700">Reviews</h2>
+
+                <article class="p-10 m-10 shadow-md shadow-blue-700 rounded-lg w-full">
+                    <div class="flex items-center text-2xl mb-4">
+                        <img class="w-20 h-20 me-4 rounded-full" src="https://th.bing.com/th/id/OIP.38b_BzLu5gq0fNhgVHVG3AHaHH?rs=1&pid=ImgDetMain" alt="">
+                        <div class="font-medium">
+                            <p>eisBlume0901<span class="text-gray-400 text-sm"> You</span><time datetime="2014-08-16 19:00" class="block text-sm text-gray-500">Joined on August 2020</time></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <h3 class="ms-2 text-lg font-semibold text-gray-900"> Recommended!</h3>
+                    </div>
+                    <footer class="mb-5 text-sm text-gray-500"><p>Reviewed on <time datetime="2017-03-03 19:00">March 3, 2024</time></p></footer>
+                    <p class="mb-2 text-gray-500 text-2xl">
+                        I love this anime! The story is so good and the characters are so well developed. I can't wait for the next season!
+                        <br><br>
+                        I particularly like the character Frieren. She just like me fr.
+                    </p>
+                    <a href="#" class="block mb-5 text-sm font-medium text-blue-600 hover:underline">Read more</a>
+                    <aside class="flex items-center mt-3">
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                            <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
+                            </svg>
+                            Helpful
+                        </a>
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500 group ms-5">
+                            <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                <path d="M11.955 2.117h-.114C9.732 1.535 6.941.5 4.356.5c-1.4 0-1.592.526-1.879 1.316l-2.355 7A2 2 0 0 0 2 11.5h3.956L4.4 16a1.779 1.779 0 0 0 3.332 1.061 24.8 24.8 0 0 1 4.226-5.36l-.003-9.584ZM15 11h2a1 1 0 0 0 1-1V2a2 2 0 1 0-4 0v8a1 1 0 0 0 1 1Z"/>
+                            </svg>
+                            Not helpful
+                        </a>
+                    </aside>
+                </article>
+
+                <article class="p-10 m-10 shadow-md shadow-blue-700 rounded-lg w-full">
+                    <div class="flex items-center text-2xl mb-4">
+                        <img class="w-20 h-20 me-4 rounded-full" src="https://cdn.donmai.us/original/d3/88/__ishmael_project_moon_and_1_more_drawn_by_yeong_il__d38853b9378235e09b77243af49816e6.png" alt="">
+                        <div class="font-medium">
+                            <p>Myrandde<span class="text-gray-400 text-sm"></span><time datetime="2014-08-16 19:00" class="block text-sm text-gray-500">Joined on August 2020</time></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <h3 class="ms-2 text-lg font-semibold text-gray-900"> Recommended!</h3>
+                    </div>
+                    <footer class="mb-5 text-sm text-gray-500"><p>Reviewed on <time datetime="2017-03-03 19:00">March 13, 2024</time></p></footer>
+                    <p class="mb-2 text-gray-500 text-2xl">
+                        I think this anime needs, no, DESERVES A SECOND season. The story is so good and the characters are so well developed. I can't wait for the next season!
+                        <br><br>
+                        I cannot get enough of Uebel uoooooooooogh pls send help
+                    </p>
+                    <a href="#" class="block mb-5 text-sm font-medium text-blue-600 hover:underline">Read more</a>
+                    <aside class="flex items-center mt-3">
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                            <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
+                            </svg>
+                            Helpful
+                        </a>
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500 group ms-5">
+                            <svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                <path d="M11.955 2.117h-.114C9.732 1.535 6.941.5 4.356.5c-1.4 0-1.592.526-1.879 1.316l-2.355 7A2 2 0 0 0 2 11.5h3.956L4.4 16a1.779 1.779 0 0 0 3.332 1.061 24.8 24.8 0 0 1 4.226-5.36l-.003-9.584ZM15 11h2a1 1 0 0 0 1-1V2a2 2 0 1 0-4 0v8a1 1 0 0 0 1 1Z"/>
+                            </svg>
+                            Not helpful
+                        </a>
+                    </aside>
+                </article>
+
+            </div>
         </div>
+
+        
         
 </body>
 <script src="script.js"></script>
 </body>
 </html>
-    
