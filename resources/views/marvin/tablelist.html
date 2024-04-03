@@ -8,164 +8,224 @@
 </head>
 
 <body class="font-sans bg-white text-blue-700">
-<div class="mx-auto flex flex-col md:flex-row items-center justify-between p-5 bg-emerald-400 text-white">
-    <div class="flex flex-col md:flex-row items-center">
-        <div class="relative md:ml-16 mt-3 md:mt-0">
-            <button onclick="dropMenu()" class="dropbtn" href="#">
-                <img src="https://i.ibb.co/N14Xkyk/fuuko-izumo.jpg" alt="avatar" class="rounded-full w-20 h-20"/>
-            </button>
-            <div id="dropdown" class="hidden absolute bg-blue-700 min-w-32 overflow-auto z-10">
-                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Profile</a>
-                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Reviews</a>
-                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Manage Anime</a>
-                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Account</a>
-                <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Logout</a>
-            </div>
-        </div>
-        <div class="md:ml-6 mt-3 md:mt-0 font-semibold text-2xl">Hello, Fuuko Izumo </div>
-
-    </div>
-    <div class="flex flex-col md:flex-row items-center">
-        <div class="md:mr-16 mt-3 md:mt-0 font-bold text-4xl text-white">
-            <a href="#" class="hover:text-blue-700">AniMaKer</a></div>
-    </div>
-</div>
-
-<nav class="bg-blue-700 text-white py-2">
-    <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+    <div class="mx-auto flex flex-col md:flex-row items-center justify-between p-5 bg-emerald-400 text-white">
         <div class="flex flex-col md:flex-row items-center">
-            <div class="relative">
-                <input type="text" class="bg-white text-blue-700  rounded-full w-50 px-2 py-0.5 focus:outline-none focus:shadow-outline md:ml-16 mt-3 md:mt-0" placeholder="Search">
+            <div class="relative md:ml-16 mt-3 md:mt-0">
+                <button onclick="dropMenu()" class="dropbtn" href="#">
+                    <img src="https://i.ibb.co/N14Xkyk/fuuko-izumo.jpg" alt="avatar" class="rounded-full w-20 h-20"/>
+                </button>
+                <div id="dropdown" class="hidden absolute bg-blue-700 min-w-32 overflow-auto z-10">
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Profile</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Reviews</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Manage Anime</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Check Account</a>
+                    <a href="#" class="block px-4 py-2 text-white hover:bg-emerald-400">Logout</a>
+                </div>
             </div>
-            <a href="#"></a>
+            <div class="md:ml-6 mt-3 md:mt-0 font-semibold text-xl">Hello, Fuuko Izumo </div>
+    
         </div>
-        <ul class="flex flex-col md:flex-row items-center">
-            <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/tablelist.html" class="hover:font-bold">My List</a></li>
-            <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/index.html" class="hover:font-bold">Top Rated</a></li>
-        </ul>
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:mr-16 mt-3 md:mt-0 font-bold text-4xl text-white">
+                  <a href="#" class="hover:text-blue-700">AniMaKer</a></div>
+        </div>
     </div>
-</nav>
 
-<div class="mx-20">
-    <table class="w-full bg-white align-middle justify-center text-3xl border-solid border-20 border-emerald-400">
-        <tr>
-            <nav class="text-2xl mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
-                <a href="#" class="hover:font-bold">All Anime</a>
-                <a href="#" class="hover:font-bold">Currently Watching</a>
-                <a href="#" class="hover:font-bold">Completed</a>
-                <a href="#" class="hover:font-bold">On Hold</a>
-                <a href="#" class="hover:font-bold">Dropped</a>
-            </nav>
-        </tr>
-        <tr class="rounded-lg bg-blue-700  text-white border-solid border-20 border-emerald-400">
-            <th >#</th>
-            <th>Image</th>
-            <th >Title</th>
-            <th >Episode Progress</th>
-            <th ></th>
-            <th ></th>
-        </tr>
-
-        <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
-            <td class="text-4xl font-bold mx-20">
-                <div class="mx-20">
-                    <span># 1</span>
-                </div>
-            </td>
-            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/blacklagoon.png"></td>
-            <td>
-                <div class="flex-col">
-                    <a href="frieren.html" class="top-0">Black Lagoon</a>
-                    <div class="flex-row">
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
+        <nav class="bg-blue-700 text-white py-2">
+            <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="relative">
+                        <input type="text" class="bg-white text-blue-700  rounded-full w-50 px-2 py-0.5 focus:outline-none focus:shadow-outline md:ml-16 mt-3 md:mt-0" placeholder="Search">
                     </div>
-                    <div>
-                        <span class="text-lg text-blue-700">"Gretel did NOT deserve to go out like that"</span>
-                    </div>
-            </td>
-            <td>123/300</td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <div class="my-20"> </div>
-            </td>
-        </tr>
-
-
-        <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
-            <td class="text-4xl font-bold mx-20">
-                <div class="mx-20">
-                    <span># 2 </span>
+                    <a href="#"></a>
                 </div>
-            </td>
-            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/Frieren.png"></td>
-            <td>
-                <div class="flex-col">
-                    <a href="frieren.html" class="top-0">Sousou no Frieren</a>
-                    <div class="flex-row">
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
-                        <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
-                    </div>
-                    <div>
-                        <span class="text-lg text-blue-700">"I think Frieren is so funny because she always opens mimic chest like hahahahahha"</span>
-                    </div>
-                </div>
-            </td>
-            <td>123/300</td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
-            </td>
-        </tr>
+                <ul class="flex flex-col md:flex-row items-center">
+                    <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/tablelist.html" class="hover:font-bold">My List</a></li>
+                    <li class="md:mr-16 mt-3 md:mt-0"><a href="/dist/index.html" class="hover:font-bold">Top Rated</a></li>
+                </ul>
+            </div>
+        </nav>
 
-        <tr>
-            <td>
-                <div class="my-20"> </div>
-            </td>
-        </tr>
-
-        <tr class="shadow-md shadow-blue-700 rounded-lg m-10">
-            <td class="text-4xl font-bold mx-20">
-                <div class="mx-20">
-                    <span># 3</span>
-                </div>
-            </td>
-            <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/kino.png"></td>
-            <td>
-                <div class="flex-col">
-                    <a href="frieren.html" class="top-0">Kino no Tabi/a>
+    <div class="mx-20">
+        <table class="w-full bg-white align-middle justify-center text-xl border-solid border-20 border-emerald-400">
+            <tr> 
+                <nav class="text-xl mx-auto flex flex-col md:flex-row items-center justify-between px-3 py-1">
+                    <a href="#" class="hover:font-bold">All Anime</a>
+                    <a href="#" class="hover:font-bold">Currently Watching</a>
+                    <a href="#" class="hover:font-bold">Completed</a>
+                    <a href="#" class="hover:font-bold">On Hold</a>
+                    <a href="#" class="hover:font-bold">Dropped</a>
+                </nav>
+            </tr>
+            <tr class="rounded-lg bg-blue-700  text-white border-solid border-20 border-emerald-400">
+                <th >#</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Studio</th>
+                <th>Episode Progress</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            
+            <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
+                <td class="text-4xl font-bold mx-20">
+                    <div class="mx-20">
+                        <span># 1</span>
+                    </div>
+                </td>
+                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/blacklagoon.png"></td>
+                <td>
+                    <div class="flex-col">
+                        <a href="frieren.html" class="top-0">Black Lagoon</a>
+                        <div class="flex flex-row">
                         <div class="flex-row">
-                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Adventure</a>
-                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Drama</a>
-                            <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-emerald-400 rounded-2xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Fantasy</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Adventure</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Drama</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Fantasy</a>
+                        </div>
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse mt-3 ml-3">
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <div>
+                            <span class="text-lg text-blue-700">"Gretel did NOT deserve to go out like that"</span>
+                    </div>
+                </td>
+                <td class="text-center" class="text-center">Madhouse</td>
+                <td class="text-center" class="text-center">123/300</td>
+                <td class="text-center" class="text-center">Dropped</td>
+                <td class="m-10">
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button>
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="my-20"> </div>
+                </td>
+            </tr>
+
+
+            <tr class="shadow-md shadow-blue-700 rounded-lg border-spacing-10">
+                <td class="text-4xl font-bold mx-20">
+                    <div class="mx-20">
+                        <span># 2 </span>
+                    </div>
+                </td>
+                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/Frieren.png"></td>
+                <td>
+                    <div class="flex-col">
+                        <a href="frieren.html" class="top-0">Sousou no Frieren</a>
+                        <div class="flex flex-row">
+                        <div class="flex-row">
+                            <a href="" class="text-blue-700 text-sm m-3">Adventure</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Drama</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Fantasy</a>
+                        </div>
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse mt-3 ml-3">
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <div>
+                            <span class="text-lg text-blue-700">"I think Frieren is so funny because she always opens mimic chest like hahahahahha"</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center" class="text-center">Madhouse</td>
+                <td class="text-center">123/300</td>
+                <td class="text-center">Currently Watching</td>
+                <td class="m-10">
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button>
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
+            
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="my-20"> </div>
+                </td>
+            </tr>
+
+            <tr class="shadow-md shadow-blue-700 rounded-lg m-10">
+                <td class="text-4xl font-bold mx-20">
+                    <div class="mx-20">
+                        <span># 3</span>
+                    </div>
+                </td>
+                <td class="flex justify-center items-center p-4 border-solid border-20"><img class="relative flex max-w-40" src="/images/kino.png"></td>
+                <td>
+                    <div class="flex-col">
+                        <a href="frieren.html" class="top-0">Kino no Tabi</a>
+                        <div class="flex flex-row">
+                        <div class="flex-row">
+                            <a href="" class="text-blue-700 text-sm m-3">Adventure</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Drama</a>
+                            <a href="" class="text-blue-700 text-sm m-3">Fantasy</a>
+                        </div>
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse mt-3 ml-3">
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                        </div>
                         </div>
                         <div>
                             <span class="text-lg text-blue-700">"Kino and Hermes are the best duo ever"</span>
-                        </div>
-            </td>
-            <td>123/300</td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button></td>
-            <td>
-                <button class="inline-flex items-center px-3 py-2 text-3xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
-            </td>
-        </tr>
-    </table>
-</div>
-
+                    </div>
+                </td>
+                <td class="text-center" class="text-center">Madhouse</td>
+                <td class="text-center">123/300</td>
+                <td class="text-center">On Hold</td>
+                <td class="m-10">
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-blue-700 rounded-2xl shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Edit</button>
+                    <button class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-red-700 rounded-2xl shadow-red-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</button></td>
+                </td>   
+            </tr>
+        </table>
+    </div>
+    
 
 </body>
 <script src="script.js"></script>
 </body>
 </html>
-
