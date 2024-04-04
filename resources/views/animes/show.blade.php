@@ -17,9 +17,9 @@
                         </div>
                         <div>
                             <div class="flex-row m-10">
-                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Add to List</a>
-                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Update</a>
-                                <a href="" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-3xl shadow-emerald-400 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Delete</a>
+                                <button type="button" class="w-full mt-4 px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 transition ease-in-out duration-150" x-on:click.prevent="$refs.photo.click()">Add to List</button>
+                                <button type="button" class="w-full mt-4 px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 transition ease-in-out duration-150" x-on:click.prevent="$refs.photo.click()">Update</button>
+                                <button type="button" class="w-full mt-4 px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 transition ease-in-out duration-150" x-on:click.prevent="$refs.photo.click()">Delete</button>
                             </div>
                         </div>
                     </div>  
