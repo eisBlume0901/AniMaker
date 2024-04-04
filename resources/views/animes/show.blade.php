@@ -7,12 +7,12 @@
                 <img src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"
                      class="rounded-2xl shadow-md shadow-blue-700 sm:w-60 mx-auto md:w-72 lg:w-80"/>
 
-            <div class="mx-auto sm:ml-16">
-                <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 space-y-2.5">
+            <div class="sm:mx-auto sm:mt-6 md:mx-auto md:mt-6 lg:mt-6 lg:ml-16">
+                <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row space-x-5">
                     <div>
-                        <h2 class="text-3xl font-semibold mt-3 sm:mt-3 md:mt-3 lg:mt-0">{{$anime->title}}</h2>
+                        <h2 class="text-4xl font-semibold mt-3 sm:mt-3 md:mt-3 lg:mt-0">{{$anime->title}}</h2>
                     </div>
-                    <div class="buttons flex flex-row">
+                    <div class="buttons flex flex-row justify-end space-x-2">
                         <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2.5 text-center inline-flex items-center me-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
@@ -25,9 +25,10 @@
                         </button>
                     </div>
                 </div>
-                <div class="stats flex flex-col text-blue-700 text-sm mt-6">
 
-                    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-28">
+                <div class="flex flex-col text-blue-700 text-md mt-6">
+
+                    <div class="grid sm:grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-x-28">
 
 
                         <div class="container flex flex-col">
@@ -63,16 +64,33 @@
                             </span>
                         </div>
 
-                        <div class="container">
-                            Score
+
+                        <div class="flex flex-col mr-6">
+
+                            <div class="container flex flex-row justify-end align-middle items-center text-blue-700 text-5xl font-bold my-1.5">
+                                Rank 1
+                            </div>
+
+                            <div class="container flex flex-row justify-end align-middle items-center gap-x-3 my-1.5">
+                                <div class="text-blue-700 border-yellow-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="text-blue-700 font-bold text-3xl">9.18</div>
+
+                            </div>
+
                         </div>
+
+
 
                     </div>
 
 
 
                 </div>
-                <p class="text-blue-700 mt-8">
+                <p class="text-blue-700 mt-8 text-justify mr-6">
                     {{$anime->description}}
                 </p>
             </div>
