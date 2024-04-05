@@ -1,14 +1,16 @@
 @extends('layout')
 
 @section('content')
-    <form action="/anime" method="POST" enctype="multipart/form-data"
+    <form action="/anime/{{$anime->id}}" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-3xl mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf
 
+        @method('PUT')
+
         <div class="flex m-2 flex-row justify-center align-middle">
             <div class="flex m-2 flex-col justify-center align-middle">
-                <h1 class="font-semibold">Add new anime to the database</h1>
+                <h1 class="font-semibold">Edit anime details</h1>
             </div>
         </div>
 
@@ -26,7 +28,8 @@
                         reader.readAsDataURL($refs.photo.files[0]);">
                     <div class="text-center">
                         <div class="mt-2" x-show="! photoPreview">
-                            <img src="{{asset('images/no-image-2.png')}}" class="object-contain h-64 my-3.5 mx-auto rounded-2xl shadow-md shadow-blue-700"/>
+                            <img src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-2.png')}}"
+                                 class="object-contain h-64 my-3.5 mx-auto rounded-2xl shadow-md shadow-blue-700"/>
                         </div>
                         <div class="mt-2" x-show="photoPreview" style="display: none;">
                          <span class="object-contain h-64 block my-3.5 mx-auto rounded-2xl shadow-md shadow-emerald-400" x-bind:style="'object-fit: contain; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'" style="background-size: cover; background-repeat: no-repeat; background-image: url('null');">
@@ -49,7 +52,7 @@
                     <label for="title" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Title</label>
                     <input type="text" name="title" id="title"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           placeholder="Frieren Beyond Journey's End" value="{{old('title')}}">
+                           placeholder="Frieren Beyond Journey's End" value="{{$anime->title}}">
 
                     @error('title')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -60,7 +63,7 @@
                     <label for="episodes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Episodes</label>
                     <input type="number" name="episodes" id="episodes" min="1"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           value="{{old('episodes')}}"
+                           value="{{$anime->episodes}}"
                            placeholder="24" >
 
                     @error('episodes')
@@ -72,7 +75,7 @@
                     <label for="studio" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Studio</label>
                     <input type="text" name="studio" id="studio"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           placeholder="Madhouse" value="{{old('studio')}}">
+                           placeholder="Madhouse" value="{{$anime->studio}}">
 
                     @error('studio')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -93,7 +96,7 @@
                                 </svg>
                             </div>
                             <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{old('start_aired_date')}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{$anime->start_aired_date}}"/>
 
                             @error('start_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -113,7 +116,7 @@
                                 </svg>
                             </div>
                             <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{old('end_aired_date')}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{$anime->end_aired_date}}"/>
 
                             @error('end_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -132,7 +135,7 @@
                       class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                       placeholder="This is the story of ..."
             >
-                {{old('description')}}
+              {{$anime->description}}
             </textarea>
 
             @error('description')
@@ -148,10 +151,7 @@
                     <div class="flex items-center px-5 py-2 rounded-2xl hover:bg-blue-50 active:bg-emerald-50">
                         <input id="{{$genre->genre}}" name="genre_id[]" type="checkbox" value="{{$genre->id}}"
                                class="w-4 h-4 text-emerald-400 focus:ring-emerald-400 bg-blue-100 border-blue-100 rounded"
-{{--                               The checked attribute is a boolean attribute. When present, it specifies that an option should be pre-selected when the page loads. The pre-selected option will be displayed first in the drop-down list.--}}
-{{--                               The checked attribute is Laravel's way of checking if the genre_id is in the old input. If it is, the checkbox will be checked.--}}
-{{--                               The old is Laravel's helper function that retrieves the old input value from the session.--}}
-                               @if(is_array(old('genre_id')) && in_array($genre->id, old('genre_id'))) checked @endif>
+                               @if($anime->genres->contains($genre->id)) checked @endif>
                         <label for="{{$genre->genre}}"
                                class="w-full ms-2 text-md font-medium text-blue-700 rounded">{{$genre->genre}}</label>
                     </div>
@@ -163,12 +163,11 @@
         </div>
 
 
-
-            <div class="mt-6 flex min-w-full justify-center">
-                <button class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
-                    Add Anime
-                </button>
-            </div>
+        <div class="mt-6 flex min-w-full justify-center">
+            <button class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
+                Update Anime
+            </button>
+        </div>
 
     </form>
 @endsection

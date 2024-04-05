@@ -19,3 +19,5 @@ Route::get('/', [HomePageController::class, 'index']);
 Route::get('anime/create', [AnimeController::class, 'create']);
 Route::get('/anime/{specificAnime}', [HomePageController::class, 'show']);
 Route::post('/anime', [AnimeController::class, 'store']);
+Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit']);
+Route::put('/anime/{specificAnime}', [AnimeController::class, 'update']);
