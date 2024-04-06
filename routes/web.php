@@ -21,3 +21,4 @@ Route::get('/anime/{specificAnime}', [HomePageController::class, 'show']);
 Route::post('/anime', [AnimeController::class, 'store']);
 Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit']);
 Route::put('/anime/{specificAnime}', [AnimeController::class, 'update']);
+Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy']);
