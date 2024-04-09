@@ -13,21 +13,32 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="bg-white text-blue-700 font-display">
-<div class="mx-auto flex flex-row md:flex justify-between items-center text-white bg-gradient-to-r from-emerald-400 to-blue-700">
-        <a href="#" id="hamburger-icon" class="text-white hover:text-blue-700"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-14 h-14">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+<nav class="bg-gradient-to-r from-emerald-400 to-blue-700">
+    <div class="max-w-screen-3xl flex flex-wrap items-center justify-between mx-auto px-16 py-4">
+        <a href="/" class="flex items-center space-x-3 trl:space-x-reverse">
+            <img src="{{asset('images/AniMaKer_Official_Logo.png')}}" alt="AniMaKer Official Logo" class="max-w-60">
         </a>
-        <a href="/" class="md:flex-col w-full md:ml-16"><img src="{{asset('images/AniMaKer_Official_Logo.png')}}" alt="AniMaKer Official Logo" class="max-w-60"></a>
-        <a href="#" class="flex flex-row justify-evenly items-center gap-0.5 text-white hover:text-emerald-100">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="max-w-7">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-            </svg>
-            <div class="w-24 mr-3 md:mr-16">
-                Sign in
-            </div>
-        </a>
-</div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="/signup" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400 hover:bg-white hover:rounded-2xl">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <span>
+                    Signup
+                </span>
+            </a>
+            <a href="/login" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400 hover:bg-white hover:rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                </svg>
+                <span>
+                    Login
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
 @yield('content')
 <x-flash-message />
 </body>

@@ -165,7 +165,9 @@
 
 
             <div class="mt-6 flex min-w-full justify-center">
-                <button class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
+                <button
+                    type="submit"
+                    class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
                     Add Anime
                 </button>
             </div>

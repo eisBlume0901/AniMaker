@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::post('/anime', [AnimeController::class, 'store']);
 Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit']);
 Route::put('/anime/{specificAnime}', [AnimeController::class, 'update']);
 Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy']);
+Route::get('/signup', [UserController::class, 'create']);
+Route::post('/users', [UserController::class, 'store']);
