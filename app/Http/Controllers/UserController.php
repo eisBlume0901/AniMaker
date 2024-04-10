@@ -32,7 +32,7 @@ class UserController extends Controller
         $formFields['password'] = bcrypt($formFields['password']);
 
         if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('images', 'public');
+            $formFields['image'] = $request->file('image')->store('user_images', 'public');
         }
 
         $user = User::create($formFields);
