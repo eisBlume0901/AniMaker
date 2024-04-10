@@ -25,13 +25,15 @@ class UserController extends Controller
     {
         $formFields = $request->validate([
             'name' => ['required', 'min:5'],
-
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'confirmed'],
         ]);
 
         $formFields['password'] = bcrypt($formFields['password']);
 
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
 
         $user = User::create($formFields);
 
