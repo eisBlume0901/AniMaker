@@ -6,6 +6,7 @@ use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -44,18 +45,28 @@ class UserController extends Controller
         return view('users/login');
     }
 
-    public function authenticate(): RedirectResponse
+    public function authenticate(Request $request): RedirectResponse
     {
-        $credentials = request()->validate([
+        $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (!auth()->attempt($credentials)) {
+        $user = User::where('email', $credentials['email'])->first();
+
+        if (!$user) {
             return back()->withErrors([
-                'message' => 'Invalid credentials, please try again'
+                'email' => 'The provided email address is not registered.',
             ]);
         }
+
+        if (!Hash::check($credentials['password'], $user->password)) {
+            return back()->withErrors([
+                'password' => 'The provided password is incorrect.',
+            ]);
+        }
+
+        auth()->login($user);
 
         return redirect('/')->with('success', 'User login successfully');
     }
