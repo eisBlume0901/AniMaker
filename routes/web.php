@@ -25,3 +25,5 @@ Route::put('/anime/{specificAnime}', [AnimeController::class, 'update']);
 Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy']);
 Route::get('/signup', [UserController::class, 'create']);
 Route::post('/users', [UserController::class, 'store']);
+Route::get('/login', [UserController::class, 'login']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

@@ -60,7 +60,7 @@ class AnimeController extends Controller
             ]);
     }
 
-    public function update(Request $request, Anime $specificAnime)
+    public function update(Request $request, Anime $specificAnime): RedirectResponse
     {
         $formFields = $request->validate([
             'title' => 'required',

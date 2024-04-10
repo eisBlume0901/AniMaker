@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use App\Models\User;
-use Illuminate\Console\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -16,10 +14,13 @@ class UserController extends Controller
     //
     public function create(): View
     {
-        return view('users.signup');
+        return view('users.signup',
+            [
+                'genres' => Genre::all()
+            ]);
     }
 
-    public function store(Request $request): Redirector|RedirectResponse|Application
+    public function store(Request $request): RedirectResponse
     {
         $formFields = $request->validate([
             'name' => ['required', 'min:5'],
@@ -36,5 +37,26 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/')->with('success', 'User created and login successfully');
+    }
+
+    public function login(): View
+    {
+        return view('users/login');
+    }
+
+    public function authenticate(): RedirectResponse
+    {
+        $credentials = request()->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (!auth()->attempt($credentials)) {
+            return back()->withErrors([
+                'message' => 'Invalid credentials, please try again'
+            ]);
+        }
+
+        return redirect('/')->with('success', 'User login successfully');
     }
 }
