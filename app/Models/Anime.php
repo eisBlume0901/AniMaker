@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static create(array $formFields)
+ * @method static where(string $string, string $string1, string $string2)
  */
 class Anime extends Model
 {
@@ -62,14 +63,14 @@ class Anime extends Model
 
 
 
-    public function scopeSearch($query, $search)
-    {
-        return $query->where('title', 'like', '%' . $search . '%')
-            ->orWhere('description', 'like', '%' . $search . '%');
-
-        /*
-         * SQL equivalent
-         * SELECT * FROM table_animes WHERE title like '%Frieren%' or description like '%Elf%';
-         */
-    }
+//    public function scopeSearch($query, $search)
+//    {
+//        return $query->where('title', 'like', '%' . $search . '%')
+//            ->orWhere('description', 'like', '%' . $search . '%');
+//
+//        /*
+//         * SQL equivalent
+//         * SELECT * FROM table_animes WHERE title like '%Frieren%' or description like '%Elf%';
+//         */
+//    }
 }

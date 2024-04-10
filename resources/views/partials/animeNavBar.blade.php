@@ -1,9 +1,9 @@
 <nav class="bg-blue-700 text-white">
     <div class="max-w-screen-3xl flex flex-wrap items-center justify-between mx-auto px-20 py-4">
         <div class="flex flex-row gap-x-20">
-            <label>
-                <input type="text" class="bg-white text-blue-700 rounded-full w-50 px-2 py-1 focus:outline-none focus:shadow-outline" placeholder=" Search">
-            </label>
+
+            @livewire('search')
+            
             <button id="genre-button" class="hover:text-emerald-400 hover:border-b-emerald-400 px-2 -ml-8">Genre</button>
             <div id="genre-dropdown" class="absolute mt-10 ml-60 z-10 w-80 rounded-lg bg-white shadow-lg shadow-blue-700 hover:shadow-emerald-400 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
                 <div class="flex flex-wrap" id="genre-entry">
