@@ -59,4 +59,10 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'User login successfully');
     }
+
+    public function logout(): RedirectResponse
+    {
+        auth()->logout();
+        return redirect('/')->with('success', 'User logout successfully');
+    }
 }

@@ -79,7 +79,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-6">
+                <div class="mb-8">
                     <label for="password_confirmation" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Confirmed Password</label>
                     <input type="password" name="password_confirmation" id="password_confirmation"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
@@ -90,7 +90,7 @@
                     @enderror
                 </div>
 
-        <div class="my-6 block gap-x-4">
+        <div class="mb-6 block">
             <button
                 type="submit"
                 class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
