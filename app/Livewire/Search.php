@@ -16,7 +16,7 @@ class Search extends Component
         $searchResults = [];
 
         if (strlen($this->search) >= 1) {
-            $searchResults = Anime::where('title', 'like',   $this->search . '%')->limit(5)->get();
+            $searchResults = Anime::where('title', 'like',   '%'. $this->search . '%')->limit(5)->get();
         }
         return view('livewire.search',
             [
