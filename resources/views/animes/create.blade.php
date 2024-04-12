@@ -15,32 +15,43 @@
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-2">
 
             <div class="mb-6">
-                <label for="image" class="block text-blue-700 text-md font-semibold mx-auto w-52 my-0.5 text-center">Image</label>
-                <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 ml-2 sm:col-span-4 md:mr-3">
-                    <input type="file" name="image" id="image" class="hidden" x-ref="photo" x-on:change="
-                        photoName = $refs.photo.files[0].name;
-                        const reader = new FileReader();
-                        reader.onload = (e) => {
-                            photoPreview = e.target.result;
-                        };
-                        reader.readAsDataURL($refs.photo.files[0]);">
-                    <div class="text-center">
-                        <div class="mt-2" x-show="! photoPreview">
-                            <img src="{{asset('images/no-image-2.png')}}" class="object-contain h-64 my-3.5 mx-auto rounded-2xl shadow-md shadow-blue-700"/>
-                        </div>
-                        <div class="mt-2" x-show="photoPreview" style="display: none;">
-                         <span class="object-contain h-64 block my-3.5 mx-auto rounded-2xl shadow-md shadow-emerald-400" x-bind:style="'object-fit: contain; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'" style="background-size: cover; background-repeat: no-repeat; background-image: url('null');">
-                         </span>
-                        </div>
-                        <button type="button" class="w-full mt-4 px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 transition ease-in-out duration-150" x-on:click.prevent="$refs.photo.click()">
-                            Upload Anime Poster
-                        </button>
+                <div class="flex flex-col items-center mt-2">
+                    <div class="w-60 h-72 mb-2 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:shadow-emerald-400">
+                        <img id='preview_img' class="w-full h-full object-cover"
+                             src="{{asset('images/no-image-2.png')}}" alt="Current profile photo" />
                     </div>
+
+                    <input
+                        type="file"
+                        name="image"
+                        onchange="loadFile(event)"
+                        class="w-60 mt-6 text-sm text-blue-700 border border-blue-100 rounded-2xl cursor-pointer bg-blue-50 hover:bg-emerald-50 hover:text-emerald-400" >
+
                 </div>
+
+                <script>
+                    let loadFile = function(event) {
+
+                        let input = event.target;
+                        let file = input.files[0];
+                        let type = file.type;
+
+                        let output = document.getElementById('preview_img');
+
+
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                        output.onload = function() {
+                            URL.revokeObjectURL(output.src) // free memory
+                        }
+                    };
+                </script>
+
                 @error('image')
                 <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
                 @enderror
+
             </div>
+
 
 
             <div class="grid-cols-3">
