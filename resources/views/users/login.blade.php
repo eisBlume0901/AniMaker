@@ -19,7 +19,7 @@
             <input type="email" name="email" id="email"
                    class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                    value="{{old('email')}}"
-            >
+            />
 
             @error('email')
             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>

@@ -49,7 +49,7 @@
                     $date = date_create_from_format('Y-m-d', $anime->start_aired_date);
                     $formattedStartDate = $date->format('M d, Y');
                 @endphp
-                <span class="m-2 text-sm">Released on
+                <span class="m-2 text-sm">Started at
                     {{$formattedStartDate}}
                 </span>
 
@@ -57,7 +57,7 @@
                     $date = date_create_from_format('Y-m-d', $anime->end_aired_date);
                     $formattedEndDate = $date->format('M d, Y');
                 @endphp
-                <span class="m-2 text-sm">Will End on
+                <span class="m-2 text-sm">Ended at
                     {{$formattedEndDate}}
                 </span>
             </div>
