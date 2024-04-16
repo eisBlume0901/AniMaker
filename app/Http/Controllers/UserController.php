@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -77,5 +78,27 @@ class UserController extends Controller
     {
         auth()->logout();
         return redirect('/')->with('success', 'User logout successfully');
+    }
+
+    // Will be subjected to review if the method will be declared in AnimeController or in UserController
+    // Please check the routes once decided to change the controller
+    public function createReview(Anime $specificAnime): View
+    {
+        return view('users.create-review',
+            [
+                'anime' => $specificAnime,
+                'genres' => Genre::all()
+            ]
+        );
+    }
+
+    public function storeReview(Request $request): RedirectResponse
+    {
+        // Parameter should match on ERD created
+//        $request->validate([
+//            'rating' => ['required', 'integer', 'min:1', 'max:5'],
+//            'review' => ['required', 'min:10'],
+//        ]);
+        return redirect('/')->with('success', 'Review created successfully');
     }
 }

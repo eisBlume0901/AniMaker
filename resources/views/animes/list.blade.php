@@ -15,6 +15,8 @@
                     {{$anime->title}}
                 </span>
                 <div class="grid grid-cols-2 gap-x-2">
+
+{{--                    This is for admin only--}}
                     <a href="/anime/{{$anime->id}}/edit">
                         <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -32,6 +34,8 @@
                             </svg>
                         </button>
                     </form>
+{{--                    This is for admin only--}}
+
                 </div>
 
             </div>

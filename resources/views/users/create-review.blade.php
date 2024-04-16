@@ -1,15 +1,16 @@
+{{--Change all the input fields to the following appropriate to user variables and validation rules--}}
 @extends('layout')
-@section('title', 'Create Anime Form')
+@section('title', 'Create User Review Form')
 @section('content')
-    @include('partials.adminManageAnimeNavBar')
-    <form action="/anime/store" method="POST" enctype="multipart/form-data"
+    @include('partials.animeNavBar')
+    <form action="/anime/{{$anime->id}}/review/store" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-3xl mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf
 
         <div class="flex m-2 flex-row justify-center align-middle">
             <div class="flex m-2 flex-col justify-center align-middle">
-                <h1 class="font-semibold">Add new anime to the database</h1>
+                <h1 class="font-semibold">Create a review about the anime you've watched!</h1>
             </div>
         </div>
 
@@ -19,34 +20,16 @@
                 <div class="flex flex-col items-center mt-2">
                     <div
                         class="w-60 h-72 mb-2 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:shadow-emerald-400">
-                        <img id='preview_img' class="w-full h-full object-cover"
-                             src="{{asset('images/no-image-2.png')}}" alt="Current profile photo"/>
+                        <img class="w-full h-full object-cover"
+                             src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"/>
                     </div>
 
                     <input
                         type="file"
                         name="image"
-                        onchange="loadFile(event)"
                         class="w-60 mt-6 text-sm text-blue-700 border border-blue-100 rounded-2xl cursor-pointer bg-blue-50 hover:bg-emerald-50 hover:text-emerald-400">
 
                 </div>
-
-                <script>
-                    let loadFile = function (event) {
-
-                        let input = event.target;
-                        let file = input.files[0];
-                        let type = file.type;
-
-                        let output = document.getElementById('preview_img');
-
-
-                        output.src = URL.createObjectURL(event.target.files[0]);
-                        output.onload = function () {
-                            URL.revokeObjectURL(output.src) // free memory
-                        }
-                    };
-                </script>
 
                 @error('image')
                 <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -61,7 +44,7 @@
                     <label for="title" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Title</label>
                     <input type="text" name="title" id="title"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           placeholder="Frieren Beyond Journey's End" value="{{old('title')}}">
+                           placeholder="Frieren Beyond Journey's End" value="{{$anime->title}}">
 
                     @error('title')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>

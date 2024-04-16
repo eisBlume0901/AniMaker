@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index'])->name('index');
 Route::get('/anime/create', [AnimeController::class, 'create'])->name('create_anime');
 Route::get('/anime/{specificAnime}', [HomePageController::class, 'show'])->name('show');
-Route::post('/anime', [AnimeController::class, 'store'])->name('store_anime');
+Route::post('/anime/store', [AnimeController::class, 'store'])->name('store_anime');
 Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit'])->name('edit');
 Route::put('/anime/{specificAnime}', [AnimeController::class, 'update'])->name('update');
 Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy'])->name('destroy');
@@ -29,5 +29,10 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-// For testing purposes
+Route::get('/users/anime/list', [UserController::class, 'showAnimeList'])->name('user_anime_list');
+// Route for user review forms
+Route::get('/anime/{specificAnime}/review', [UserController::class, 'createReview'])->name('create_review');
+Route::post('/anime/{specificAnime}/review/store', [UserController::class, 'storeReview'])->name('store_review');
+
+// For testing purposes for displaying lists of anime in tabular format
 Route::get('/animes/manage', [HomePageController::class, 'manageAnimes'])->name('manage_anime');
