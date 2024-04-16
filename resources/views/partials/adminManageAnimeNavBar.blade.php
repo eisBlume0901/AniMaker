@@ -6,7 +6,7 @@
         <div class="flex flex-row gap-x-20">
             <a href="/anime/create" target="_blank" class="hover:text-emerald-400">Create Anime</a>
             {{--            Still have to put the route and its controller--}}
-            <a href="/anime/list" class="hover:text-emerald-400">Manage Animes</a>
+            <a href="/animes/manage" class="hover:text-emerald-400">Manage Animes</a>
         </div>
 
     </div>

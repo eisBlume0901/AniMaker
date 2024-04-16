@@ -38,8 +38,6 @@
                     </div>
                 </div>
 {{--                    Admin is the only one who should access these buttons--}}
-
-
                 <div class="flex flex-col text-blue-700 text-md mt-6">
 
                     <div class="grid sm:grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-x-28">
@@ -98,7 +96,7 @@
                     </div>
 
                 </div>
-                <p class="text-blue-700 mt-8 text-justify mr-6">
+                <p class="text-blue-700 mt-8 text-justify mR-6 ml-2">
                     {{$anime->description}}
                 </p>
             </div>

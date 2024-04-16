@@ -2,6 +2,7 @@
 
 @section('title', 'Edit Anime')
 @section('content')
+    @include('partials.adminManageAnimeNavBar')
     <form action="/anime/{{$anime->id}}" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-3xl mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
@@ -20,7 +21,8 @@
                 <div class="flex flex-col items-center mt-2">
                     <div class="w-60 h-72 mb-2 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:shadow-emerald-400">
                         <img id='preview_img' class="w-full h-full object-cover"
-                             src="{{asset('images/no-image-2.png')}}" alt="Current profile photo" />
+                             src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}"
+                             alt="Current profile photo" />
                     </div>
 
                     <input
@@ -106,7 +108,7 @@
                                 </svg>
                             </div>
                             <input datepicker datepicker-autohide type="text" id="start_aired_date" name="start_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{$anime->start_aired_date}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse($anime->start_aired_date)->format('m/d/Y') }}"/>
 
                             @error('start_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -126,7 +128,7 @@
                                 </svg>
                             </div>
                             <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date" class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{$anime->end_aired_date}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse($anime->end_aired_date)->format('m/d/Y') }}"/>
 
                             @error('end_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>

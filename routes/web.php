@@ -30,4 +30,4 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate'])->nam
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // For testing purposes
-Route::get('/manage/anime', [HomePageController::class, 'manageAnimes'])->name('manage_anime');
+Route::get('/animes/manage', [HomePageController::class, 'manageAnimes'])->name('manage_anime');

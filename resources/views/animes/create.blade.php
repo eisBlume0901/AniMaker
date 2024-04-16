@@ -109,7 +109,7 @@
                             <input datepicker datepicker-autohide type="text" id="start_aired_date"
                                    name="start_aired_date"
                                    class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{old('start_aired_date')}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse(old('start_aired_date'))->format('m/d/Y') }}" />
 
                             @error('start_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -132,7 +132,7 @@
                             </div>
                             <input datepicker datepicker-autohide type="text" id="end_aired_date" name="end_aired_date"
                                    class="ps-10 bg-blue-50 block w-full px-4 py-2 mt-2 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                                   placeholder="mm/dd/yyyy" value="{{old('end_aired_date')}}"/>
+                                   placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse(old('end_aired_date'))->format('m/d/Y') }}" />
 
                             @error('end_aired_date')
                             <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>

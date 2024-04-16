@@ -1,46 +1,71 @@
 @foreach($animes as $anime)
-<div class="mx-20 py-5 px-10">
+<div class="mx-20 mt-2 py-2 px-10 lg:max-w-screen-3xl md:max-w-screen-2xl sm:max-w-screen-sm">
 
-    <div class="flex flex-row items-center mb-10 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
-        <div class="pl-10">
-            <img alt="" class="relative flex max-w-40 rounded-2xl hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150" src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}">
+    <div class="flex flex-col lg:flex-row items-center p-5 mb-10 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
+
+        <div class="px-10 py-2 lg:my-0 mb-4">
+            <div class="rounded-2xl overflow-hidden w-44 h-72 shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+                <img alt="{{$anime->title}} image" class="w-full h-full object-cover" src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}">
+            </div>
         </div>
-        <div class="flex flex-col p-10">
-            <div class="flex flex-row">
-                <span class="font-bold text-2xl mr-10">
+
+        <div class="flex flex-col pr-10">
+            <div class="flex flex-row gap-x-10">
+                <span class="font-bold text-2xl">
                     {{$anime->title}}
                 </span>
-                <button class="inline-flex items-center p-2 text-xl font-medium text-center text-white bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 45.807 45.807" xml:space="preserve">
-                            <g>
-                                <path style="fill:#ffffff;" d="M45.256,8.203l-7.651-7.652C37.252,0.198,36.773,0,36.274,0c-0.5,0-0.978,0.198-1.331,0.551   L0.55,34.943C0.189,35.304-0.01,35.797,0,36.308l0.136,7.516c0.018,1.012,0.835,1.829,1.848,1.848l7.515,0.135   c0.011,0,0.023,0,0.034,0c0.499,0,0.978-0.198,1.331-0.552l34.393-34.391C45.99,10.129,45.99,8.938,45.256,8.203z M31.626,19.172   l-4.991-4.991l2.237-2.236l4.99,4.99L31.626,19.172z M14.139,36.657l-4.99-4.989l14.826-14.826l4.99,4.99L14.139,36.657z    M8.767,42.029l-4.901-0.088L3.777,37.04l2.711-2.712l4.99,4.99L8.767,42.029z M36.524,14.273l-4.991-4.99l4.741-4.741l4.99,4.991   L36.524,14.273z"/>
-                            </g>
+                <div class="grid grid-cols-2 gap-x-2">
+                    <a href="/anime/{{$anime->id}}/edit">
+                        <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                             </svg>
-                </button>
-                <button class="inline-flex items-center mx-2 p-2 text-xl font-medium text-center text-white bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-blue-700 shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" version="1.1" id="Capa_1" width="20px" height="20px" viewBox="0 0 482.428 482.429" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098    c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117    h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828    C436.274,82.527,411.551,57.799,381.163,57.799z M241.214,26.139c19.037,0,34.927,13.645,38.443,31.66h-76.879    C206.293,39.783,222.184,26.139,241.214,26.139z M375.305,427.312c0,15.978-13,28.979-28.973,28.979H136.096    c-15.973,0-28.973-13.002-28.973-28.979V170.861h268.182V427.312z M410.135,115.744c0,15.978-13,28.979-28.973,28.979H101.266    c-15.973,0-28.973-13.001-28.973-28.979v-2.828c0-15.978,13-28.979,28.973-28.979h279.897c15.973,0,28.973,13.001,28.973,28.979    V115.744z"/>
-                                    <path d="M171.144,422.863c7.218,0,13.069-5.853,13.069-13.068V262.641c0-7.216-5.852-13.07-13.069-13.07    c-7.217,0-13.069,5.854-13.069,13.07v147.154C158.074,417.012,163.926,422.863,171.144,422.863z"/>
-                                    <path d="M241.214,422.863c7.218,0,13.07-5.853,13.07-13.068V262.641c0-7.216-5.854-13.07-13.07-13.07    c-7.217,0-13.069,5.854-13.069,13.07v147.154C228.145,417.012,233.996,422.863,241.214,422.863z"/>
-                                    <path d="M311.284,422.863c7.217,0,13.068-5.853,13.068-13.068V262.641c0-7.216-5.852-13.07-13.068-13.07    c-7.219,0-13.07,5.854-13.07,13.07v147.154C298.213,417.012,304.067,422.863,311.284,422.863z"/>
-                                </g>
-                            </g>
+                        </button>
+                    </a>
+                    <form action="/anime/{{$anime->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        {{--                            Type of button should be submit because it is a form--}}
+                        <button id="delete-button" type="submit" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                             </svg>
-                </button>
+                        </button>
+                    </form>
+                </div>
+
             </div>
-            <div class="flex flex-row">
-                <span class="text-white py-1.5 px-3 bg-blue-700 rounded-full shadow-md hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">Genre</span>
+            <div class="flex flex-row mt-2 -mx-1">
+                @foreach($anime->genres as $genre)
+                    <span class="text-white py-0.5 px-2.5 bg-blue-700 rounded-full mx-1 text-sm">
+                        {{$genre->genre}}
+                    </span>
+                @endforeach
             </div>
-            <div class="flex flex-row">
-                <span class="m-2">{{$anime->episodes}} Episodes</span>
-                <span class="m-2">Studio {{$anime->studio}}</span>
+            <div class="flex flex-row -mx-1">
+                <span class="m-2 text-sm">{{$anime->episodes}} Episodes</span>
+                <span class="m-2 text-sm">Studio {{$anime->studio}}</span>
+                @php
+                    $date = date_create_from_format('Y-m-d', $anime->start_aired_date);
+                    $formattedStartDate = $date->format('M d, Y');
+                @endphp
+                <span class="m-2 text-sm">Released on
+                    {{$formattedStartDate}}
+                </span>
+
+                @php
+                    $date = date_create_from_format('Y-m-d', $anime->end_aired_date);
+                    $formattedEndDate = $date->format('M d, Y');
+                @endphp
+                <span class="m-2 text-sm">Will End on
+                    {{$formattedEndDate}}
+                </span>
             </div>
-            <div class="my-2 text-sm">
+            <div class="m-1 text-sm">
                 {{$anime->description}}
             </div>
         </div>
+
     </div>
 
 </div>
