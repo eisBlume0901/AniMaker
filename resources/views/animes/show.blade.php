@@ -1,5 +1,6 @@
 @extends('layout')
 
+@section('title', 'Anime Details')
 @section('content')
     @include('partials.animeNavBar')
     <div class="anime-info border-b border-blue-700">

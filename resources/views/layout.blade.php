@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Noto+Sans+Pau+Cin+Hau&display=swap" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <title>AniMaKer</title>
+    <title>@yield('title')</title>
     @livewireStyles
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>

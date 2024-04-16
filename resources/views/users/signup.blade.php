@@ -1,5 +1,6 @@
 @extends('layout')
 
+@section('title', 'Sign Up Page')
 @section('content')
     <form action="/users" method="POST" enctype="multipart/form-data"
           class="m-5 p-10 w-full max-w-xl mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">

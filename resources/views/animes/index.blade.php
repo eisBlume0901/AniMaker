@@ -1,5 +1,6 @@
 @extends('layout')
 
+@section('title', 'Home Page')
 @section('content')
     @include('partials.animeNavBar')
     <div class="md:ml-16 md:mr-16 p-5">
