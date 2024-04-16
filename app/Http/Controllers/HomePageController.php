@@ -27,4 +27,15 @@ class HomePageController extends Controller
             ]);
     }
 
+    // For testing purposes
+    public function manageAnimes(): View
+    {
+        return view('admin/manage-animes',
+            [
+                'animes' => Anime::latest()->simplePaginate(5),
+                'genres' => Genre::all()
+            ]
+        );
+    }
+
 }

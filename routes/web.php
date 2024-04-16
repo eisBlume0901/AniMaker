@@ -16,16 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomePageController::class, 'index']);
-Route::get('anime/create', [AnimeController::class, 'create']);
-Route::get('/anime/{specificAnime}', [HomePageController::class, 'show']);
-Route::post('/anime', [AnimeController::class, 'store']);
-Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit']);
-Route::put('/anime/{specificAnime}', [AnimeController::class, 'update']);
-Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy']);
-Route::get('/signup', [UserController::class, 'create']);
-Route::post('/users', [UserController::class, 'store']);
-Route::get('/login', [UserController::class, 'login']);
-Route::post('/users/authenticate', [UserController::class, 'authenticate']);
-Route::get('/logout', [UserController::class, 'logout']);
+Route::get('/', [HomePageController::class, 'index'])->name('index');
+Route::get('/anime/create', [AnimeController::class, 'create'])->name('create_anime');
+Route::get('/anime/{specificAnime}', [HomePageController::class, 'show'])->name('show');
+Route::post('/anime', [AnimeController::class, 'store'])->name('store_anime');
+Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit'])->name('edit');
+Route::put('/anime/{specificAnime}', [AnimeController::class, 'update'])->name('update');
+Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy'])->name('destroy');
+Route::get('/signup', [UserController::class, 'create'])->name('create_user');
+Route::post('/users', [UserController::class, 'store'])->name('store_user');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+// For testing purposes
+Route::get('/manage/anime', [HomePageController::class, 'manageAnimes'])->name('manage_anime');

@@ -13,6 +13,8 @@
                     <div>
                         <h2 class="text-4xl font-semibold mt-3 sm:mt-3 md:mt-3 lg:mt-0">{{$anime->title}}</h2>
                     </div>
+
+{{--                    Admin is the only one who should access these buttons--}}
                     <div class="buttons flex flex-row justify-end space-x-2">
                         <a href="/anime/{{$anime->id}}/edit">
                             <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2.5 text-center inline-flex items-center me-2">
@@ -35,6 +37,8 @@
 
                     </div>
                 </div>
+{{--                    Admin is the only one who should access these buttons--}}
+
 
                 <div class="flex flex-col text-blue-700 text-md mt-6">
 
