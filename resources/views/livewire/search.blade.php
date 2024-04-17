@@ -4,7 +4,7 @@
             id="search-bar"
             wire:model.live="search"
             type="text"
-            class="text-md text-blue-700 rounded-full w-48 px-2 pl-4 py-1 focus:outline-none focus:shadow-outline" placeholder="Search Anime"
+            class="text-md text-blue-700 rounded-full w-48 px-2 pl-4 py-1 sm:gap-y-1.5 focus:outline-none focus:shadow-outline" placeholder="Search Anime"
 
         >
     </label>

@@ -27,6 +27,7 @@
                         id="image"
                         name="image"
                         onchange="loadFile(event)"
+                        value="{{old('image')}}"
                         class="w-60 mt-6 text-sm text-blue-700 border border-blue-100 rounded-2xl cursor-pointer bg-blue-50 hover:bg-emerald-50 hover:text-emerald-400" >
 
                 </div>

@@ -3,7 +3,7 @@
 
         @livewire('search')
 
-        <div class="flex flex-row gap-x-20">
+        <div class="flex md:flex-row sm:flex-col gap-x-20">
             <a href="/anime/create" target="_blank" class="hover:text-emerald-400">Create Anime</a>
             {{--            Still have to put the route and its controller--}}
             <a href="/animes/manage" class="hover:text-emerald-400">Manage Animes</a>

@@ -1,10 +1,10 @@
 <nav class="bg-blue-700 text-white">
-    <div class="max-w-screen-3xl flex flex-wrap items-center justify-between mx-auto px-20 py-4">
-        <div class="flex flex-row gap-x-20">
+    <div class="max-w-screen-3xl flex flex-row flex-wrap items-center justify-between mx-auto px-20 py-4">
+        <div class="flex md:flex-row gap-x-20 sm:flex-col">
 
             @livewire('search')
-            
-            <button id="genre-button" class="hover:text-emerald-400 hover:border-b-emerald-400 px-2 -ml-8">Genre</button>
+
+            <button id="genre-button" class="hover:text-emerald-400 hover:border-b-emerald-400 px-2 -ml-8 sm:my-0.5">Genre</button>
             <div id="genre-dropdown" class="absolute mt-10 ml-60 z-10 w-80 rounded-lg bg-white shadow-lg shadow-blue-700 hover:shadow-emerald-400 ring-1 ring-black ring-opacity-5 focus:outline-none hidden p-2" tabindex="-1">
                 <div class="flex flex-wrap" id="genre-entry">
                     @foreach($genres as $genreName)
@@ -29,7 +29,7 @@
             </script>
 
         </div>
-        <div class="flex flex-row gap-x-20">
+        <div class="flex md:flex-row gap-x-20 sm:flex-col sm:gap-y-2 sm:content-center">
 {{--            Still have to put the route and its controller--}}
             <a href="/animes/toprated" class="hover:text-emerald-400">Top Rated</a>
             <a href="/users/mylist" class="hover:text-emerald-400">My List</a>

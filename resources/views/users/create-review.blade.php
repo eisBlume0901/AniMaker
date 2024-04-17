@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="flex flex-col w-full">
+            <div class="flex flex-col w-full mt-2">
 
                 <div class="mb-6">
                     <a href="/anime/{{$anime->id}}">
@@ -54,14 +54,17 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="studio" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
-                    <input type="text" name="studio" id="studio"
-                           class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           placeholder="Madhouse" value="{{old('studio')}}">
+                    <label for="watch_status" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
 
-                    @error('studio')
-                    <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
-                    @enderror
+                    <select id="watch_status" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
+                        <option selected>Choose your anime's watch status</option>
+                        <option value="watching">Watching</option>
+                        <option value="completed">Completed</option>
+                        <option value="on_hold">On Hold</option>
+                        <option value="dropped">Dropped</option>
+                        <option value="plan_to_watch">Plan to Watch</option>
+                        <option value="re_watched">Re-watched</option>
+                    </select>
                 </div>
 
                 <div class="mb-6">
@@ -69,19 +72,19 @@
                     <ul class="items-center w-full text-md font-medium text-blue-700 bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 sm:flex">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-license" type="radio" value="recommended" name="review_status" class="w-4 h-4 text-blue-600 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                <input id="horizontal-list-radio-license" type="radio" value="recommended" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
                                 <label for="horizontal-list-radio-license" class="w-full py-3 ms-2">Recommended</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-id" type="radio" value="not_recommended" name="review_status" class="w-4 h-4 text-blue-600 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                <input id="horizontal-list-radio-id" type="radio" value="not_recommended" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
                                 <label for="horizontal-list-radio-id" class="w-full py-3 ms-2">Not Recommended</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-military" type="radio" value="mixed_feelings" name="review_status" class="w-4 h-4 text-blue-600 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                <input id="horizontal-list-radio-military" type="radio" value="mixed_feelings" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
                                 <label for="horizontal-list-radio-military" class="w-full py-3 ms-2">Mixed Feelings</label>
                             </div>
                         </li>
