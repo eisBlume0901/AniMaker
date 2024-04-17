@@ -96,7 +96,7 @@
                     </div>
 
                 </div>
-                <p class="text-blue-700 mt-8 text-justify mR-6 ml-2">
+                <p class="text-blue-700 mt-8 text-justify mr-6 l-2">
                     {{$anime->description}}
                 </p>
             </div>
