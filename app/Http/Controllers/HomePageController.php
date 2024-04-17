@@ -27,6 +27,11 @@ class HomePageController extends Controller
             ]);
     }
 
+    public function fallback(): View
+    {
+        return view('fallback');
+    }
+
     // For testing purposes
     public function manageAnimes(): View
     {

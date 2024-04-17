@@ -28,6 +28,7 @@ Route::post('/users', [UserController::class, 'store'])->name('store_user');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::fallback([HomePageController::class, 'fallback'])->name('fallback');
 
 Route::get('/users/anime/list', [UserController::class, 'showAnimeList'])->name('user_anime_list');
 // Route for user review forms
