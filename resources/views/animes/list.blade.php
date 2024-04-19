@@ -4,7 +4,7 @@
     <div class="flex flex-col lg:flex-row items-center p-5 mb-8 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         <div class="px-5 py-2 lg:my-0 mb-4">
-            <div class="rounded-2xl overflow-hidden w-48 h-80 shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+            <div class="rounded-2xl overflow-hidden w-48 h-80 sm:w-32 sm:h-40 md:w-48 md:h-80 lg:w-48 lg:h-80 shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
                 <img alt="{{$anime->title}} image" class="w-full h-full object-cover" src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}">
             </div>
         </div>

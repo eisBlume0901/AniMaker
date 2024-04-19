@@ -32,6 +32,15 @@ class HomePageController extends Controller
         return view('fallback');
     }
 
+    public function showTopAnimes(): View
+    {
+        return view('animes/top-rated',
+            [
+                'animes' => Anime::latest()->simplePaginate(10),
+                'genres' => Genre::all(),
+            ]);
+    }
+
     // For testing purposes
     public function manageAnimes(): View
     {
@@ -42,5 +51,4 @@ class HomePageController extends Controller
             ]
         );
     }
-
 }

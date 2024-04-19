@@ -23,7 +23,7 @@
         <div class="flex flex-col text-blue-700 text-center">
             <h1 class="my-4 text-4xl font-bold">404!</h1>
             <p class="my-4 text-lg">Oops! The page you are looking for could not be found.</p>
-            <a href="/" class="mt-4 text-lg inline-block px-2 py-2 text-blue-700 bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50"> Go back to Home </a>
+            <a href="/" class="mt-4 text-lg inline-block px-2 py-2 text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl p-2.5 text-center items-center me-2"> Go back to Home </a>
         </div>
     </div>
 </div>
