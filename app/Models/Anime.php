@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @method static create(array $formFields)
@@ -23,7 +24,7 @@ class Anime extends Model
         'start_aired_date',
         'end_aired_date'
     ];
-    public function genres()
+    public function genres(): BelongsToMany
     {
         return $this->belongsToMany(Genre::class, 'table_anime_genres', 'anime_id', 'genre_id')->withTimestamps();
         /* belongsToMany means that the relationship is many-to-many.
@@ -34,7 +35,7 @@ class Anime extends Model
          * the fourth argument is the foreign key of the model.
          */
     }
-    public function scopeFilter($query, $genre)
+    public function scopeFilter($query, $genre): object
     {
         return $query->when($genre, function ($query) use ($genre) {
             // This is a conditional statement provided by Laravel's query builder
@@ -59,18 +60,4 @@ class Anime extends Model
          * WHERE table_genres.genre = 'Adventure';
          */
     }
-
-
-
-
-//    public function scopeSearch($query, $search)
-//    {
-//        return $query->where('title', 'like', '%' . $search . '%')
-//            ->orWhere('description', 'like', '%' . $search . '%');
-//
-//        /*
-//         * SQL equivalent
-//         * SELECT * FROM table_animes WHERE title like '%Frieren%' or description like '%Elf%';
-//         */
-//    }
 }

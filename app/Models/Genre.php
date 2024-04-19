@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Genre extends Model
 {
@@ -13,7 +14,7 @@ class Genre extends Model
     protected $fillable = ['genre'];
     // This fillable property is used to allow mass assignment of the genre column. In layman's term it allows you to insert data into the genre column.
 
-    public function animes()
+    public function animes(): BelongsToMany
     {
         return $this->belongsToMany(Anime::class, 'table_anime_genres', 'genre_id', 'anime_id')->withTimestamps();
         /* belongsToMany means that the relationship is many-to-many.
