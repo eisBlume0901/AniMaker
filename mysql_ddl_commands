@@ -6,6 +6,7 @@ FLUSH PRIVILEGES;
 
 CREATE DATABASE IF NOT EXISTS `aniMaKer_db`;
 
+// Testing for committing
 /*
 update .env file after executing the above commands
 DB_DATABASE = aniMaKer_db
