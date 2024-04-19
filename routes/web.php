@@ -37,5 +37,6 @@ Route::get('/users/anime/list', [UserController::class, 'showAnimeList'])->name(
 Route::get('/anime/{specificAnime}/review', [UserController::class, 'createReview'])->name('create_review');
 Route::post('/anime/{specificAnime}/review/store', [UserController::class, 'storeReview'])->name('store_review');
 
-// For testing purposes for displaying lists of anime in tabular format
+// For testing purposes for displaying lists of anime in tabular format, the controller should be either a User or Admin controller
 Route::get('/animes/manage', [HomePageController::class, 'manageAnimes'])->name('manage_anime');
+Route::get('/users/manage', [HomePageController::class,'manageUsers'])->name('manage_users');
