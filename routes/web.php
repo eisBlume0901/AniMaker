@@ -40,3 +40,4 @@ Route::post('/anime/{specificAnime}/review/store', [UserController::class, 'stor
 // For testing purposes for displaying lists of anime in tabular format, the controller should be either a User or Admin controller
 Route::get('/animes/manage', [HomePageController::class, 'manageAnimes'])->name('manage_anime');
 Route::get('/users/manage', [HomePageController::class,'manageUsers'])->name('manage_users');
+Route::get('/user/{specificUser}/edit', [HomePageController::class, 'edit'])->name('edit_user');

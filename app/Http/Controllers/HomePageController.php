@@ -61,4 +61,14 @@ class HomePageController extends Controller
 
     }
 
+    public function edit(User $specificUser): View
+    {
+        return view('admin/edit-user',
+            [
+                'user' => $specificUser
+            ]);
+    }
+
+
+
 }
