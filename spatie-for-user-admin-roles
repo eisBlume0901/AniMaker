@@ -1,0 +1,32 @@
+https://spatie.be/docs/laravel-permission/v6/installation-laravel
+Tutorial that has worked by Code With Tony on YouTube:
+https://youtu.be/28qzvHSHBNs?list=PL6tf8fRbavl3xuFIe4_i3TB4PZbtbx3Js
+
+Step 1: Install the package via composer (purpose: to install the package)
+Via terminal:
+ composer require spatie/laravel-permission
+
+Step 2: Register the service provider (purpose: to register the package)
+Via config/app.php file
+
+'providers' => [
+    // ...
+    Spatie\Permission\PermissionServiceProvider::class,
+];
+
+Step 3: Publish the migration file (purpose: create tables in relation to roles and permissions)
+Via terminal:
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+Step 4: Run the migrations (purpose: create tables in relation to roles and permissions)
+Via terminal:
+ php artisan optimize:clear
+ php artisan config:clear
+
+Step 5: Run the migrations (purpose: create tables in relation to roles and permissions)
+Via terminal:
+ php artisan migrate
+
+Step 6: Add the HasRoles trait to your User model (purpose: to use the package)
+Via App\User.php file
+ use HasRoles;

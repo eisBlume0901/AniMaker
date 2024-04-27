@@ -21,7 +21,7 @@
         </a>
         <div class="flex items-center space-x-6 rtl:space-x-reverse">
 
-            @auth
+            @role('user')
 
                 <div class="flex justify-center items-center">
                     <div x-data="{ open: false }" class="z-10 w-64 flex justify-center items-center">
@@ -52,7 +52,10 @@
                                         </a>
                                     </li>
 {{--                                    For Admin Access Only--}}
-                                    <li class="font-medium">
+
+                                    @role('admin')
+
+c                                    <li class="font-medium">
                                         <a href="/animes/manage" class="flex hover:text-emerald-400">
                                             <div class="mr-3">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -73,6 +76,9 @@
                                             Manage Users
                                         </a>
                                     </li>
+
+                                    @endrole
+
 {{--                                    For Admin Access Only--}}
 
                                     <hr class="border-b-blue-700">
@@ -106,7 +112,7 @@
                     Login
                 </span>
             </a>
-            @endauth
+            @endrole
         </div>
 
     </div>

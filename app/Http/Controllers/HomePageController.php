@@ -11,7 +11,6 @@ class HomePageController extends Controller
 {
     public function index(): View
     {
-
         return view('animes/index',
             [
                 'animes' => Anime::latest()->filter(request(['genre']))->simplePaginate(10),
@@ -45,6 +44,8 @@ class HomePageController extends Controller
     // For testing purposes, have to move in Admin Controller
     public function manageAnimes(): View
     {
+        // Authenticated users can only access this page, so we need to add middleware
+
         return view('admin/manage-animes',
             [
                 'animes' => Anime::latest()->simplePaginate(10),

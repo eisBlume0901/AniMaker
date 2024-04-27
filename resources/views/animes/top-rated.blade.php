@@ -5,7 +5,7 @@
 
     @foreach($animes as $anime)
         <div class="mx-auto my-4 py-2 px-10 lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm overflow-hidden">
-            <div class="flex md:flex-row lg:flex-row items-center p-3.5 my-2 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
+            <div class="flex flex-col sm:flex-row md:flex-row lg:flex-row items-center p-3.5 my-2 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
                 <div class="text-3xl text-blue-700 font-bold">
                     {{--                Has to change to anime ranking--}}
                     {{$loop->iteration}}
@@ -41,7 +41,7 @@
                         @endforeach
                     </div>
 
-                    <div class="flex flex-row my-1.5 -mx-1">
+                    <div class="flex flex-col sm:flex-row md:flex-row lg:flex-row my-1.5 -mx-1">
                         <span class="m-2 text-sm">{{$anime->episodes}} Episodes</span>
                         <span class="m-2 text-sm">Studio {{$anime->studio}}</span>
                         @php

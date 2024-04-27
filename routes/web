@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Old routes that are not organized by controllers
+
 Route::get('/', [HomePageController::class, 'index'])->name('index');
-Route::get('/anime/create', [AnimeController::class, 'create'])->name('create_anime')->middleware(['auth', 'role:admin']);
+Route::get('/anime/create', [AnimeController::class, 'create'])->name('create_anime');
 Route::get('/anime/{specificAnime}', [HomePageController::class, 'show'])->name('show');
-Route::post('/anime/store', [AnimeController::class, 'store'])->name('store_anime')->middleware(['auth', 'role:admin']);
-Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit'])->name('edit')->middleware(['auth', 'role:admin']);
-Route::put('/anime/{specificAnime}', [AnimeController::class, 'update'])->name('update')->middleware(['auth', 'role:admin']);
-Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy'])->name('destroy')->middleware(['auth', 'role:admin']);
+Route::post('/anime/store', [AnimeController::class, 'store'])->name('store_anime');
+Route::get('/anime/{specificAnime}/edit', [AnimeController::class, 'edit'])->name('edit');
+Route::put('/anime/{specificAnime}', [AnimeController::class, 'update'])->name('update');
+Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy'])->name('destroy');
 Route::get('/signup', [UserController::class, 'create'])->name('create_user');
 Route::post('/users', [UserController::class, 'store'])->name('store_user');
 Route::get('/login', [UserController::class, 'login'])->name('login');
