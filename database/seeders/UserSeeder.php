@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -21,10 +22,13 @@ class UserSeeder extends Seeder
             'password' => bcrypt('frieren1019'),
         ]);
         $frierenUser->assignRole('user');
+        Permission::create(['name' => 'manage user animes']);
+        $frierenUser->givePermissionTo('manage user animes');
 
 
         User::factory()->count(10)->create()->each(function ($user) {
             $user->assignRole('user');
+            $user->givePermissionTo('manage user animes');
         });
     }
 }

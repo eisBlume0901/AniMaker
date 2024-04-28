@@ -30,3 +30,24 @@ Via terminal:
 Step 6: Add the HasRoles trait to your User model (purpose: to use the package)
 Via App\User.php file
  use HasRoles;
+
+
+For errors:
+Tag class [role] does not exist
+
+Under app/Middleware/Kernal.php
+Add the following:
+
+/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+    'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+];

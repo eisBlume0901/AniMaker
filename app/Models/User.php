@@ -13,6 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @method static create(array $formFields)
  * @method static where(string $string, mixed $email)
+ * @method static latest()
  */
 class User extends Authenticatable
 {

@@ -40,36 +40,4 @@ class HomePageController extends Controller
                 'genres' => Genre::all(),
             ]);
     }
-
-    // For testing purposes, have to move in Admin Controller
-    public function manageAnimes(): View
-    {
-        // Authenticated users can only access this page, so we need to add middleware
-
-        return view('admin/manage-animes',
-            [
-                'animes' => Anime::latest()->simplePaginate(10),
-                'genres' => Genre::all()
-            ]
-        );
-    }
-
-    public function manageUsers(): View {
-        return view('admin/manage-users',
-        [
-            'users' => User::latest()->simplePaginate(10)
-        ]);
-
-    }
-
-    public function edit(User $specificUser): View
-    {
-        return view('admin/edit-user',
-            [
-                'user' => $specificUser
-            ]);
-    }
-
-
-
 }

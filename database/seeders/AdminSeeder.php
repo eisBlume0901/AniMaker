@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class AdminSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $claireAdmin->assignRole('admin');
+        // Can add permissions but not necessary since I already restricted them in the middleware (look at the web.php)
 
         $ishmaelAdmin = User::create([
             'name' => 'Ishmael',
@@ -29,5 +31,7 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $ishmaelAdmin->assignRole('admin');
+
+
     }
 }
