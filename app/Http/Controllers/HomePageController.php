@@ -13,11 +13,12 @@ class HomePageController extends Controller
     {
         return view('animes/index',
             [
-                'animes' => Anime::latest()->filter(request(['genre']))->simplePaginate(10),
+                'animes' => Anime::latest()->filter(request(['genre']))->paginate(10),
                 'genres' => Genre::all()
         ]);
     }
 
+    // Route Model Binding vs findOrFail() sql query 0
     public function show(Anime $animeToBeShown): View
     {
         return view('animes/show',
@@ -25,6 +26,7 @@ class HomePageController extends Controller
                 'anime' => $animeToBeShown,
                 'genres' => Genre::all()
             ]);
+
     }
 
     public function fallback(): View
@@ -36,7 +38,7 @@ class HomePageController extends Controller
     {
         return view('animes/top-rated',
             [
-                'animes' => Anime::latest()->simplePaginate(10),
+                'animes' => Anime::latest()->paginate(10),
                 'genres' => Genre::all(),
             ]);
     }

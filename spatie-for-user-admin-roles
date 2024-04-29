@@ -1,6 +1,8 @@
 https://spatie.be/docs/laravel-permission/v6/installation-laravel
 Tutorial that has worked by Code With Tony on YouTube:
 https://youtu.be/28qzvHSHBNs?list=PL6tf8fRbavl3xuFIe4_i3TB4PZbtbx3Js
+Spatie Blade PHP directives
+https://spatie.be/docs/laravel-permission/v6/basic-usage/blade-directives
 
 Step 1: Install the package via composer (purpose: to install the package)
 Via terminal:

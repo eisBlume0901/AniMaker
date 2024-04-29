@@ -7,7 +7,6 @@ use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class AdminController extends Controller
@@ -17,7 +16,7 @@ class AdminController extends Controller
     {
         return view('admin/manage-animes',
             [
-                'animes' => Anime::latest()->simplePaginate(10),
+                'animes' => Anime::latest()->paginate(10),
                 'genres' => Genre::all()
             ]
         );
@@ -26,11 +25,10 @@ class AdminController extends Controller
     public function manageUsers(): View {
         return view('admin/manage-users',
             [
-                'users' => User::latest()->simplePaginate(10)
+                'users' => User::latest()->paginate(10)
             ]);
 
     }
-
     public function create(): View
     {
         return view('animes/create',

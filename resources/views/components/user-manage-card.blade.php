@@ -16,7 +16,7 @@
 
         <div class="flex flex-row p-0.5 gap-x-1.5 gap-y-1.5">
 
-            @if(Auth::user()->hasRole('admin'))
+            @role('admin')
 
             <a href="{{route('edit_user', ['userToBeEdited' => $specificUser->id])}}">
                 <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
@@ -35,7 +35,7 @@
                 </button>
             </form>
 
-            @endif
+            @endrole
 
         </div>
     </div>

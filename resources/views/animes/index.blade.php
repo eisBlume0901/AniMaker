@@ -24,6 +24,6 @@
         </div>
     </div>
     <div class="mt-5 p-5">
-        {{$animes->render()}}
+        {{$animes->links()}}
     </div>
 @endsection

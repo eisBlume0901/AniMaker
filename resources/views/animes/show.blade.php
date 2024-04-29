@@ -16,7 +16,8 @@
 
 {{--                    Admin is the only one who should access these buttons--}}
 
-                    @if(Auth::user()->hasRole('admin'))
+
+                    @role('admin')
 
                     <div class="buttons flex flex-row justify-end space-x-2">
 
@@ -42,7 +43,7 @@
                         </form>
                     </div>
 
-                    @endif
+                @endrole
 
                 </div>
 {{--                    Admin is the only one who should access these buttons--}}

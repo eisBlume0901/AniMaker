@@ -9,8 +9,9 @@
             @endforeach
         @endif
     </div>
-
-    <div class="mt-5 p-5">
-        {{$users->render()}}
+    <div class="mt-5 p-5 text-blue-700">
+        {{ $users->links() }}
     </div>
+
+
 @endsection

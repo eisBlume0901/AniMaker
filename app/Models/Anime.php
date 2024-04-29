@@ -9,6 +9,7 @@ use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @method static create(array $formFields)
  * @method static where(string $string, string $string1, string $string2)
+ * @method static latest()
  */
 class Anime extends Model
 {

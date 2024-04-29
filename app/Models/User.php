@@ -14,6 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static create(array $formFields)
  * @method static where(string $string, mixed $email)
  * @method static latest()
+ * @method static paginate(int $int)
  */
 class User extends Authenticatable
 {
