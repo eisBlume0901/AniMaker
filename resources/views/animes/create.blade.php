@@ -113,7 +113,7 @@
                                    placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse(old('start_aired_date'))->format('m/d/Y') }}" />
 
                             @error('start_aired_date')
-                            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+                            <p class="text-red-500 text-xs mx-3 my-2">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                    placeholder="mm/dd/yyyy" value="{{ \Carbon\Carbon::parse(old('end_aired_date'))->format('m/d/Y') }}" />
 
                             @error('end_aired_date')
-                            <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+                            <p class="text-red-500 text-xs mx-3 my-2">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>

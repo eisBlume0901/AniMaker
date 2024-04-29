@@ -47,15 +47,15 @@ Route::middleware(['auth'])->group(function () {
 // If the route name is the same, it would have a conflict called Route Collision
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/create/anime', [AnimeController::class, 'create'])->name('create_anime');
-    Route::post('/store/store', [AnimeController::class, 'store'])->name('store_anime');
-    Route::get('/edit/anime/{specificAnime}', [AnimeController::class, 'edit'])->name('edit');
-    Route::put('/anime/{specificAnime}', [AnimeController::class, 'update'])->name('update');
-    Route::delete('/anime/{specificAnime}', [AnimeController::class, 'destroy'])->name('destroy');
+    Route::post('/store/anime', [AnimeController::class, 'store'])->name('store_anime');
+    Route::get('/edit/anime/{animeToBeEdited}', [AnimeController::class, 'edit'])->name('edit_anime');
+    Route::put('/update/anime/{animeToBeUpdated}', [AnimeController::class, 'update'])->name('update_anime');
+    Route::delete('/anime/{animeToBeDestroyed}', [AnimeController::class, 'destroy'])->name('destroy_anime');
 
 
     Route::get('/manage/animes', [AdminController::class, 'manageAnimes'])->name('manage_animes');
     Route::get('/manage/users', [AdminController::class,'manageUsers'])->name('manage_users');
     Route::get('/edit/user/{specificUser}', [AdminController::class, 'edit'])->name('edit_user');
-    // Route::put('/user/{specificUser}', [AdminController::class, 'update'])->name('update_user');
-    // Route::delete('/user/{specificUser}', [AdminController::class, 'destroy'])->name('destroy_user');
+    Route::put('/user/{specificUser}', [AdminController::class, 'update'])->name('update_user');
+    Route::delete('/user/{specificUser}', [AdminController::class, 'destroy'])->name('destroy_user');
 });

@@ -3,7 +3,7 @@
 @section('title', 'Edit Anime')
 @section('content')
     @include('partials.adminManageAnimeNavBar')
-    <form action="/anime/{{$anime->id}}" method="POST" enctype="multipart/form-data"
+    <form action="{{route('update_anime', ['animeToBeUpdated' => $anime->id])}}" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-3xl mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf

@@ -51,22 +51,22 @@ class AnimeController extends Controller
         return redirect('/')->with('success', 'Anime created successfully!');
     }
 
-    public function edit(Anime $specificAnime): View
+    public function edit(Anime $animeToBeEdited): View
     {
         return view('animes.edit',
             [
-                'anime' => $specificAnime,
+                'anime' => $animeToBeEdited,
                 'genres' => Genre::all()
             ]);
     }
 
-    public function update(Request $request, Anime $specificAnime): RedirectResponse
+    public function update(Request $request, Anime $animeToBeUpdated): RedirectResponse
     {
         $formFields = $request->validate([
             'title' => 'required',
             'episodes' => ['required', 'integer', 'min:1'],
             'studio' => 'required',
-            'description' => ['required', Rule::unique('table_animes', 'description')->ignore($specificAnime->id)],
+            'description' => ['required', Rule::unique('table_animes', 'description')->ignore($animeToBeUpdated ->id)],
             'start_aired_date' => 'required|date_format:m/d/Y',
             'end_aired_date' => 'required|date_format:m/d/Y',
             'genre_id' => 'required|array',
@@ -79,19 +79,19 @@ class AnimeController extends Controller
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
-        $specificAnime->update($formFields);
+        $animeToBeUpdated->update($formFields);
 
         $genreIds = $request->input('genre_id');
 
-        $specificAnime->genres()->sync($genreIds);
+        $animeToBeUpdated->genres()->sync($genreIds);
 
-        return redirect('/anime/' . $specificAnime->id)->with('success', 'Anime updated successfully!');
+        return redirect('/anime/' . $animeToBeUpdated->id)->with('success', 'Anime updated successfully!');
     }
 
-    public function destroy(Anime $specificAnime): RedirectResponse
+    public function destroy(Anime $animeToBeDestroyed): RedirectResponse
     {
-        $specificAnime->genres()->detach();
-        $specificAnime->delete();
+        $animeToBeDestroyed->genres()->detach();
+        $animeToBeDestroyed->delete();
         return redirect('/')->with('success', 'Anime deleted successfully!');
     }
 }

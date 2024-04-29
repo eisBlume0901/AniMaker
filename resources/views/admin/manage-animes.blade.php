@@ -4,8 +4,7 @@
     @include('partials.adminManageAnimeNavBar')
     @if(count($animes) > 0)
         @foreach($animes as $anime)
-            <x-anime-manage-card :specificAnime="$anime"/>
-        @endforeach
+            <x-anime-manage-card :specificAnime="$anime"/>        @endforeach
     @endif
     <div class="mt-5 p-5">
         {{$animes->render()}}
