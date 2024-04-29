@@ -1,7 +1,7 @@
 @props(['specificAnime'])
 <div class="flex flex-col">
     <div class="flex flex-col">
-        <div class="flex justify-center top-8 relative z-10">
+        <div class="flex justify-end top-8 left-6 relative z-10">
             <a href="">
                 <button id="add-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2.5 text-center inline-flex items-center me-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
