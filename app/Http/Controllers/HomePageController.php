@@ -18,11 +18,11 @@ class HomePageController extends Controller
         ]);
     }
 
-    public function show(Anime $specificAnime): View
+    public function show(Anime $animeToBeShown): View
     {
         return view('animes/show',
             [
-                'anime' => $specificAnime,
+                'anime' => $animeToBeShown,
                 'genres' => Genre::all()
             ]);
     }

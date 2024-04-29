@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomePageController::class, 'index'])->name('index');
 Route::fallback([HomePageController::class, 'fallback'])->name('fallback');
-Route::get('/anime/{specificAnime}', [HomePageController::class, 'show'])->name('show');
+Route::get('/anime/{animeToBeShown}', [HomePageController::class, 'show'])->name('show_anime');
 
 
 Route::get('/signup', [UserController::class, 'create'])->name('create_user');
@@ -50,12 +50,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/store/anime', [AnimeController::class, 'store'])->name('store_anime');
     Route::get('/edit/anime/{animeToBeEdited}', [AnimeController::class, 'edit'])->name('edit_anime');
     Route::put('/update/anime/{animeToBeUpdated}', [AnimeController::class, 'update'])->name('update_anime');
-    Route::delete('/anime/{animeToBeDestroyed}', [AnimeController::class, 'destroy'])->name('destroy_anime');
+    Route::delete('/destroy/anime/{animeToBeDestroyed}', [AnimeController::class, 'destroy'])->name('destroy_anime');
 
 
     Route::get('/manage/animes', [AdminController::class, 'manageAnimes'])->name('manage_animes');
     Route::get('/manage/users', [AdminController::class,'manageUsers'])->name('manage_users');
-    Route::get('/edit/user/{specificUser}', [AdminController::class, 'edit'])->name('edit_user');
-    Route::put('/user/{specificUser}', [AdminController::class, 'update'])->name('update_user');
-    Route::delete('/user/{specificUser}', [AdminController::class, 'destroy'])->name('destroy_user');
+    Route::get('/edit/user/{userToBeEdited}', [AdminController::class, 'edit'])->name('edit_user');
+    Route::put('/update/user/{userToBeUpdated}', [AdminController::class, 'update'])->name('update_user');
+    Route::delete('/destroy/user/{userToBeDestroyed}', [AdminController::class, 'destroy'])->name('destroy_user');
 });

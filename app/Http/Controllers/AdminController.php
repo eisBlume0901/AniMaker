@@ -31,32 +31,57 @@ class AdminController extends Controller
 
     }
 
-    public function edit(User $specificUser): View
-    {
-        return view('admin/edit-user',
-            [
-                'user' => $specificUser
-            ]);
-    }
-
-    public function update(Request $request, User $specificUser): RedirectResponse
-    {
-        $formFields = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'role' => 'required'
-        ]);
-
-        $specificUser->update($formFields);
-
-        return redirect()->route('manage_users')->with('success', 'User updated successfully!');
-    }
-
     public function create(): View
     {
         return view('animes/create',
             [
                 'genres' => Genre::all()
             ]);
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $formFields['password'] = bcrypt($request->password);
+
+        $newUser = User::create($formFields);
+        $newUser->assignRole('user');
+        $newUser->save();
+
+        return redirect()->route('manage_users')->with('success', 'User created successfully!');
+
+    }
+    public function edit(User $userToBeEdited): View
+    {
+        return view('admin/edit-user',
+            [
+                'user' => $userToBeEdited
+            ]);
+    }
+
+    public function update(Request $request, User $userToBeUpdated): RedirectResponse
+    {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        // Not sure if admin can edit how many reviews or animes a user has
+
+        $userToBeUpdated->update($formFields);
+
+        return redirect()->route('manage_users')->with('success', 'User updated successfully!');
+    }
+
+    public function destroy(User $userToBeDestroyed): RedirectResponse
+    {
+        $userToBeDestroyed->delete();
+
+        return redirect()->route('manage_users')->with('success', 'User deleted successfully!');
     }
 }

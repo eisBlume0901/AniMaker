@@ -1,7 +1,7 @@
 @props(['specificAnime'])
 <div class="card mt-8 relative">
     <div class="flex flex-col">
-    <a href="/anime/{{$specificAnime->id}}">
+    <a href="{{route('show_anime', ['animeToBeShown' => $specificAnime->id])}}">
         <img src="{{$specificAnime->image ? asset('storage/' .$specificAnime->image) : asset('images/no-image-1.png')}}"
              alt="{{$specificAnime->title}} image"
              class="w-full rounded-2xl shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Manage Animes')
+@section('title', 'Manage Users')
 @section('content')
     @include('partials.adminManageUserNavBar')
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-screen-xl mx-auto text-md my-6">

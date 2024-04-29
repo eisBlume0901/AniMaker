@@ -3,7 +3,7 @@
 @section('title', 'Edit Anime')
 @section('content')
     @include('partials.adminManageAnimeNavBar')
-    <form action="/user/{{$user->id}}" method="POST" enctype="multipart/form-data"
+    <form action="{{route('update_user', ['userToBeUpdated' => $user->id]) }}" method="POST" enctype="multipart/form-data"
           class="mt-10 w-full max-w-screen-md mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf
@@ -62,9 +62,9 @@
 
                 <div class="mb-6">
                     <label for="name" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Name</label>
-                    <input type="text" name="title" id="name"
+                    <input type="text" name="name" id="name"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           placeholder="Frieren Beyond Journey's End" value="{{$user->name}}">
+                           value="{{$user->name}}">
 
                     @error('name')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -87,7 +87,7 @@
 {{--                    Change the data matching the data--}}
                     <div class="mb-6">
                         <label for="number_of_animes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Number of Animes</label>
-                        <input type="number" name="number_of_animes" id="email"
+                        <input type="number" name="number_of_animes" id="number_of_animes"
                                class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                                value="{{$user->id}}"
                                placeholder="24" >
@@ -113,10 +113,6 @@
 
             </div>
         </div>
-
-
-
-
 
         <div class="mb-6 flex min-w-full justify-center">
             <button class="px-4 py-2 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-2xl hover:bg-emerald-400">
