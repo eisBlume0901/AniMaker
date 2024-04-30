@@ -10,6 +10,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -107,10 +108,10 @@ class UserController extends Controller
 
     public function showAnimeList(): View
     {
+
         return view('users/anime-list',
             [
-                'userAnimes' => auth()->user()->reviews()->get(),
-                'genres' => Genre::all()
+                'userAnimes' => Review::latest('table_user_reviews.created_at')->filter(auth()->user()->id)->get(),                'genres' => Genre::all()
             ]);
     }
 

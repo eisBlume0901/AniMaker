@@ -4,7 +4,7 @@
     @include('partials.animeNavBar')
     @if(count($userAnimes) > 0)
         @foreach($userAnimes  as $anime)
-            <x-user-anime-manage-card :specificAnime="$anime"/>
+            <x-user-anime-manage-card :userAnime="$anime"/>
         @endforeach
     @endif
 
