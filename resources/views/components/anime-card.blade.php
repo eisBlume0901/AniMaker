@@ -24,7 +24,7 @@
     </div>
     <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start">
         <p class="mt-3 font-bold text-blue-700">
-           {{$specificAnime->title}}
+            {{$specificAnime->title}}
         </p>
     </div>
 
@@ -53,7 +53,6 @@
     </div>
 
 </div>
-
 
 
 

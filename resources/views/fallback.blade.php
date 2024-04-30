@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="bg-white text-blue-700 font-display">
-<div class="max-w-screen-2xl min-h-screen flex flex-row items-center justify-center">
+<div class="grid place-items-center h-screen">
     <div class="flex flex-col items-center">
         <div class="overflow-hidden w-96 h-60">
             <img src="{{asset('images/fallback-image.png')}}"
