@@ -4,9 +4,12 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -15,6 +18,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static where(string $string, mixed $email)
  * @method static latest()
  * @method static paginate(int $int)
+ * @method static find(int $int)
+ * @method static findOrfail(int $int)
+ * @method static first()
  */
 class User extends Authenticatable
 {
@@ -52,8 +58,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function animeList(): HasMany
+    public function reviews(): BelongsToMany
     {
-        return $this->hasMany(Anime::class);
+        return $this->belongsToMany(Anime::class, 'table_user_reviews', 'user_id', 'anime_id')->withTimestamps();
     }
 }

@@ -207,5 +207,7 @@ class DatabaseSeeder extends Seeder
         $genresIds6 = Genre::whereIn('id', [2, 4, 6])->pluck('id');
 
         $sasakiAnime->genres()->attach($genresIds6);
+
+        $this->call(UserReviewSeeder::class);
     }
 }

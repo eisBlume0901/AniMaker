@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static create(array $formFields)
  * @method static where(string $string, string $string1, string $string2)
  * @method static latest()
+ * @method static find(int $int)
+ * @method static first()
  */
 class Anime extends Model
 {
@@ -60,5 +63,10 @@ class Anime extends Model
          * JOIN table_genres ON table_anime_genres.genre_id = table_genres.id
          * WHERE table_genres.genre = 'Adventure';
          */
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'table_user_reviews', 'anime_id', 'user_id')->withTimestamps();
     }
 }

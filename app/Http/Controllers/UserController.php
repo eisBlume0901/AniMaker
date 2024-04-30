@@ -80,6 +80,11 @@ class UserController extends Controller
         return redirect('/')->with('success', 'User logout successfully');
     }
 
+//    public function addAnimeToList(Anime $animeToAddInList): RedirectResponse
+//    {
+//
+//    }
+
     // Will be subjected to review if the method will be declared in AnimeController or in UserController
     // Please check the routes once decided to change the controller
     public function createReview(Anime $specificAnime): View
