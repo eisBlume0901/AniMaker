@@ -35,10 +35,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-    Route::get('/users/anime/list', [UserController::class, 'showAnimeList'])->name('user_anime_list');
-
-    Route::get('/anime/{specificAnime}/review', [UserController::class, 'createReview'])->name('create_review');
-    Route::post('/anime/{specificAnime}/review/store', [UserController::class, 'storeReview'])->name('store_review');
+    Route::get('/user/anime/list', [UserController::class, 'showAnimeList'])->name('show_anime_list');
+    Route::get('/store/user/review/anime/{animeToBeReviewed}', [UserController::class, 'storeReview'])->name('store_review');
 // Route::get('/anime/{specificAnime}/review/{specificReview}/edit', [UserController::class, 'editReview'])->name('edit_review');
 // Route::put('/anime/{specificAnime}/review/{specificReview}', [UserController::class, 'updateReview'])->name('update_review');
 // Route::delete('/anime/{specificAnime}/review/{specificReview}', [UserController::class, 'destroyReview'])->name('destroy_review');

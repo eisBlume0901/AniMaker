@@ -2,7 +2,7 @@
 @section('title', 'Create User Review Form')
 @section('content')
     @include('partials.animeNavBar')
-    <form action="/anime/{{$anime->id}}/review/store" method="POST" enctype="multipart/form-data"
+    <form action="{{route('store_review')}}" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-screen-lg mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf

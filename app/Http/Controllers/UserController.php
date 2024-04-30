@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anime;
 use App\Models\Genre;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -42,7 +43,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', 'User created and login successfully');
+        return redirect()->route('index')->with('success', 'User created and login successfully');
     }
 
     public function login(): View
@@ -73,7 +74,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', 'User login successfully');
+        return redirect()->route('index')->with('success', 'User login successfully');
     }
 
     public function logout(Request $request): RedirectResponse
@@ -86,31 +87,31 @@ class UserController extends Controller
         return redirect('/')->with('success', 'User logout successfully');
     }
 
-    public function showAnimeList(): View
+
+    public function storeReview(Anime $animeToBeReviewed): RedirectResponse
     {
-        return view('users.anime-list', [
-            'animes' => Anime::latest()->paginate(10),
-            'genres' => Genre::all()
-        ]);
-    }
-    public function createReview(Anime $specificAnime): View
-    {
-        return view('users.create-review',
-            [
-                'anime' => $specificAnime,
-                'genres' => Genre::all()
-            ]
-        );
-    }
-    public function storeReview(Request $request): RedirectResponse
-    {
-        // Parameter should match on ERD created
-//        $request->validate([
-//            'rating' => ['required', 'integer', 'min:1', 'max:5'],
-//            'review' => ['required', 'min:10'],
-//        ]);
-        return redirect('/')->with('success', 'Review created successfully');
+        $formFields = [
+            'user_id' => auth()->user()->id,
+            'anime_id' => $animeToBeReviewed->id,
+        ];
+
+        if (auth()->user()->reviews()->where('anime_id', $animeToBeReviewed->id)->exists()) {
+            return redirect()->route('show_anime_list')->with('error', 'Anime already added to list');
+        }
+
+        $review = Review::create($formFields);
+        $review->save();
+
+        return redirect()->route('show_anime_list')->with('success', 'Anime added to list successfully');
     }
 
+    public function showAnimeList(): View
+    {
+        return view('users/anime-list',
+            [
+                'userAnimes' => auth()->user()->reviews()->get(),
+                'genres' => Genre::all()
+            ]);
+    }
 
 }
