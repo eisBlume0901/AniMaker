@@ -24,23 +24,18 @@ Route::get('/anime/{animeToBeShown}', [HomePageController::class, 'show'])->name
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate');
 Route::get('animes/top-rated', [HomePageController::class, 'showTopAnimes'])->name('show_top_animes');
 
-// Error Unsupported operand types in '\Illuminate\Routing\RouteRegistrar - \Illuminate\Routing\RouteRegistrar' will cause a PHP 8 TypeError
-// Can be resolved by commenting the api.php middleware to prevent conflict
 Route::middleware('guest')->group(function () {
-    Route::get('/register', [UserController::class, 'create'])->name('register');
+    Route::get('/register', [UserController::class, 'create'])->name('signup');
     Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::post('/users', [UserController::class, 'store'])->name('store_user');
+
 });
 
 // Still not sure if I should put both the role of user and admin in the same middleware
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-
     Route::get('/users/anime/list', [UserController::class, 'showAnimeList'])->name('user_anime_list');
-
-    Route::get('/add/anime/{animeToAddInList}', [UserController::class, 'addAnimeToList'])->name('add_anime_to_list'); // Create a method
-    Route::post('/store/anime/{animeToAddInList}', [UserController::class, 'storeAnimeToList'])->name('store_anime_to_list'); // Create a method
 
     Route::get('/anime/{specificAnime}/review', [UserController::class, 'createReview'])->name('create_review');
     Route::post('/anime/{specificAnime}/review/store', [UserController::class, 'storeReview'])->name('store_review');
@@ -52,6 +47,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 // If the route name is the same, it would have a conflict called Route Collision
 Route::middleware(['auth', 'role:admin'])->group(function () {
+
     Route::get('/create/anime', [AnimeController::class, 'create'])->name('create_anime');
     Route::post('/store/anime', [AnimeController::class, 'store'])->name('store_anime');
     Route::get('/edit/anime/{animeToBeEdited}', [AnimeController::class, 'edit'])->name('edit_anime');
@@ -65,3 +61,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/update/user/{userToBeUpdated}', [AdminController::class, 'update'])->name('update_user');
     Route::delete('/destroy/user/{userToBeDestroyed}', [AdminController::class, 'destroy'])->name('destroy_user');
 });
+
+
+

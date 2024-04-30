@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('claireLovesAnime09'),
             'email_verified_at' => now(),
         ]);
-        $claireAdmin->assignRole('admin');
+        $claireAdmin->assignRole('admin', 'user');
         // Can add permissions but not necessary since I already restricted them in the middleware (look at the web.php)
 
         $ishmaelAdmin = User::create([
@@ -30,7 +30,8 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('iLoveIshmael_07'),
             'email_verified_at' => now(),
         ]);
-        $ishmaelAdmin->assignRole('admin');
+        $ishmaelAdmin->assignRole('admin', 'user');
+
 
 
     }

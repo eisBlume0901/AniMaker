@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\User;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -74,19 +76,23 @@ class UserController extends Controller
         return redirect('/')->with('success', 'User login successfully');
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
         auth()->logout();
+        $session = $request->session();
+        $session->invalidate();
+        $session->regenerateToken();
+
         return redirect('/')->with('success', 'User logout successfully');
     }
 
-//    public function addAnimeToList(Anime $animeToAddInList): RedirectResponse
-//    {
-//
-//    }
-
-    // Will be subjected to review if the method will be declared in AnimeController or in UserController
-    // Please check the routes once decided to change the controller
+    public function showAnimeList(): View
+    {
+        return view('users.anime-list', [
+            'animes' => Anime::latest()->paginate(10),
+            'genres' => Genre::all()
+        ]);
+    }
     public function createReview(Anime $specificAnime): View
     {
         return view('users.create-review',
@@ -96,7 +102,6 @@ class UserController extends Controller
             ]
         );
     }
-
     public function storeReview(Request $request): RedirectResponse
     {
         // Parameter should match on ERD created
@@ -106,4 +111,6 @@ class UserController extends Controller
 //        ]);
         return redirect('/')->with('success', 'Review created successfully');
     }
+
+
 }

@@ -19,12 +19,13 @@
         <a href="/" class="flex items-center space-x-3 trl:space-x-reverse">
             <img src="{{asset('images/AniMaKer_Official_Logo.png')}}" alt="AniMaKer Official Logo" class="max-w-60">
         </a>
+
+        @auth
         <div class="flex items-center space-x-6 rtl:space-x-reverse">
 
-            @auth
 
                 <div class="flex justify-center items-center">
-                    <div x-data="{ open: false }" class="z-10 w-64 flex justify-center items-center">
+                    <div x-data="{ open: false }" class="z-30 w-64 flex justify-center items-center">
                         <div @click="open = !open" class="relative py-3" :class="{'border-white transform transition duration-300 ': open}" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100">
                             <div class="flex justify-center items-center space-x-3 cursor-pointer">
 {{--                                User image--}}
@@ -40,21 +41,21 @@
                                 </div>
 
                             </div>
+
                             <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-60 px-5 py-3 bg-white rounded-lg shadow-md shadow-blue-700 hover:shadow-emerald-400 border mt-5">
                                 <ul class="space-y-3">
-                                    <li class="font-medium">
+{{--                                    <li class="font-medium">--}}
 {{--                                        Still has to put the route and its controller--}}
-                                        <a href="/users/account" class="flex hover:text-emerald-400">
-                                            <div class="mr-3">
-                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                                            </div>
-                                            My Account
-                                        </a>
-                                    </li>
+{{--                                        <a href="/users/account" class="flex hover:text-emerald-400">--}}
+{{--                                            <div class="mr-3">--}}
+{{--                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>--}}
+{{--                                            </div>--}}
+{{--                                            My Account--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
 {{--                                    For Admin Access Only--}}
 
-                                    @if(Auth::user()->hasRole('admin'))
-
+                                    @role('admin')
                                     <li class="font-medium">
 
                                         <a href="{{route('manage_animes')}}" class="flex hover:text-emerald-400">
@@ -81,9 +82,7 @@
                                         </a>
                                     </li>
 
-                                    @endif
-
-{{--                                    For Admin Access Only--}}
+                                    @endrole
 
                                     <hr class="border-b-blue-700">
                                     <li class="font-medium">
@@ -94,28 +93,34 @@
                                             Logout
                                         </a>
                                     </li>
+
                                 </ul>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
             @else
-            <a href="/signup" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-                <span>
-                    Signup
-                </span>
-            </a>
-            <a href="/login" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                </svg>
-                <span>
-                    Login
-                </span>
-            </a>
+                <div class="flex flex-row">
+                    <a href="{{route('signup')}}" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <span>
+                            Signup
+                        </span>
+                    </a>
+                    <a href="{{route('login')}}" class="py-1 px-3 text-white flex flex-row gap-x-0.5 hover:text-emerald-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                        </svg>
+                        <span>
+                            Login
+                        </span>
+                    </a>
+                </div>
+
         </div>
 
         @endauth
