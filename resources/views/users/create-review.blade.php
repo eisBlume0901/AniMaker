@@ -41,9 +41,10 @@
 
             <div class="flex flex-col w-full mt-2">
 
+{{--                Remove min and max values from the input fields--}}
                 <div class="mb-6">
                     <label for="progress" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Progress</label>
-                    <input type="number" name="progress" id="progress" min="0" max="{{$anime->episodes}}"
+                    <input type="number" name="progress" id="progress"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                            value="{{$anime->progress}}"
                            placeholder="24">
@@ -56,7 +57,7 @@
                 <div class="mb-6">
                     <label for="watchStatus" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
                     <select name="watchStatus" id="watchStatus" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
-                        <option selected>Choose your anime's watch status</option>
+                        <option value="null" selected>Choose your anime's watch status</option>
 
                         @if($anime->watchStatus == 'Currently Watching')
                             <option value="Currently Watching" selected>Currently Watching</option>
@@ -98,8 +99,9 @@
                 </div>
 
                 <div class="mb-6">
+
                     <label for="rating" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
-                    <input type="number" name="rating" id="rating" min="1" max="10" step="0.01"
+                    <input type="number" name="rating" id="rating" step="0.01"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                            value="{{$anime->rating}}"
                            placeholder="9.18">

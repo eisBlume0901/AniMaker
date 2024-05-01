@@ -133,11 +133,11 @@ class UserController extends Controller
         $animeId = $animeToBeReviewed->id;
 
         $formFields = $request->validate([
-            'rating' => 'nullable',
-            'reviewStatus' => 'nullable',
-            'watchStatus' => 'nullable',
-            'progress' => 'nullable',
-            'review' => 'nullable',
+            'rating' => ['nullable', 'numeric', 'between:1.00,10.00'],
+            'reviewStatus' => ['nullable', 'in:Recommended,Not recommended,Mixed Feelings'],
+            'watchStatus' => ['nullable', 'in:Currently Watching,Completed,On-Hold,Dropped,Plan to Watch,Rewatched'],
+            'progress' => ['nullable', 'integer', 'min:1', 'max:' . $totalEpisodes],
+            'review' => ['nullable']
         ]);
 
         if ($formFields['progress'] == $totalEpisodes) {
@@ -149,7 +149,6 @@ class UserController extends Controller
         if ($review) {
             $review->update($formFields);
         }
-
         return redirect()->route('show_anime_list')->with('success', 'Review updated successfully');
     }
 }
