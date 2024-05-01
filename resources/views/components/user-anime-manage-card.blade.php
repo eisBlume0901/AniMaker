@@ -23,7 +23,7 @@
                                 </svg>
                             </button>
                         </a>
-                        <form action="{{route('destroy_review', ['animeToBeReviewed' => $userAnime->id])}}" method="POST">
+                        <form action="{{route('destroy_review', ['reviewedAnime' => $userAnime->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button id="delete-button" type="submit" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">

@@ -39,7 +39,7 @@ Route::middleware(['auth', 'role:user|admin'])->group(function () {
     Route::get('/store/user/review/anime/{animeToBeReviewed}', [UserController::class, 'storeReview'])->name('store_review');
     Route::get('/edit/user/review/anime/{animeToBeReviewed}', [UserController::class, 'editReview'])->name('edit_review');
     Route::put('/update/user/review/anime/{animeToBeReviewed}', [UserController::class, 'updateReview'])->name('update_review');
-    Route::delete('/delete/user/review/anime/{animeToBeReviewed}', [UserController::class, 'destroyReview'])->name('destroy_review');
+    Route::delete('/delete/user/review/anime/{reviewedAnime}', [UserController::class, 'destroyReview'])->name('destroy_review');
 });
 
 

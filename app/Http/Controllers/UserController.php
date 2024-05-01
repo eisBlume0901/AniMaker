@@ -112,7 +112,7 @@ class UserController extends Controller
 
         return view('users/anime-list',
             [
-                'userAnimes' => Review::latest('table_user_reviews.updated_at')->UserAnimesFilter(auth()->user()->id)->get(),
+                'userAnimes' => Review::UserAnimesFilter(auth()->user()->id)->get(),
                 'genres' => Genre::all()
             ]);
     }
@@ -149,19 +149,22 @@ class UserController extends Controller
 
         if ($review) {
             $review->update($formFields);
-        } else {
-            $formFields['user_id'] = auth()->user()->id;
-            $formFields['anime_id'] = $animeId;
-            $review = Review::create($formFields);
         }
 
         return redirect()->route('show_anime_list')->with('success', 'Review updated successfully');
     }
 
-    public function destroyReview(Review $specificReview): RedirectResponse
+    public function destroyReview($reviewedAnime): RedirectResponse
     {
-        $specificReview->delete();
+        $animeToBeRemoved = Review::where('anime_id', $reviewedAnime)->where('user_id', auth()->user()->id)->first();
 
-        return redirect()->route('show_anime_list')->with('success', 'Review deleted successfully');
+        if ($animeToBeRemoved) {
+            $animeToBeRemoved->delete();
+            return redirect()->route('show_anime_list')->with('success', 'Review deleted successfully');
+        } else {
+            return redirect()->route('show_anime_list')->with('error', 'Review not found');
+        }
     }
 }
+
+
