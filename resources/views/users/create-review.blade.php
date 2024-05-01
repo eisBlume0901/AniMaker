@@ -57,7 +57,7 @@
                 <div class="mb-6">
                     <label for="watchStatus" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
                     <select name="watchStatus" id="watchStatus" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
-                        <option value="null" selected>Choose your anime's watch status</option>
+                        <option value="" selected>Choose your anime's watch status</option>
 
                         @if($anime->watchStatus == 'Currently Watching')
                             <option value="Currently Watching" selected>Currently Watching</option>
