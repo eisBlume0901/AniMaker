@@ -1,19 +1,21 @@
 @props(['userAnime'])
-<div class="mx-20 mt-2 py-2 px-10 lg:max-w-screen-3xl md:max-w-screen-2xl sm:max-w-screen-sm">
+<div class="mx-auto mt-2 py-2 px-10 lg:max-w-screen-xl md:max-w-screen-lg sm:max-w-screen-md">
 
     <div class="flex flex-col lg:flex-row items-center p-5 mb-8 text-md rounded-3xl shadow-md shadow-blue-700 hover:shadow-emerald-400 transition ease-in-out duration-150">
 
-        <div class="px-5 py-2 lg:my-0 mb-4">
-            <div class="rounded-2xl overflow-hidden w-48 h-80 sm:w-32 sm:h-40 md:w-48 md:h-80 lg:w-48 lg:h-80 shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
-                <img alt="{{$userAnime->title}} image" class="w-full h-full object-cover" src="{{$userAnime->image ? asset('storage/' .$userAnime->image) : asset('images/no-image-1.png')}}">
+        <div class="px-5 py-2 lg:my-0">
+            <div class="rounded-2xl overflow-hidden w-36 h-60 shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+                <a href="{{route('show_anime', ['animeToBeShown' => $userAnime->id])}}">
+                    <img alt="{{$userAnime->title}} image" class="w-full h-full object-cover" src="{{$userAnime->image ? asset('storage/' .$userAnime->image) : asset('images/no-image-1.png')}}">
+                </a>
             </div>
         </div>
 
-        <div class="flex flex-col px-5">
-            <div class="flex flex-col gap-x-10">
-                <div class="flex justify-end w-full my-1">
-                    <div class="grid grid-cols-2 gap-x-2">
+        <div class="flex flex-col gap-y-0 w-full">
 
+                <div class="flex flex-row justify-end my-1">
+
+                    <div class="grid grid-cols-2 gap-x-2">
                         <a href="{{route('edit_anime', ['animeToBeEdited' => $userAnime->id])}}">
                             <button id="edit-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -30,46 +32,55 @@
                                 </svg>
                             </button>
                         </form>
-
                     </div>
                 </div>
-            </div>
 
-
-            <div class="flex flex-col w-full mb-2">
+            <div class="flex flex-col mb-2">
                 <div class="flex justify-start">
                     <span class="font-bold text-2xl">
-                        {{$userAnime->title}}
+                        <a href="{{route('show_anime', ['animeToBeShown' => $userAnime->id])}}">
+                            {{$userAnime->title}}
+                        </a>
                     </span>
                 </div>
             </div>
 
+            <div class="flex flex-row gap-y-0 -mx-1">
 
-            <div class="flex flex-row my-1.5 -mx-1">
-                <span class="m-2 text-sm">{{$userAnime->episodes}} Episodes</span>
-                <span class="m-2 text-sm">Studio {{$userAnime->studio}}</span>
-                @php
-                    $date = date_create_from_format('Y-m-d', $userAnime->start_aired_date);
-                    $formattedStartDate = $date->format('M d, Y');
-                @endphp
-                <span class="m-2 text-sm">Started at
-                    {{$formattedStartDate}}
-                </span>
+                @if(empty($userAnime->watchStatus))
+                    <span class="m-2 text-sm">Watch Status: <span class="font-bold">Not watched yet</span></span>
+                @else
+                    <span class="m-2 text-sm">Watch Status: <span class="font-bold">{{$userAnime->watchStatus}}</span></span>
+                @endif
 
-                @php
-                    $date = date_create_from_format('Y-m-d', $userAnime->end_aired_date);
-                    $formattedEndDate = $date->format('M d, Y');
-                @endphp
-                <span class="m-2 text-sm">Ended at
-                    {{$formattedEndDate}}
-                </span>
+                @if(empty($userAnime->progress))
+                    <span class="m-2 text-sm">Progress: <span class="font-bold">0 out of {{$userAnime->episodes}}</span></span>
+                @else
+                    <span class="m-2 text-sm">Progress: <span class="font-bold">{{$userAnime->progress}} out of {{$userAnime->episodes}}</span></span>
+                @endif
+
+                @if(empty($userAnime->rating))
+                    <span class="m-2 text-sm">Rating: <span class="font-bold">Not rated yet</span></span>
+                @else
+                    <span class="m-2 text-sm">Rating: <span class="font-bold">{{$userAnime->rating}}</span></span>
+                @endif
+
+                @if(empty($userAnime->reviewStatus))
+                    <span class="m-2 text-sm">Review Status: <span class="font-bold">Not reviewed yet</span></span>
+                @else
+                    <span class="m-2 text-sm">Review Status: <span class="font-bold">{{$userAnime->reviewStatus}}</span></span>
+                @endif
+
+
             </div>
+
             <div class="text-sm text-justify p-0.5">
                 {{$userAnime->review}}
+            </div>
+
             </div>
         </div>
 
     </div>
 
-</div>
 
