@@ -135,7 +135,7 @@ class UserController extends Controller
 
         $formFields = $request->validate([
             'rating' => ['nullable', 'numeric', 'between:1.00,10.00'],
-            'reviewStatus' => ['nullable', 'in:Recommended,Not recommended,Mixed Feelings'],
+            'reviewStatus' => ['nullable', 'in:Recommended,Not Recommended,Mixed Feelings'],
             'watchStatus' => ['nullable', 'in:Currently Watching,Completed,On-Hold,Dropped,Plan to Watch,Rewatched'],
             'progress' => ['nullable', 'integer', 'min:1', 'max:' . $totalEpisodes],
             'review' => ['nullable']

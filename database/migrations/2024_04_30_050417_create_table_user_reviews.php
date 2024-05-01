@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('rating')->nullable();
             $table->text('review')->nullable()->unique();
             $table->enum('watchStatus', ['Currently Watching', 'Completed', 'On-Hold', 'Dropped', 'Plan to Watch', 'Rewatched'])->nullable();
-            $table->enum('reviewStatus', ['Recommended', 'Not recommended', 'Mixed Feelings'])->nullable();
+            $table->enum('reviewStatus', ['Recommended', 'Not Recommended', 'Mixed Feelings'])->nullable();
             $table->integer('progress')->nullable();
             $table->timestamps();
         });
