@@ -128,7 +128,8 @@ class UserController extends Controller
 
     public function updateReview(Request $request, Anime $animeToBeReviewed): RedirectResponse
     {
-//        dd($request->all());
+//        dd($animeToBeReviewed->title);
+
         $totalEpisodes = $animeToBeReviewed->episodes;
         $animeId = $animeToBeReviewed->id;
 
@@ -144,11 +145,23 @@ class UserController extends Controller
             $formFields['watchStatus'] = 'Completed';
         }
 
-        $review = Review::SpecificAnimeFilter($animeId, auth()->user()->id)->first();
+        $review = Review::where('anime_id', $animeId)->where('user_id', auth()->user()->id)->first();
 
         if ($review) {
             $review->update($formFields);
+        } else {
+            $formFields['user_id'] = auth()->user()->id;
+            $formFields['anime_id'] = $animeId;
+            $review = Review::create($formFields);
         }
+
         return redirect()->route('show_anime_list')->with('success', 'Review updated successfully');
+    }
+
+    public function destroyReview(Review $specificReview): RedirectResponse
+    {
+        $specificReview->delete();
+
+        return redirect()->route('show_anime_list')->with('success', 'Review deleted successfully');
     }
 }

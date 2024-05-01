@@ -23,7 +23,7 @@
                                 </svg>
                             </button>
                         </a>
-                        <form action="{{route('destroy_anime', ['animeToBeDestroyed' => $userAnime->id])}}" method="POST">
+                        <form action="{{route('destroy_review', ['animeToBeReviewed' => $userAnime->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button id="delete-button" type="submit" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2 text-center inline-flex items-center me-2">
@@ -47,25 +47,26 @@
 
             <div class="flex flex-row gap-y-0 -mx-1">
 
-                @if(empty($userAnime->watchStatus))
+                @if(!isset($userAnime->watchStatus))
                     <span class="m-2 text-sm">Watch Status: <span class="font-bold">Not watched yet</span></span>
                 @else
                     <span class="m-2 text-sm">Watch Status: <span class="font-bold">{{$userAnime->watchStatus}}</span></span>
                 @endif
 
-                @if(empty($userAnime->progress))
+
+                @if(!isset($userAnime->progress))
                     <span class="m-2 text-sm">Progress: <span class="font-bold">0 out of {{$userAnime->episodes}}</span></span>
                 @else
                     <span class="m-2 text-sm">Progress: <span class="font-bold">{{$userAnime->progress}} out of {{$userAnime->episodes}}</span></span>
                 @endif
 
-                @if(empty($userAnime->rating))
+                @if(!isset($userAnime->rating))
                     <span class="m-2 text-sm">Rating: <span class="font-bold">Not rated yet</span></span>
                 @else
                     <span class="m-2 text-sm">Rating: <span class="font-bold">{{$userAnime->rating}}</span></span>
                 @endif
 
-                @if(empty($userAnime->reviewStatus))
+                @if(!isset($userAnime->reviewStatus))
                     <span class="m-2 text-sm">Review Status: <span class="font-bold">Not reviewed yet</span></span>
                 @else
                     <span class="m-2 text-sm">Review Status: <span class="font-bold">{{$userAnime->reviewStatus}}</span></span>
@@ -75,7 +76,13 @@
             </div>
 
             <div class="text-sm text-justify p-0.5">
-                {{$userAnime->review}}
+
+                @if(str_word_count($userAnime->review) > 100)
+                    {{implode(' ', array_slice(explode(' ', $userAnime->review), 0, 100))}}...
+                @else
+                    {{$userAnime->review}}
+                @endif
+
             </div>
 
             </div>
