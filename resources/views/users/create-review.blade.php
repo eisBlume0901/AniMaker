@@ -42,11 +42,11 @@
             <div class="flex flex-col w-full mt-2">
 
                 <div class="mb-6">
-                    <label for="progress" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
-                    <input type="number" name="progress" id="rating" min="0" max="{{$anime->episodes}}"
+                    <label for="progress" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Progress</label>
+                    <input type="number" name="progress" id="progress" min="0" max="{{$anime->episodes}}"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                            value="{{$anime->progress}}"
-                           placeholder="9.18">
+                           placeholder="24">
 
                     @error('progress')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
@@ -55,7 +55,7 @@
 
                 <div class="mb-6">
                     <label for="watchStatus" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
-                    <select id="watchStatus" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
+                    <select name="watchStatus" id="watchStatus" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
                         <option selected>Choose your anime's watch status</option>
 
                         @if($anime->watchStatus == 'Currently Watching')

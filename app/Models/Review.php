@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static find($id)
  * @method static findOrFail($id)
  * @method SpecificAnimeFilter(mixed $anime_id, $id)
+ * @method static where(string $string, mixed $animeId)
  */
 class Review extends Model
 {

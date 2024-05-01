@@ -25,7 +25,7 @@ class UserReviewSeeder extends Seeder
             .",
             'watchStatus' => 'Completed',
             'reviewStatus' => 'Recommended',
-            'progress' => 24,
+            'progress' => 28,
         ]);
     }
 }

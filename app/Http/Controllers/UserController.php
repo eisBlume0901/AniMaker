@@ -128,22 +128,23 @@ class UserController extends Controller
 
     public function updateReview(Request $request, Anime $animeToBeReviewed): RedirectResponse
     {
-        dd($request->all());
+//        dd($request->all());
         $totalEpisodes = $animeToBeReviewed->episodes;
         $animeId = $animeToBeReviewed->id;
+
         $formFields = $request->validate([
-            'rating' => ['nullable', 'numeric', 'min: 0', 'max:10'],
-            'reviewStatus' => ['nullable', 'in:Recommended,Not recommended,Mixed Feelings'],
-            'watchStatus' => ['nullable', 'in:Currently Watching,Completed,On-Hold,Dropped,Plan to Watch,Rewatched'],
-            'progress' => ['nullable', 'integer', 'min:0', 'max:' . $totalEpisodes],
-            'review' => ['nullable', 'unique:table_user_reviews,review,' . $animeId. ',anime_id,user_id'],
-            ]);
+            'rating' => 'nullable',
+            'reviewStatus' => 'nullable',
+            'watchStatus' => 'nullable',
+            'progress' => 'nullable',
+            'review' => 'nullable',
+        ]);
 
+        if ($formFields['progress'] == $totalEpisodes) {
+            $formFields['watchStatus'] = 'Completed';
+        }
 
-
-        $review = Review::where('anime_id', $animeId)
-            ->where('user_id', auth()->user()->id)
-            ->first();
+        $review = Review::SpecificAnimeFilter($animeId, auth()->user()->id)->first();
 
         if ($review) {
             $review->update($formFields);
