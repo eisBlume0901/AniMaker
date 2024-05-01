@@ -44,23 +44,15 @@ class Review extends Model
          */
     }
 
-    public function scopeSpecificAnimeFilter($query, $animeId, $userId)
+    public function scopeSpecificAnimeFilter($query, $anime_id, $id)
     {
-        return $query->when($animeId, function ($query) use ($animeId, $userId) {
+        return $query->when($anime_id, function ($query) use ($anime_id, $id) {
             return $query->join('table_animes', 'table_animes.id', '=', 'table_user_reviews.anime_id')
-                ->where('table_user_reviews.anime_id', $animeId)
-                ->where('table_user_reviews.user_id', $userId);
+                ->where('table_user_reviews.anime_id', $anime_id)
+                ->where('table_user_reviews.user_id', $id);
         }, function ($query) {
             return $query;
         })->select('table_user_reviews.*', 'table_animes.*');
-
-        /*
-            * SQL Equivalent:
-            * SELECT table_user_reviews.*, table_animes.* FROM table_user_reviews
-            * JOIN table_animes ON table_animes.id = table_user_reviews.anime_id
-            * WHERE table_user_reviews.anime_id = 1 AND table_user_reviews.user_id = 1;
-        */
     }
-
 }
 

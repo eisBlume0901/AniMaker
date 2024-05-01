@@ -112,29 +112,42 @@ class UserController extends Controller
 
         return view('users/anime-list',
             [
-                'userAnimes' => Review::latest('table_user_reviews.created_at')->UserAnimesFilter(auth()->user()->id)->get(),
+                'userAnimes' => Review::latest('table_user_reviews.updated_at')->UserAnimesFilter(auth()->user()->id)->get(),
                 'genres' => Genre::all()
             ]);
     }
 
-    public function editReview(Review $animeToBeReviewed): View
+    public function editReview(Anime $animeToBeReviewed): View
     {
         return view('users/create-review',
             [
-                'anime' => $animeToBeReviewed->SpecificAnimeFilter($animeToBeReviewed->anime_id, auth()->user()->id)->first(),
+                'anime' => Review::SpecificAnimeFilter($animeToBeReviewed->id, auth()->user()->id)->first(),
                 'genres' => Genre::all()
             ]);
     }
 
     public function updateReview(Request $request, Anime $animeToBeReviewed): RedirectResponse
     {
+        dd($request->all());
+        $totalEpisodes = $animeToBeReviewed->episodes;
+        $animeId = $animeToBeReviewed->id;
         $formFields = $request->validate([
-            'rating' => [],
-            'reviewStatus' => [],
-            'progress' => [],
-            'watchStatus' => [],
-        ]);
+            'rating' => ['nullable', 'numeric', 'min: 0', 'max:10'],
+            'reviewStatus' => ['nullable', 'in:Recommended,Not recommended,Mixed Feelings'],
+            'watchStatus' => ['nullable', 'in:Currently Watching,Completed,On-Hold,Dropped,Plan to Watch,Rewatched'],
+            'progress' => ['nullable', 'integer', 'min:0', 'max:' . $totalEpisodes],
+            'review' => ['nullable', 'unique:table_user_reviews,review,' . $animeId. ',anime_id,user_id'],
+            ]);
 
+
+
+        $review = Review::where('anime_id', $animeId)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+
+        if ($review) {
+            $review->update($formFields);
+        }
 
         return redirect()->route('show_anime_list')->with('success', 'Review updated successfully');
     }

@@ -6,6 +6,8 @@
           class="m-5 p-5 w-full max-w-screen-lg mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf
+        @method('PUT')
+
 
         <div class="flex m-2 flex-row justify-center align-middle">
             <div class="flex m-2 flex-col justify-center align-middle">
@@ -15,40 +17,38 @@
 
         <div class="flex flex-row gap-x-10 w-full px-10">
 
-            <div class="mb-6">
-                <div class="flex flex-col items-center mt-2">
-                    <div
-                        class="w-60 h-96 mb-2 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:shadow-emerald-400">
-                        <a href="/anime/{{$anime->id}}">
-                            <img class="w-full h-full object-cover"
-                                 src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"/>
-                        </a>
+            <div class="flex flex-col">
+                <div class="mb-6">
+                    <div class="flex flex-col items-center mt-2">
+                        <div
+                            class="w-48 h-72 mb-2 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:shadow-emerald-400">
+                            <a href="{{route('show_anime', ['animeToBeShown' => $anime->id])}}">
+                                <img class="w-full h-full object-cover"
+                                     src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <div class="mb-6">
+                    <a href="{{route('show_anime', ['animeToBeShown' => $anime->id])}}">
+                        <label for="title" class="text-center block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">{{$anime->title}}</label>
+                    </a>
+                </div>
             </div>
+
 
 
             <div class="flex flex-col w-full mt-2">
 
                 <div class="mb-6">
-                    <a href="/anime/{{$anime->id}}">
-                        <label for="title" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Title</label>
-                        <div
-                               class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50">
-                            {{$anime->title}}
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="mb-6">
-                    <label for="rating" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
-                    <input type="number" name="rating" id="rating" min="1" max="10" step="0.01"
+                    <label for="progress" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
+                    <input type="number" name="progress" id="rating" min="0" max="{{$anime->episodes}}"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           value="{{$anime->rating}}"
+                           value="{{$anime->progress}}"
                            placeholder="9.18">
 
-                    @error('rating')
+                    @error('progress')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
                     @enderror
                 </div>
@@ -95,6 +95,18 @@
                         @endif
 
                     </select>
+                </div>
+
+                <div class="mb-6">
+                    <label for="rating" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
+                    <input type="number" name="rating" id="rating" min="1" max="10" step="0.01"
+                           class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
+                           value="{{$anime->rating}}"
+                           placeholder="9.18">
+
+                    @error('rating')
+                    <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
