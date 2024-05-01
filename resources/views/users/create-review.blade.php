@@ -115,7 +115,7 @@
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
 
-                                @if($anime->reviewStatus == 'Not Recommended')
+                                @if($anime->reviewStatus == 'Not recommended')
                                     <input id="horizontal-list-radio-id" type="radio" value="Not Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2" checked>
                                 @else
                                     <input id="horizontal-list-radio-id" type="radio" value="Not Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
