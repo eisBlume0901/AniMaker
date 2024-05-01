@@ -31,15 +31,15 @@ Route::middleware('guest')->group(function () {
 
 });
 
-// Still not sure if I should put both the role of user and admin in the same middleware
-Route::middleware(['auth', 'role:user'])->group(function () {
+
+Route::middleware(['auth', 'role:user|admin'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     Route::get('/user/anime/list', [UserController::class, 'showAnimeList'])->name('show_anime_list');
     Route::get('/store/user/review/anime/{animeToBeReviewed}', [UserController::class, 'storeReview'])->name('store_review');
-// Route::get('/anime/{specificAnime}/review/{specificReview}/edit', [UserController::class, 'editReview'])->name('edit_review');
-// Route::put('/anime/{specificAnime}/review/{specificReview}', [UserController::class, 'updateReview'])->name('update_review');
-// Route::delete('/anime/{specificAnime}/review/{specificReview}', [UserController::class, 'destroyReview'])->name('destroy_review');
+    Route::get('/edit/user/review/anime/{animeToBeReviewed}', [UserController::class, 'editReview'])->name('edit_review');
+    Route::put('/update/user/review/anime/{animeToBeReviewed}', [UserController::class, 'updateReview'])->name('update_review');
+    Route::delete('/anime/{specificAnime}/review/{specificReview}', [UserController::class, 'destroyReview'])->name('destroy_review');
 });
 
 

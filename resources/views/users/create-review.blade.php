@@ -2,7 +2,7 @@
 @section('title', 'Create User Review Form')
 @section('content')
     @include('partials.animeNavBar')
-    <form action="{{route('store_review')}}" method="POST" enctype="multipart/form-data"
+    <form action="{{route('update_review', ['animeToBeReviewed' => $anime->id])}}" method="POST" enctype="multipart/form-data"
           class="m-5 p-5 w-full max-w-screen-lg mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
         @csrf
@@ -45,7 +45,7 @@
                     <label for="rating" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Rating</label>
                     <input type="number" name="rating" id="rating" min="1" max="10" step="0.01"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                           value="{{old('rating')}}"
+                           value="{{$anime->rating}}"
                            placeholder="9.18">
 
                     @error('rating')
@@ -54,43 +54,91 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="watch_status" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
-
-                    <select id="watch_status" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
+                    <label for="watchStatus" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Watch Status</label>
+                    <select id="watchStatus" class="bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 text-blue-700 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50 block w-full p-2.5">
                         <option selected>Choose your anime's watch status</option>
-                        <option value="watching">Watching</option>
-                        <option value="completed">Completed</option>
-                        <option value="on_hold">On Hold</option>
-                        <option value="dropped">Dropped</option>
-                        <option value="plan_to_watch">Plan to Watch</option>
-                        <option value="re_watched">Re-watched</option>
+
+                        @if($anime->watchStatus == 'Currently Watching')
+                            <option value="Currently Watching" selected>Currently Watching</option>
+                        @else
+                            <option value="Currently Watching">Currently Watching</option>
+                        @endif
+
+                        @if($anime->watchStatus == 'Completed')
+                            <option value="Completed" selected>Completed</option>
+                        @else
+                            <option value="Completed">Completed</option>
+                        @endif
+
+                        @if($anime->watchStatus == 'On-Hold')
+                            <option value="On-Hold" selected>On-Hold</option>
+                        @else
+                            <option value="On-Hold">On-Hold</option>
+                        @endif
+
+                        @if($anime->watchStatus == 'Dropped')
+                            <option value="Dropped" selected>Dropped</option>
+                        @else
+                            <option value="Dropped">Dropped</option>
+                        @endif
+
+                        @if($anime->watchStatus == 'Plan to Watch')
+                            <option value="Plan to Watch" selected>Plan to Watch</option>
+                        @else
+                            <option value="Plan to Watch">Plan to Watch</option>
+                        @endif
+
+                        @if($anime->watchStatus == 'Rewatched')
+                            <option value="Rewatched" selected>Rewatched</option>
+                        @else
+                            <option value="Rewatched">Rewatched</option>
+                        @endif
+
                     </select>
                 </div>
 
                 <div class="mb-6">
-                    <label for="review_status" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Review Status</label>
+                    <label for="reviewStatus" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Review Status</label>
                     <ul class="items-center w-full text-md font-medium text-blue-700 bg-blue-50 border border-blue-100 shadow-md shadow-blue-50 rounded-2xl hover:ring-emerald-400 hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 sm:flex">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-license" type="radio" value="recommended" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+
+                                @if($anime->reviewStatus == 'Recommended')
+                                    <input id="horizontal-list-radio-license" type="radio" value="Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2" checked>
+                                @else
+                                    <input id="horizontal-list-radio-license" type="radio" value="Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                @endif
+
                                 <label for="horizontal-list-radio-license" class="w-full py-3 ms-2">Recommended</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-id" type="radio" value="not_recommended" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+
+                                @if($anime->reviewStatus == 'Not Recommended')
+                                    <input id="horizontal-list-radio-id" type="radio" value="Not Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2" checked>
+                                @else
+                                    <input id="horizontal-list-radio-id" type="radio" value="Not Recommended" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                @endif
+
                                 <label for="horizontal-list-radio-id" class="w-full py-3 ms-2">Not Recommended</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                             <div class="flex items-center ps-3">
-                                <input id="horizontal-list-radio-military" type="radio" value="mixed_feelings" name="review_status" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+
+                                @if($anime->reviewStatus == 'Mixed Feelings')
+                                    <input id="horizontal-list-radio-military" type="radio" value="Mixed Feelings" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2" checked>
+                                @else
+                                    <input id="horizontal-list-radio-military" type="radio" value="Mixed Feelings" name="reviewStatus" class="w-4 h-4 text-emerald-400 bg-white border-2 border-blue-100 focus:ring-emerald-400 focus:ring-2">
+                                @endif
+
                                 <label for="horizontal-list-radio-military" class="w-full py-3 ms-2">Mixed Feelings</label>
                             </div>
                         </li>
                     </ul>
 
-                    @error('review_status')
+                    @error('reviewStatus')
                     <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
                     @enderror
                 </div>
@@ -107,7 +155,7 @@
             <textarea name="review" id="review" rows="8"
                       class="w-full indent-0 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
             >
-                {{old('review')}}
+                {{$anime->review}}
             </textarea>
 
             @error('review')

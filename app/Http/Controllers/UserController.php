@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -111,8 +112,30 @@ class UserController extends Controller
 
         return view('users/anime-list',
             [
-                'userAnimes' => Review::latest('table_user_reviews.created_at')->filter(auth()->user()->id)->get(),                'genres' => Genre::all()
+                'userAnimes' => Review::latest('table_user_reviews.created_at')->UserAnimesFilter(auth()->user()->id)->get(),
+                'genres' => Genre::all()
             ]);
     }
 
+    public function editReview(Review $animeToBeReviewed): View
+    {
+        return view('users/create-review',
+            [
+                'anime' => $animeToBeReviewed->SpecificAnimeFilter($animeToBeReviewed->anime_id, auth()->user()->id)->first(),
+                'genres' => Genre::all()
+            ]);
+    }
+
+    public function updateReview(Request $request, Anime $animeToBeReviewed): RedirectResponse
+    {
+        $formFields = $request->validate([
+            'rating' => [],
+            'reviewStatus' => [],
+            'progress' => [],
+            'watchStatus' => [],
+        ]);
+
+
+        return redirect()->route('show_anime_list')->with('success', 'Review updated successfully');
+    }
 }
