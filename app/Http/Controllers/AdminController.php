@@ -56,12 +56,10 @@ class AdminController extends Controller
     }
     public function edit(User $userToBeEdited): View
     {
-        return view('admin/edit-user',
-            [
-                'user' => $userToBeEdited
-            ]);
+        $user = new User();
+        $counts = $user->getUserCounts($userToBeEdited->id);
+        return view('admin/edit-user', ['user' => $userToBeEdited, 'counts' => $counts]);
     }
-
     public function update(Request $request, User $userToBeUpdated): RedirectResponse
     {
         $formFields = $request->validate([
@@ -69,8 +67,9 @@ class AdminController extends Controller
             'email' => 'required|email',
         ]);
 
-        // Not sure if admin can edit how many reviews or animes a user has
-
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('user_images', 'public');
+        }
         $userToBeUpdated->update($formFields);
 
         return redirect()->route('manage_users')->with('success', 'User updated successfully!');

@@ -9,7 +9,7 @@
         >
     </label>
     @if(strlen($search) > 0)
-        <div class="absolute z-10 mt-2.5 w-96 px-4 block rounded-2xl bg-white text-blue-700 shadow-md shadow-blue-400 hover:shadow-emerald-400">
+        <div class="absolute z-40 mt-2.5 w-96 px-4 block rounded-2xl bg-white text-blue-700 shadow-md shadow-blue-400 hover:shadow-emerald-400">
             @if(sizeof($animeResults) > 0)
                 @foreach($animeResults as $anime)
                     <a href="/anime/{{$anime->id}}">

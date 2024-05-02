@@ -9,8 +9,11 @@
             <span class="text-sm flex-wrap">{{$specificUser->email}}</span>
             <div class="grid grid-cols-2 gap-x-4">
 {{--                Change the data to user reviews and animes--}}
-                <span class="text-xs">20 reviews</span>
-                <span class="text-xs">10 animes</span>
+                @php
+                    $counts = $specificUser->getUserCounts($specificUser->id);
+                @endphp
+                <span class="text-xs">{{$counts['review_count']}} reviews</span>
+                <span class="text-xs">{{$counts['anime_count']}} animes</span>
             </div>
         </div>
 

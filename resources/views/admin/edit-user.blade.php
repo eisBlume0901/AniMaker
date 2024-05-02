@@ -1,8 +1,8 @@
 @extends('layout')
 
-@section('title', 'Edit Anime')
+@section('title', 'Edit User')
 @section('content')
-    @include('partials.adminManageAnimeNavBar')
+    @include('partials.adminManageUserNavBar')
     <form action="{{route('update_user', ['userToBeUpdated' => $user->id]) }}" method="POST" enctype="multipart/form-data"
           class="mt-10 w-full max-w-screen-md mx-auto overflow-hidden bg-white rounded-2xl shadow-blue-700 shadow-md hover:shadow-emerald-400 transition ease-in-out duration-150">
 
@@ -85,29 +85,27 @@
 
                 <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6">
 {{--                    Change the data matching the data--}}
-                    <div class="mb-6">
-                        <label for="number_of_animes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Number of Animes</label>
-                        <input type="number" name="number_of_animes" id="number_of_animes"
-                               class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                               value="{{$user->id}}"
-                               placeholder="24" >
 
-                        @error('id')
-                        <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
-                        @enderror
+                    @php
+                        $counts = $user->getUserCounts($user->id);
+                    @endphp
+
+                    <div class="mb-6">
+
+                        <label for="number_of_animes" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Number of Animes</label>
+                        <div id="number_of_animes"
+                             class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50">
+                            {{$counts['anime_count']}}
+                        </div>
                     </div>
 
 {{--                    Change the data matching the data--}}
                     <div class="mb-6">
                         <label for="number_of_reviews" class="block text-blue-700 text-md font-semibold mb-2 ml-2">Number of Reviews</label>
-                        <input type="number" name="number_of_reviews" id="number_of_reviews"
-                               class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
-                               value="{{$user->id}}"
-                               placeholder="24" >
-
-                        @error('id')
-                        <p class="text-red-500 text-sm mx-3 my-2">{{ $message }}</p>
-                        @enderror
+                        <div id="number_of_reviews"
+                             class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50">
+                            {{$counts['review_count']}}
+                        </div>
                     </div>
                 </div>
 

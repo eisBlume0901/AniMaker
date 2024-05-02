@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('anime_id')->constrained('table_animes');
             $table->decimal('rating')->nullable();
-            $table->text('review')->nullable()->unique();
+            $table->text('review')->nullable();
             $table->enum('watchStatus', ['Currently Watching', 'Completed', 'On-Hold', 'Dropped', 'Plan to Watch', 'Rewatched'])->nullable();
             $table->enum('reviewStatus', ['Recommended', 'Not Recommended', 'Mixed Feelings'])->nullable();
             $table->integer('progress')->nullable();
