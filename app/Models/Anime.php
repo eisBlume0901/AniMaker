@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @method static create(array $formFields)
@@ -13,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static latest()
  * @method static find(int $int)
  * @method static first()
+ * @method reviews()
+ * @method getReviews(mixed $id)
  */
 class Anime extends Model
 {
@@ -65,6 +66,60 @@ class Anime extends Model
          */
     }
 
+
+
+
+//    public function getAnimeReviews($id)
+//    {
+//        return $this->from('table_user_reviews')
+//            ->where('table_user_reviews.anime_id', $id)
+//            ->join('users', 'users.id', '=', 'table_user_reviews.user_id')
+//            ->select([
+//                'users.name AS user_name',
+//                'users.email AS user_email',
+//                'users.image AS user_image',
+//                'table_user_reviews.rating AS user_rating',
+//                'table_user_reviews.reviewStatus AS user_review_status',
+//                'table_user_reviews.review AS user_review',
+//                'table_user_reviews.progress AS user_progress',
+//                'table_user_reviews.watchStatus AS user_watch_status'
+//            ])
+//            ->get();
+
+        //SELECT users.name AS user_name,
+        //users.email AS user_email,
+        //users.image AS user_image,
+        //table_user_reviews.rating AS user_rating,
+        //table_user_reviews.reviewStatus AS user_review_status,
+        //table_user_reviews.review AS user_review,
+        //table_user_reviews.progress AS user_progress,
+        //table_user_reviews.watchStatus AS user_watch_status
+        //FROM table_user_reviews
+        //JOIN users ON users.id = table_user_reviews.user_id
+        //WHERE table_user_reviews.anime_id = 1;
+
+
+//    }
+
+    public function getAnimeReviews($id)
+    {
+        return $this->from('table_user_reviews')
+            ->when($id, function ($query) use ($id) {
+                return $query->where('table_user_reviews.anime_id', $id)
+                    ->join('users', 'users.id', '=', 'table_user_reviews.user_id')
+                    ->select([
+                        'users.name AS user_name',
+                        'users.email AS user_email',
+                        'users.image AS user_image',
+                        'table_user_reviews.rating AS user_rating',
+                        'table_user_reviews.reviewStatus AS user_review_status',
+                        'table_user_reviews.review AS user_review',
+                        'table_user_reviews.progress AS user_progress',
+                        'table_user_reviews.watchStatus AS user_watch_status'
+                    ]);
+            })
+            ->get();
+    }
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'table_user_reviews', 'anime_id', 'user_id')->withTimestamps();

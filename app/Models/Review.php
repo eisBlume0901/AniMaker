@@ -55,5 +55,7 @@ class Review extends Model
             return $query;
         })->select('table_user_reviews.*', 'table_animes.*');
     }
+
+
 }
 

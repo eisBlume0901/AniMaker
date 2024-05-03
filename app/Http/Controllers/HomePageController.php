@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anime;
 use App\Models\Genre;
+use App\Models\Review;
 use App\Models\User; // Have to remove and be moved to Admin Controller
 use Illuminate\View\View;
 
@@ -24,7 +25,7 @@ class HomePageController extends Controller
         return view('animes/show',
             [
                 'anime' => $animeToBeShown,
-                'genres' => Genre::all()
+                'genres' => Genre::all(),
             ]);
 
     }
