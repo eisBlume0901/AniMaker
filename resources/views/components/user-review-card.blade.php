@@ -49,10 +49,30 @@
             <div class="text-sm text-justify p-0.5">
 
                 @if(str_word_count($reviewInfo->user_review) > 100)
-                    {{implode(' ', array_slice(explode(' ', $reviewInfo->user_review), 0, 100))}}...
+                    <span id="dots">{{implode(' ', array_slice(explode(' ', $reviewInfo->user_review), 0, 100))}}...</span>
+                    <span id="more" style="display: none;">{{substr($reviewInfo->user_review, 100)}}</span>
+                    <button id="moreButton" onclick="toggleReadMore()" class="cursor-pointer font-bold hover:text-emerald-400 hover:font-bold">Read More</button>
                 @else
-                    {{$reviewInfo->user_review}}
+                    <span>{{$reviewInfo->user_review}}</span>
                 @endif
+
+                <script>
+                    function toggleReadMore() {
+                        const dots = document.getElementById("dots");
+                        const moreText = document.getElementById("more");
+                        const btnText = document.getElementById("moreButton");
+
+                        if (dots.style.display === "none") {
+                            dots.style.display = "inline"; // Changed from "none" to "inline"
+                            btnText.innerHTML = "Read More";
+                            moreText.style.display = "none";
+                        } else {
+                            dots.style.display = "none"; // Changed from "inline" to "none"
+                            btnText.innerHTML = "Read Less";
+                            moreText.style.display = "inline"; // Changed from "none" to "inline"
+                        }
+                    }
+                </script>
 
             </div>
 
