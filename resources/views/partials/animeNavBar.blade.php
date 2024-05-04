@@ -9,7 +9,7 @@
                 <div class="flex flex-wrap" id="genre-entry">
                     @foreach($genres as $genreName)
                         <div class="w-1/2 text-blue-700 text-sm px-4 py-2 bg-white rounded-2xl hover:bg-blue-700 hover:text-white hover:rounded-3xl hover:font-bold active:bg-gradient-to-br active:from-emerald-400 active:to-blue-700 transition ease-in-out duration-150">
-                            <a href="/?genre={{$genreName->genre}}" id="{{$genreName->id}}-genre">{{ $genreName->genre}}
+                            <a href="{{route('index', ['genre' => $genreName->genre])}}" id="{{$genreName->id}}-genre">{{ $genreName->genre}}
                         </div>
                     @endforeach
                 </div>
