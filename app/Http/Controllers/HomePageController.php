@@ -26,6 +26,7 @@ class HomePageController extends Controller
             [
                 'anime' => $animeToBeShown,
                 'genres' => Genre::all(),
+                'reviewStatus' => "Kangaroo"
             ]);
 
     }

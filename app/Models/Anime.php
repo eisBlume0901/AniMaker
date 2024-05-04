@@ -66,9 +66,6 @@ class Anime extends Model
          */
     }
 
-
-
-
 //    public function getAnimeReviews($id)
 //    {
 //        return $this->from('table_user_reviews')
@@ -119,6 +116,11 @@ class Anime extends Model
                     ]);
             })
             ->get();
+    }
+
+    public function scopeFilterReviewStatus()
+    {
+
     }
     public function users(): BelongsToMany
     {
