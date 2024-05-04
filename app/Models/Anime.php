@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static first()
  * @method reviews()
  * @method getReviews(mixed $id)
+ * @method from(string $string)
  */
 class Anime extends Model
 {
@@ -98,7 +99,7 @@ class Anime extends Model
 
 //    }
 
-    public function getAnimeReviews($id)
+    public function getAnimeReviews($id): object
     {
         return $this->from('table_user_reviews')
             ->when($id, function ($query) use ($id) {
@@ -118,10 +119,8 @@ class Anime extends Model
             ->get();
     }
 
-    public function scopeFilterReviewStatus()
-    {
 
-    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'table_user_reviews', 'anime_id', 'user_id')->withTimestamps();

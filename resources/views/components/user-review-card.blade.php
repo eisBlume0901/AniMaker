@@ -18,29 +18,29 @@
 
             <div class="flex flex-row gap-y-0 -mx-1">
 
-                @if(!isset($reviewInfo->user_watch_status))
+                @if(!isset($reviewInfo->watchStatus))
                     <span class="m-2 text-sm">Watch Status: <span class="font-bold">Not watched yet</span></span>
                 @else
-                    <span class="m-2 text-sm">Watch Status: <span class="font-bold">{{$reviewInfo->user_watch_status}}</span></span>
+                    <span class="m-2 text-sm">Watch Status: <span class="font-bold">{{$reviewInfo->watchStatus}}</span></span>
                 @endif
 
 
                 @if(!isset($reviewInfo->user_progress))
                     <span class="m-2 text-sm">Progress: <span class="font-bold">0 out of {{$animeInfo->episodes}}</span></span>
                 @else
-                    <span class="m-2 text-sm">Progress: <span class="font-bold">{{$reviewInfo->user_progress}} out of {{$reviewInfo->episodes}}</span></span>
+                    <span class="m-2 text-sm">Progress: <span class="font-bold">{{$reviewInfo->progress}} out of {{$reviewInfo->episodes}}</span></span>
                 @endif
 
-                @if(!isset($reviewInfo->user_rating))
+                @if(!isset($reviewInfo->rating))
                     <span class="m-2 text-sm">Rating: <span class="font-bold">Not rated yet</span></span>
                 @else
-                    <span class="m-2 text-sm">Rating: <span class="font-bold">{{$reviewInfo->user_rating}}</span></span>
+                    <span class="m-2 text-sm">Rating: <span class="font-bold">{{$reviewInfo->rating}}</span></span>
                 @endif
 
-                @if(!isset($reviewInfo->user_review_status))
+                @if(!isset($reviewInfo->reviewStatus))
                     <span class="m-2 text-sm">Review Status: <span class="font-bold">Not reviewed yet</span></span>
                 @else
-                    <span class="m-2 text-sm">Review Status: <span class="font-bold">{{$reviewInfo->user_review_status}}</span></span>
+                    <span class="m-2 text-sm">Review Status: <span class="font-bold">{{$reviewInfo->reviewStatus}}</span></span>
                 @endif
 
 
@@ -48,12 +48,12 @@
 
             <div class="text-sm text-justify p-0.5">
 
-                @if(str_word_count($reviewInfo->user_review) > 100)
-                    <span id="dots">{{implode(' ', array_slice(explode(' ', $reviewInfo->user_review), 0, 100))}}...</span>
-                    <span id="more" style="display: none;">{{substr($reviewInfo->user_review, 100)}}</span>
+                @if(str_word_count($reviewInfo->review) > 100)
+                    <span id="dots">{{implode(' ', array_slice(explode(' ', $reviewInfo->review), 0, 100))}}...</span>
+                    <span id="more" style="display: none;">{{substr($reviewInfo->review, 100)}}</span>
                     <button id="moreButton" onclick="toggleReadMore()" class="cursor-pointer font-bold hover:text-emerald-400 hover:font-bold">Read More</button>
                 @else
-                    <span>{{$reviewInfo->user_review}}</span>
+                    <span>{{$reviewInfo->review}}</span>
                 @endif
 
                 <script>

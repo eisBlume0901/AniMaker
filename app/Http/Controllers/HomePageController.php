@@ -6,6 +6,7 @@ use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\Review;
 use App\Models\User; // Have to remove and be moved to Admin Controller
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
@@ -19,16 +20,18 @@ class HomePageController extends Controller
         ]);
     }
 
-    // Route Model Binding vs findOrFail() sql query 0
-    public function show(Anime $animeToBeShown): View
-    {
-        return view('animes/show',
-            [
-                'anime' => $animeToBeShown,
-                'genres' => Genre::all(),
-                'reviewStatus' => "Kangaroo"
-            ]);
 
+    public function show(Request $request, Anime $animeToBeShown): View
+    {
+        $reviewStatus = $request->query('reviewStatus');
+
+        $reviews = Review::latest('table_user_reviews.updated_at')->filterReviewStatus($animeToBeShown->id, $reviewStatus);
+
+        return view('animes/show', [
+            'anime' => $animeToBeShown,
+            'genres' => Genre::all(),
+            'reviewInfos' => $reviews,
+        ]);
     }
 
     public function fallback(): View
