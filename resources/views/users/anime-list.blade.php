@@ -2,14 +2,14 @@
 @section('title', 'Manage Animes')
 @section('content')
     @include('partials.animeNavBar')
-    @if(count($userAnimes) > 0)
-        @foreach($userAnimes  as $anime)
-            <x-user-anime-manage-card :userAnime="$anime"/>
-        @endforeach
-    @else
-        <div class="flex justify-center mt-10">
-            <span class="text-2xl">No animes found</span>
+    @include('partials.animeWatchStatusFilter')
+    @forelse($userAnimes as $anime)
+        <x-user-anime-manage-card :userAnime="$anime"/>
+    @empty
+        <div class="text-center text-blue-700 text-xl my-5">
+            No animes with <span class="font-semibold">{{request('watchStatus') ?? 'any'}}</span> watch status
         </div>
-    @endif
+    @endforelse
+
 
 @endsection

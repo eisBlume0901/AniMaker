@@ -6,13 +6,9 @@ use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\Review;
 use App\Models\User;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -107,12 +103,13 @@ class UserController extends Controller
         return redirect()->route('show_anime_list')->with('success', 'Anime added to list successfully');
     }
 
-    public function showAnimeList(): View
+    public function showAnimeList(Request $request): View
     {
+        $watchStatus = $request->query('watchStatus');
 
         return view('users/anime-list',
             [
-                'userAnimes' => Review::UserAnimesFilter(auth()->user()->id)->get(),
+                'userAnimes' => Review::UserAnimesFilter(auth()->user()->id, $watchStatus),
                 'genres' => Genre::all()
             ]);
     }

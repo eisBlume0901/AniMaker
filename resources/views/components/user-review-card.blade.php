@@ -25,11 +25,12 @@
                 @endif
 
 
-                @if(!isset($reviewInfo->user_progress))
+                @if(!isset($reviewInfo->progress))
                     <span class="m-2 text-sm">Progress: <span class="font-bold">0 out of {{$animeInfo->episodes}}</span></span>
                 @else
-                    <span class="m-2 text-sm">Progress: <span class="font-bold">{{$reviewInfo->progress}} out of {{$reviewInfo->episodes}}</span></span>
+                    <span class="m-2 text-sm">Progress: <span class="font-bold">{{$reviewInfo->progress}} out of {{$animeInfo->episodes}}</span></span>
                 @endif
+
 
                 @if(!isset($reviewInfo->rating))
                     <span class="m-2 text-sm">Rating: <span class="font-bold">Not rated yet</span></span>
