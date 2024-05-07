@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method reviews()
  * @method getReviews(mixed $id)
  * @method from(string $string)
+ * @method leftJoin(string $string, string $string1, string $string2, string $string3)
  */
 class Anime extends Model
 {
@@ -67,38 +68,6 @@ class Anime extends Model
          */
     }
 
-//    public function getAnimeReviews($id)
-//    {
-//        return $this->from('table_user_reviews')
-//            ->where('table_user_reviews.anime_id', $id)
-//            ->join('users', 'users.id', '=', 'table_user_reviews.user_id')
-//            ->select([
-//                'users.name AS user_name',
-//                'users.email AS user_email',
-//                'users.image AS user_image',
-//                'table_user_reviews.rating AS user_rating',
-//                'table_user_reviews.reviewStatus AS user_review_status',
-//                'table_user_reviews.review AS user_review',
-//                'table_user_reviews.progress AS user_progress',
-//                'table_user_reviews.watchStatus AS user_watch_status'
-//            ])
-//            ->get();
-
-        //SELECT users.name AS user_name,
-        //users.email AS user_email,
-        //users.image AS user_image,
-        //table_user_reviews.rating AS user_rating,
-        //table_user_reviews.reviewStatus AS user_review_status,
-        //table_user_reviews.review AS user_review,
-        //table_user_reviews.progress AS user_progress,
-        //table_user_reviews.watchStatus AS user_watch_status
-        //FROM table_user_reviews
-        //JOIN users ON users.id = table_user_reviews.user_id
-        //WHERE table_user_reviews.anime_id = 1;
-
-
-//    }
-
     public function getAnimeReviews($id): object
     {
         return $this->from('table_user_reviews')
@@ -120,6 +89,50 @@ class Anime extends Model
     }
 
 
+    public function topRatedAnimes()
+    {
+        return $this->leftJoin('table_user_reviews', 'table_animes.id', '=', 'table_user_reviews.anime_id')
+            ->leftJoin('table_anime_genres', 'table_animes.id', '=', 'table_anime_genres.anime_id')
+            ->leftJoin('table_genres', 'table_anime_genres.genre_id', '=', 'table_genres.id')
+            ->select('table_animes.id AS anime_id', 'table_animes.title AS anime_title',
+                'table_animes.image AS anime_image',
+                'table_animes.episodes AS anime_episodes',
+                'table_animes.studio AS anime_studio',
+                'table_animes.start_aired_date AS anime_start_aired_date',
+                'table_animes.end_aired_date AS anime_end_aired_date')
+            ->selectRaw('ROUND(AVG(table_user_reviews.rating), 2) AS average_rating')
+            ->selectRaw('COUNT(table_user_reviews.id) AS users_count')
+            ->selectSub(function ($query) {
+                $query->selectRaw('GROUP_CONCAT(table_genres.genre SEPARATOR ", ")')
+                    ->from('table_anime_genres')
+                    ->join('table_genres', 'table_anime_genres.genre_id', '=', 'table_genres.id')
+                    ->whereColumn('table_anime_genres.anime_id', 'table_animes.id');
+            }, 'anime_genre')
+            ->groupBy('table_animes.id', 'table_animes.title', 'table_animes.image', 'table_animes.episodes',
+                'table_animes.studio', 'table_animes.start_aired_date', 'table_animes.end_aired_date')
+            ->orderByDesc('average_rating')
+            ->orderByDesc('users_count');
+
+        /* SQL Equivalent:
+         * SELECT table_animes.id AS anime_id, table_animes.title AS anime_title,
+         * table_animes.image AS anime_image, table_animes.episodes AS anime_episodes,
+         * table_animes.studio AS anime_studio, table_animes.start_aired_date AS anime_start_aired_date,
+         * table_animes.end_aired_date AS anime_end_aired_date,
+         * AVG(table_user_reviews.rating) AS average_rating,
+         * COUNT(table_user_reviews.id) AS users_count,
+         * (SELECT GROUP_CONCAT(table_genres.genre SEPARATOR ", ")
+         * FROM table_anime_genres
+         * JOIN table_genres ON table_anime_genres.genre_id = table_genres.id
+         * WHERE table_anime_genres.anime_id = table_animes.id) AS anime_genre
+         * FROM table_animes
+         * LEFT JOIN table_user_reviews ON table_animes.id = table_user_reviews.anime_id
+         * LEFT JOIN table_anime_genres ON table_animes.id = table_anime_genres.anime_id
+         * LEFT JOIN table_genres ON table_anime_genres.genre_id = table_genres.id
+         * GROUP BY table_animes.id, table_animes.title, table_animes.image, table_animes.episodes,
+         * table_animes.studio, table_animes.start_aired_date, table_animes.end_aired_date
+         * ORDER BY average_rating DESC, users_count DESC;
+         */
+    }
 
     public function users(): BelongsToMany
     {

@@ -41,9 +41,10 @@ class HomePageController extends Controller
 
     public function showTopAnimes(): View
     {
+        $animeFiltered = new Anime();
         return view('animes/top-rated',
             [
-                'animes' => Anime::latest()->paginate(10),
+                'animes' => $animeFiltered->topRatedAnimes()->paginate(10),
                 'genres' => Genre::all(),
             ]);
     }
