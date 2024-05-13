@@ -33,16 +33,17 @@ Individually run the lines of SQL commands found in ```mysql_ddl_commands``` fil
 This will ensure the creation of an SQL database for the next step.
 ### 6. Final touches
 
-Run the following commands in the terminal in your VS Code
+Run the following commands in the terminal in your VS Code by order
 
 ```
-npm run dev
-
 php artisan key:generate
 
-php artisan migrate
+php artisan migrate:refresh --seed
 
-php artisan server
+php artisan serve
+
+npm run dev
+
 ```
 
 The artisan commands will initialize the ```animaker_db``` database, and will open a link to the website.
