@@ -55,6 +55,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/manage/animes', [AdminController::class, 'manageAnimes'])->name('manage_animes');
     Route::get('/manage/users', [AdminController::class,'manageUsers'])->name('manage_users');
+    Route::get('/create/user', [AdminController::class, 'create'])->name('create_user');
+    Route::post('/store/user', [AdminController::class, 'store'])->name('store_user');
     Route::get('/edit/user/{userToBeEdited}', [AdminController::class, 'edit'])->name('edit_user');
     Route::put('/update/user/{userToBeUpdated}', [AdminController::class, 'update'])->name('update_user');
     Route::delete('/destroy/user/{userToBeDestroyed}', [AdminController::class, 'destroy'])->name('destroy_user');

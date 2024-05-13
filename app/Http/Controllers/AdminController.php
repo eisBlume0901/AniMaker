@@ -29,14 +29,11 @@ class AdminController extends Controller
             ]);
 
     }
+
     public function create(): View
     {
-        return view('animes/create',
-            [
-                'genres' => Genre::all()
-            ]);
+        return view('admin/create-user');
     }
-
     public function store(Request $request): RedirectResponse
     {
         $formFields = $request->validate([

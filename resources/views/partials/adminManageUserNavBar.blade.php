@@ -5,7 +5,7 @@
 
         <div class="flex flex-row gap-x-20">
 {{--            Change to route('create_user')--}}
-            <a href="/users/create" class="hover:text-emerald-400">Create User</a>
+            <a href="{{route('create_user')}}" class="hover:text-emerald-400">Create User</a>
             <a href="{{route('manage_users')}}" class="hover:text-emerald-400">Manage Users</a>
         </div>
 
