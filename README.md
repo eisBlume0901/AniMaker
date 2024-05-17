@@ -17,7 +17,9 @@ https://github.com/eisBlume0901/AniMaker.git
 Click on 'Clone Git Repository...' and paste the link above
 ![alt text](https://i.ibb.co/b5pLdWQ/image-5.png)
 
-### 3. Select a local folder to clone your repository into
+### 3. Open Visual Studio Code's terminal
+
+```git clone https://github.com/eisBlume0901/AniMaker.git```
 
 ### 4. Setup Laravel
 
