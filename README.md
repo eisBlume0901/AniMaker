@@ -42,6 +42,8 @@ php artisan key:generate
 
 php artisan migrate:refresh --seed
 
+php artisan storage:link
+
 php artisan serve
 
 npm run dev
