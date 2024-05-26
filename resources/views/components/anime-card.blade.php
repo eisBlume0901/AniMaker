@@ -2,7 +2,7 @@
 
 <div class="flex flex-col">
     <div class="flex flex-col">
-        <div class="flex justify-end top-8 left-6 relative z-10">
+        <div class="flex justify-end top-8 left-6 lg:top-8 lg:left-6 md:top-6 md:left-6 sm:top-8 sm:-left-2 relative z-10">
             <a href="{{route('store_review', ['animeToBeReviewed' => $specificAnime->id])}}">
                 <button id="add-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2.5 text-center inline-flex items-center me-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="flex justify-center z-0">
-            <div class="w-72 h-96 sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
+            <div class="w-full h-full lg:w-72 lg:h-96 md:w-64 md:h-72 sm:w-60 sm:h-72 overflow-hidden rounded-2xl shadow-md shadow-blue-700 hover:opacity-75 hover:shadow-emerald-400 transition ease-in-out duration-150">
                 <a href="{{route('show_anime', ['animeToBeShown' => $specificAnime->id])}}">
                     <img src="{{$specificAnime->image ? asset('storage/' .$specificAnime->image) : asset('images/no-image-1.png')}}"
                          alt="{{$specificAnime->title}} image"
@@ -24,13 +24,13 @@
         </div>
     </div>
     <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start">
-        <p class="mt-3 font-bold text-blue-700">
+        <p class="mt-3 lg:mt-3 md:mb-1 md:mt-3 sm:mb-1 sm:mt-3 font-bold text-blue-700">
             {{$specificAnime->title}}
         </p>
     </div>
 
     <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start">
-        <div class=" w-50 h-3 stats flex-row items-center text-blue-700 mt-1 content-center">
+        <div class="w-50 h-3 stats flex-row items-center text-blue-700 mt-1 lg:mt-1 md:mb-1 sm:mb-1 content-center">
             <span class="">Score:</span>
             <span class="ml-1">9.13</span>
             <span class="mx-1">|</span>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start">
-        <div class="w-50 content-center mt-1 {{ count($specificAnime->genres) > 3 ? 'h-10' : 'h-5' }}">
+        <div class="w-50 content-center mt-1 lg:mt-1 md:mt-2 sm:mt-2 {{ count($specificAnime->genres) > 3 ? 'h-10' : 'h-5' }}">
             @foreach($specificAnime->genres as $genre)
                 <span class="mt-0">{{$genre->genre}}</span>
                 @if(!$loop->last)
