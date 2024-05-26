@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method SpecificAnimeFilter(mixed $anime_id, $id)
  * @method static where(string $string, mixed $animeId)
  * @method static latest()
+ * @method static UserAnimesFilter($id, array|string|null $watchStatus)
  */
 class Review extends Model
 {
@@ -37,6 +38,7 @@ class Review extends Model
             })
             ->join('table_animes', 'table_animes.id', '=', 'table_user_reviews.anime_id')
             ->select('table_user_reviews.*', 'table_animes.*')
+            ->orderBy('table_user_reviews.updated_at', 'desc')
             ->get();
 
         /* SQL Equivalent:
