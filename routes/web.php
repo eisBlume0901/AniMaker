@@ -31,9 +31,9 @@ Route::middleware('guest')->group(function () {
 
 });
 
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'role:user|admin'])->group(function () {
-    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     Route::get('/user/anime/list', [UserController::class, 'showAnimeList'])->name('show_anime_list');
     Route::get('/store/user/review/anime/{animeToBeReviewed}', [UserController::class, 'storeReview'])->name('store_review');
