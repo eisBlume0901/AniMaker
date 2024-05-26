@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         return view('admin/manage-animes',
             [
-                'animes' => Anime::latest()->paginate(10),
+                'animes' => Anime::latest()->simplePaginate(10),
                 'genres' => Genre::all()
             ]
         );
@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function manageUsers(): View {
         return view('admin/manage-users',
             [
-                'users' => User::latest()->paginate(10)
+                'users' => User::latest()->simplePaginate(10)
             ]);
 
     }

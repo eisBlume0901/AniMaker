@@ -29,9 +29,9 @@
                         <div @click="open = !open" class="relative py-3" :class="{'border-white transform transition duration-300 ': open}" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100">
                             <div class="flex justify-center items-center space-x-3 cursor-pointer">
 {{--                                User image--}}
-                                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-blue-700">
+                                <div class="w-20 h-20 object-cover rounded-full overflow-hidden border-2 border-blue-700">
                                     <img src={{auth()->user()->image ? asset('storage/' . auth()->user()->image) : asset('images/no-image-2.png')}}
-                                     alt="{{auth()->user()->name}}" class="w-full h-full object-cover">
+                                     alt="{{auth()->user()->name}}" class="w-full h-full ">
                                 </div>
 {{--                                User name--}}
                                 <div class="font-semibold text-white text-lg hover:text-emerald-400">
