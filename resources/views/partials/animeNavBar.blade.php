@@ -31,7 +31,7 @@
         </div>
         <div class="flex md:flex-row gap-x-20 sm:flex-col sm:gap-y-2 sm:content-center">
 {{--            Still have to put the route and its controller--}}
-            <a href="/animes/top-rated" class="hover:text-emerald-400">Top Rated</a>
+            <a href="{{route('show_top_animes')}}" class="hover:text-emerald-400">Top Rated</a>
             <a href="{{route('show_anime_list')}}" class="hover:text-emerald-400">My List</a>
         </div>
 

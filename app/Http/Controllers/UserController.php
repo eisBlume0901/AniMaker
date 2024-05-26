@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -38,6 +39,8 @@ class UserController extends Controller
         }
 
         $user = User::create($formFields);
+
+        $user->assignRole('user');
 
         auth()->login($user);
 
@@ -69,6 +72,7 @@ class UserController extends Controller
                 'password' => 'The provided password is incorrect.',
             ]);
         }
+
 
         auth()->login($user);
 
