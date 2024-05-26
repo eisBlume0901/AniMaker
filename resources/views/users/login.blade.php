@@ -46,7 +46,7 @@
         </div>
         <span class="block">
                 Don't have an account?
-                <a href="/signup" class="text-blue-700 hover:text-emerald-400">Signup</a>
+                <a href="{{route('signup')}}" class="text-blue-700 hover:text-emerald-400">Signup</a>
         </span>
     </form>
 @endsection
