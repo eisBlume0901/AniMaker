@@ -90,6 +90,7 @@ class AnimeController extends Controller
 
     public function destroy(Anime $animeToBeDestroyed): RedirectResponse
     {
+        $animeToBeDestroyed->users()->detach();
         $animeToBeDestroyed->genres()->detach();
         $animeToBeDestroyed->delete();
         return redirect('/')->with('success', 'Anime deleted successfully!');

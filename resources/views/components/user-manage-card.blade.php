@@ -1,14 +1,21 @@
 @props(['specificUser'])
 <div class="shadow-md shadow-blue-700 rounded-2xl p-2 hover:shadow-emerald-400 transition ease-in-out duration-150">
     <div class="flex flex-col items-center justify-center p-1">
-        <div class="rounded-full object-cover overflow-hidden w-24 h-24 border-2 border-blue-700 hover:border-emerald-400">
-            <img src="{{$specificUser->image ? asset('storage/' .$specificUser->image) : asset('images/no-image-1.png')}}" alt="user" class="w-full h-full ">
+        <div class="rounded-full overflow-hidden w-28 h-28 border-2 border-blue-700 hover:border-emerald-400">
+            <img src="{{$specificUser->image ? asset('storage/' .$specificUser->image) : asset('images/no-image-1.png')}}" alt="user" class="w-full h-full object-cover">
         </div>
         <div class="flex flex-col items-center justify-center p-2">
             <span class="text-md flex-wrap">{{$specificUser->name}}</span>
-            <span class="text-sm flex-wrap">{{$specificUser->email}}</span>
+            <span class="text-sm flex-wrap">
+
+                @if(strlen($specificUser->email) > 30)
+                    {{substr($specificUser->email, 0, 30)}}...
+                @else
+                    {{$specificUser->email}}
+                @endif
+            </span>
+
             <div class="grid grid-cols-2 gap-x-4">
-{{--                Change the data to user reviews and animes--}}
                 @php
                     $counts = $specificUser->getUserCounts($specificUser->id);
                 @endphp

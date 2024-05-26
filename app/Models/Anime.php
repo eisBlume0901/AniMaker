@@ -101,7 +101,7 @@ class Anime extends Model
                 'table_animes.start_aired_date AS anime_start_aired_date',
                 'table_animes.end_aired_date AS anime_end_aired_date')
             ->selectRaw('ROUND(AVG(table_user_reviews.rating), 2) AS average_rating')
-            ->selectRaw('COUNT(table_user_reviews.id) AS users_count')
+            ->selectRaw('COUNT(table_user_reviews.user_id) AS users_count')
             ->selectSub(function ($query) {
                 $query->selectRaw('GROUP_CONCAT(table_genres.genre SEPARATOR ", ")')
                     ->from('table_anime_genres')

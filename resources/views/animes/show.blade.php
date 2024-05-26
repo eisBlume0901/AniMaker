@@ -5,8 +5,8 @@
     @include('partials.animeNavBar')
     <div class="anime-info border-b border-blue-700">
         <div class="mx-auto px-20 py-16 flex flex-col sm:flex-col md:flex-col lg:flex-row">
-                <img src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"
-                     class="rounded-2xl shadow-md shadow-blue-700 sm:w-60 mx-auto md:w-72 lg:w-80"/>
+            <img src="{{$anime->image ? asset('storage/' .$anime->image) : asset('images/no-image-1.png')}}" alt="{{$anime->title}} image"
+                 class="rounded-2xl shadow-md shadow-blue-700 sm:w-60 mx-auto md:w-72 lg:w-80"/>
 
             <div class="sm:mx-auto sm:mt-6 md:mx-auto md:mt-6 lg:mt-6 lg:ml-16">
                 <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row space-x-5">
@@ -15,9 +15,19 @@
                     </div>
 
 
-                    @role('admin')
 
                     <div class="buttons flex flex-row justify-end space-x-2">
+
+                        <a href="{{route('store_review', ['animeToBeReviewed' => $anime->id])}}">
+                            <button id="add-button" type="button" class="text-white bg-blue-700 hover:bg-gradient-to-br hover:from-emerald-400 hover:to-blue-700 transition ease-in-out duration-150 focus:ring-4 font-medium rounded-3xl text-sm p-2.5 text-center inline-flex items-center me-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            </button>
+                        </a>
+
+
+                        @role('admin')
 
                         <a href="{{route('edit_anime', ['animeToBeEdited' => $anime->id])}}">
 
@@ -40,7 +50,8 @@
                         </form>
                     </div>
 
-                @endrole
+                    @endrole
+
 
                 </div>
 
@@ -57,48 +68,48 @@
                                 @endphp
                             <span class="font-normal">{{$formattedDate}}</span></span>
 
-                                <span class="font-semibold">End Aired Date:
+                            <span class="font-semibold">End Aired Date:
                                 @php
                                     $date = date_create_from_format('Y-m-d', $anime->end_aired_date);
                                     $formattedDate = $date->format('M d, Y');
                                 @endphp
                             <span class="font-normal">{{$formattedDate}}</span></span>
 
-                                <span class="font-semibold">Genres:
+                            <span class="font-semibold">Genres:
                                 @foreach($anime->genres as $genre)
-                                        <span class="font-normal">{{$genre->genre}}</span>
-                                        @if(!$loop->last)
-                                            <span class="">, </span>
-                                        @endif
-                                    @endforeach
+                                    <span class="font-normal">{{$genre->genre}}</span>
+                                    @if(!$loop->last)
+                                        <span class="">, </span>
+                                    @endif
+                                @endforeach
                             </span>
 
-                                <span class="font-semibold">Episodes:
+                            <span class="font-semibold">Episodes:
                                 <span class="font-normal">{{$anime->episodes}}</span>
                             </span>
 
-                                <span class="font-semibold">Studio:
+                            <span class="font-semibold">Studio:
                                 <span class="font-normal">{{$anime->studio}}</span>
                             </span>
                         </div>
 
 
-{{--                        <div class="flex flex-col mr-6">--}}
+                        {{--                        <div class="flex flex-col mr-6">--}}
 
-{{--                            <div class="container flex flex-row justify-end align-middle items-center text-blue-700 text-5xl font-bold my-1.5">--}}
-{{--                                Rank 1--}}
-{{--                            </div>--}}
+                        {{--                            <div class="container flex flex-row justify-end align-middle items-center text-blue-700 text-5xl font-bold my-1.5">--}}
+                        {{--                                Rank 1--}}
+                        {{--                            </div>--}}
 
-{{--                            <div class="container flex flex-row justify-end align-middle items-center gap-x-3 my-1.5">--}}
-{{--                                <div class="text-blue-700 border-yellow-500">--}}
-{{--                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14">--}}
-{{--                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />--}}
-{{--                                    </svg>--}}
-{{--                                </div>--}}
-{{--                                <div class="text-blue-700 font-bold text-3xl">9.18</div>--}}
-{{--                            </div>--}}
+                        {{--                            <div class="container flex flex-row justify-end align-middle items-center gap-x-3 my-1.5">--}}
+                        {{--                                <div class="text-blue-700 border-yellow-500">--}}
+                        {{--                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14">--}}
+                        {{--                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />--}}
+                        {{--                                    </svg>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="text-blue-700 font-bold text-3xl">9.18</div>--}}
+                        {{--                            </div>--}}
 
-{{--                        </div>--}}
+                        {{--                        </div>--}}
 
                     </div>
 
