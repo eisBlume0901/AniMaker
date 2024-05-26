@@ -23,13 +23,61 @@ UserSeeder extends Seeder
             'password' => bcrypt('frieren1019'),
         ]);
         $frierenUser->assignRole('user');
-        Permission::create(['name' => 'manage user animes']);
-        $frierenUser->givePermissionTo('manage user animes');
 
+        User::create([
+            'name' => 'Rivrik Irikabol Frolentious',
+            'email' => 'Rivrik@Outlook.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('RivrikIrikabolFrolentious'),
+        ])->assignRole('user');
 
-        User::factory()->count(10)->create()->each(function ($user) {
-            $user->assignRole('user');
-            $user->givePermissionTo('manage user animes');
-        });
+        User::create([
+            'name' => 'yuihirasawa',
+            'email' => 'kawaiiyui@cutie.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('yuihirasawa'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'loves_maomao',
+            'email' => 'jinshi@palace.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('loves_maomao'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'tsuki_deshita',
+            'email' => 'tsukishima@karasuno.haikyuu.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('tsuki_deshita'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'cute_blue_slime',
+            'email' => 'rimuru@tempest.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('cute_blue_slime'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'help_mercille',
+            'email' => 'marcille@touden.party.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('help_mercille'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'grandma_frieren',
+            'email' => 'frieren@hero.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('grandma_frieren'),
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'makise_kurisu',
+            'email' => 'kurisu@cern.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('makise_kurisu'),
+        ])->assignRole('user');
     }
 }

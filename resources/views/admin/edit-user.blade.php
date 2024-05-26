@@ -61,7 +61,7 @@
             <div class="flex flex-col flex-wrap w-full">
 
                 <div class="mb-6">
-                    <label for="name" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Name</label>
+                    <label for="name" class="block text-blue-700 text-md font-semibold mb-2 ml-2 my-0.5">Username</label>
                     <input type="text" name="name" id="name"
                            class="w-full px-3 py-2 text-blue-700 border border-blue-100 bg-blue-50 shadow-md shadow-blue-50 text-md rounded-2xl focus:ring-emerald-400 focus:border-emerald-400 focus:text-emerald-700 focus:bg-emerald-50"
                            value="{{$user->name}}">
