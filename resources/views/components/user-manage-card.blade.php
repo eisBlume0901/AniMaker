@@ -1,8 +1,8 @@
 @props(['specificUser'])
 <div class="shadow-md shadow-blue-700 rounded-2xl p-2 hover:shadow-emerald-400 transition ease-in-out duration-150">
     <div class="flex flex-col items-center justify-center p-1">
-        <div class="rounded-full overflow-hidden w-24 h-24">
-            <img src="{{$specificUser->image ? asset('storage/' .$specificUser->image) : asset('images/no-image-1.png')}}" alt="user" class="w-full h-full object-cover">
+        <div class="rounded-full object-cover overflow-hidden w-24 h-24">
+            <img src="{{$specificUser->image ? asset('storage/' .$specificUser->image) : asset('images/no-image-1.png')}}" alt="user" class="w-full h-full">
         </div>
         <div class="flex flex-col items-center justify-center p-2">
             <span class="text-md flex-wrap">{{$specificUser->name}}</span>
