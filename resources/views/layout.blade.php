@@ -31,7 +31,7 @@
 {{--                                User image--}}
                                 <div class="w-20 h-20 object-cover rounded-full overflow-hidden border-2 border-blue-700">
                                     <img src={{auth()->user()->image ? asset('storage/' . auth()->user()->image) : asset('images/no-image-2.png')}}
-                                     alt="{{auth()->user()->name}}" class="w-full h-full ">
+                                     alt="{{auth()->user()->name}}" class="w-full h-full">
                                 </div>
 {{--                                User name--}}
                                 <div class="font-semibold text-white text-lg hover:text-emerald-400">

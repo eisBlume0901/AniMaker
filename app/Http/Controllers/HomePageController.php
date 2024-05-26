@@ -15,7 +15,7 @@ class HomePageController extends Controller
     {
         return view('animes/index',
             [
-                'animes' => Anime::latest()->filter(request(['genre']))->paginate(10),
+                'animes' => Anime::latest('start_aired_date')->filter(request(['genre']))->simplePaginate(10),
                 'genres' => Genre::all()
         ]);
     }

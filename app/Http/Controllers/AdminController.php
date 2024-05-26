@@ -44,6 +44,10 @@ class AdminController extends Controller
 
         $formFields['password'] = bcrypt($request->password);
 
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('user_images', 'public');
+        }
+
         $newUser = User::create($formFields);
         $newUser->assignRole('user');
         $newUser->save();
