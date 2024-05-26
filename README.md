@@ -1,6 +1,8 @@
 # AniMaKer
 An anime catalog and review website created by Mary Kate Anecito and Marvin Flores. Powered by Tailwind and Laravel.
 
+Demo Video: https://youtu.be/qLLjLWO9vc0
+
 ## How to install via VS Code
 ### Prerequesites
 >Visual Studio Code <br>
