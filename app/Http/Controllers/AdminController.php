@@ -78,6 +78,8 @@ class AdminController extends Controller
 
     public function destroy(User $userToBeDestroyed): RedirectResponse
     {
+//        $userToBeDestroyed->reviews()->detach();
+        $userToBeDestroyed->roles()->detach();
         $userToBeDestroyed->delete();
 
         return redirect()->route('manage_users')->with('success', 'User deleted successfully!');
