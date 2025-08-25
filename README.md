@@ -1,6 +1,7 @@
 # AniMaKer
 An anime catalog and review website created by Mary Kate Anecito and Marvin Flores. Powered by Tailwind and Laravel.
 
+![ERD](https://ibb.co/0V6Y4gH9)
 Demo Video: https://youtu.be/qLLjLWO9vc0
 
 ## How to install via VS Code
@@ -13,7 +14,7 @@ Demo Video: https://youtu.be/qLLjLWO9vc0
 In this case, it would be:
 https://github.com/eisBlume0901/AniMaker.git
 
-![alt text](https://i.ibb.co/DGrzCtX/image-4.png)
+![GitHub Link](https://i.ibb.co/DGrzCtX/image-4.png)
 
 ### 2. Open Visual Studio Code
 Click on 'Clone Git Repository...' and paste the link above
