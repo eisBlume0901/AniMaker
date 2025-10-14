@@ -3,7 +3,7 @@ An anime catalog and review website created by Mary Kate Anecito and Marvin Flor
 
 ![ERD](https://i.ibb.co/PzP1X7qW/ERD-OOP-Diagrams-Page-1.jpg)
 
-Demo Video: https://youtu.be/qLLjLWO9vc0
+Demo Video: [https://youtu.be/qLLjLWO9vc0](https://youtu.be/lwvtoxMY1nw)
 
 ## How to install via VS Code
 ### Prerequesites
